@@ -14,4 +14,5 @@ When subjects don't grab hold of my interest, I find it difficult to maintain fo
 <ul>
   <li><a href="central-tendency.html">Central Tendency</a></li>
   <li><a href="dispersion-spread.html">Dispersion | Spread</a></li>
+  <li><a href="control-charts">Control Charts</a></li>
 </ul>

@@ -56,6 +56,47 @@ function sum(arr) {
   }, 0);
 }
 
+function factorial(value, total = 1) {
+  return value <= 1 ? total : factorial(value - 1, total * value);
+}
+
+function binomial(size, num, prob, cumulative, workings) {
+  if (!workings) workings = [];
+  let runningTotal = 0, res = 0, i;
+  if (cumulative == 2) {
+    for (i=size; i>=0; i--) {
+      res = binomial(i, num, prob, false, workings).result;
+      if (i > 0) {
+        workings.push({value: res, desc: '+<br />'});
+      }
+      runningTotal += res;
+    }
+    return {result: runningTotal, workings};
+  } else if (cumulative == 1) {
+    for (i=size; i<=num; i++) {
+      res = binomial(i, num, prob, false, workings).result;
+      if (i < num) {
+        workings.push({value: res, desc: '+<br />'});
+      }
+      runningTotal += res;
+    }
+    return {result: runningTotal, workings};
+  } else {
+    const combination = (factorial(num) / (factorial(size) * factorial(num - size)));
+    let desc = `<code>P(${size}) = <sup>${num}!</sup>&frasl;<sub>${size}!(${num}-${size})!</sub> &bull; ${prob}<sup>${size}</sup> &bull; (1-${prob})<sup>${num}-${size}</sup></code><br />`;
+    const Px = (prob ** size);
+    const oneMinusP = (1 - prob);
+    const numMinusSize = (num - size);
+    desc += `<code>P(${size}) = <sup>${factorial(num)}</sup>&frasl;<sub>${factorial(size)} * ${factorial(num - size)}</sub> * ${Px} * ${oneMinusP}<sup>${numMinusSize}</sup></code><br />`;
+    desc += `<code>P(${size}) = ${combination} * ${Px} * ${oneMinusP ** numMinusSize}</code><br />`;
+    const result = combination * Px * (oneMinusP ** numMinusSize);
+    desc += `<code>P(${size}) = ${result}</code><br />`;
+    workings.push({result, desc});
+    return {result, workings};
+  }
+}
+
+
 function variance(arr, sample, workings) {
   if (!workings) workings = [];
   let m = mean(arr);
