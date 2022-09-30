@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: page
 title: University Work
 description: Notes, Calculators and General Musings for My Work at University
 image: assets/images/pic11.jpg

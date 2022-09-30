@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: page
 title: Quality Management | Central Tendency
 description: The tendency for the centre of a range of values
 image: nil

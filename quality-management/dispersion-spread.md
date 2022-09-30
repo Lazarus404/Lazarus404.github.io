@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: page
 title: Quality Management | Dispersion / Spread
 description: The distribution of values
 image: nil

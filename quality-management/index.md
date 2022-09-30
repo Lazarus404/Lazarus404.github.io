@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: page
 title: Quality Management
 description: A breakdown with calculators
 image: assets/images/pic11.jpg
