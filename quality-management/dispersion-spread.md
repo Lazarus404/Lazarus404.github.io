@@ -60,7 +60,9 @@ A low standard deviation indicates that the values tend to be close to the mean 
   </tr>
   <tr>
     <td colspan="6">
-      <div id="result" style="min-height: 50px; padding: 20px;"></div>
+      <div style="min-height: 50px; max-width: 1400px; padding: 20px; overflow-x: scroll; display: flex; flex-wrap: no-wrap;">
+        <div id="result" style="display: inline-block; flex: 0 0 auto;"></div>
+      </div>
     </td>
   </tr>
 </table>
@@ -128,7 +130,7 @@ To find the Standard Deviation of <code>104, 98, 90, 104, 104</code>
 
 ----
 
-#### Variance
+## Variance
 
 Variance was already mentioned above in Standard Deviation.  Variance is the expectation of the squared deviation of a random variable from its population mean or sample mean. In other words, variance is the difference between what is expected and what is actually accomplished.
 
@@ -136,7 +138,7 @@ Put in yet another perspective, variance is the square of the Standard Deviation
 
 There are two ways to determine variance and, therefore, two ways to determine Standard Deviation.  This depends on whether you are working with a "sample" of the total values or the entire set known as the "population".
 
-## Symbols
+#### Symbols
 
 <code>s</code> = sample
 <code>&sigma;</code> = population

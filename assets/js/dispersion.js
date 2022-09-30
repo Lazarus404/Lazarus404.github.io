@@ -1,7 +1,7 @@
 function update() {
   const values = document.getElementById('data-values')
     .value
-    .split('/n')
+    .split(/\r?\n/)
     .join(',')
     .split(',')
     .map((item) => parseFloat(item.trim()));
@@ -16,12 +16,18 @@ function update() {
     result.innerHTML = 'Values are either not all numerical or are not delimited by comma or newline.';
     return;
   }
+  let calc, workings;
   switch(calcSelectedFormat) {
     case 'variance':
-      result.innerHTML = `VARIANCE:<br /><code>${values.join(', ')}</code><br /><code>= ${variance(values, isSample).toFixed(decimalPoints)}</code>`;
+      calc = variance(values, isSample);
+      workings = calc.workings.map(({value, desc}) => `${desc}: <code>${value}</code>`).join('<br />');
+      console.log(calc.result);
+      result.innerHTML = `VARIANCE:<br />Starting with values: <code>${values.join(', ')}</code><br />${workings}<br /><code>= ${calc.result.toFixed(decimalPoints)}</code>`;
       break;
     default:
-      result.innerHTML = `STANDARD DEVIATION:<br /><code>${values.join(', ')}</code><br /><code>= ${standardDeviation(values, isSample).toFixed(decimalPoints)}</code>`;
+      calc = standardDeviation(values, isSample);
+      workings = calc.workings.map(({value, desc}) => `${desc}: <code>${value}</code>`).join('<br />');
+      result.innerHTML = `STANDARD DEVIATION:<br />Starting with values: <code>${values.join(', ')}</code><br />${workings}<br /><code>= ${calc.result.toFixed(decimalPoints)}</code>`;
       break;
   }
 };

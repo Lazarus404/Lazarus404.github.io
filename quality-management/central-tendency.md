@@ -12,7 +12,7 @@ show_tile: false
 
 <a href="/quality-management">&#x2190; Back to Quality Management</a>
 
-When given a collection of values, the Central Tendency is the tendency for values to setting in the middle of the value range.  This observation is typical with data that may deviate from a given value by order of probability, meaning that the central tendency should be the desired value while those falling above or below are "deviated" from that desired value.
+When given a collection of values, the Central Tendency is the tendency for values to settle in the middle of the value range.  This observation is typical with data that may deviate from a given value by order of probability, meaning that the central tendency should be the desired value while those falling above or below are "deviated" from that desired value.
 
 Note that the central tendency may not always be the desired value.  For instance, in machining a product, the calibration of the machines may be off, meaning that the most common outcome is some way off the desired outcome, forcing the central tendency to be higher (or lower) than what is desired.
 
@@ -43,7 +43,9 @@ Finding a Central Tendency requires simple math; particularly "mean", "median" o
   </tr>
   <tr>
     <td colspan="6">
-      <div id="result" style="min-height: 50px; padding: 20px;"></div>
+      <div style="min-height: 50px; max-width: 1400px; padding: 20px; overflow-x: scroll; display: flex; flex-wrap: no-wrap;">
+        <div id="result" style="display: inline-block; flex: 0 0 auto;"></div>
+      </div>
     </td>
   </tr>
 </table>
@@ -53,7 +55,7 @@ Finding a Central Tendency requires simple math; particularly "mean", "median" o
 <div><code><span style="text-decoration:overline">x</span></code> (x-bar) means "average"</div>
 <div><code>&sigma;</code> is "sigma" and means "standard deviation"</div>
 <div><code>&Sigma;</code> is also called "sigma" (confusing) and means "sum"</div><br />
-<div><code><span style="text-decoration:overline">x</span> = <sup>&Sigma; x</sup>&frasl;<sub>n</sub></code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;where n is number of values</div><br />
+<div><code><span style="text-decoration:overline">x</span> = <sup>&Sigma; x</sup>&frasl;<sub>n</sub></code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;where <code>n</code> is number of values</div><br />
 
 ----
 

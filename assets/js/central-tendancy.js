@@ -1,7 +1,7 @@
 function update() {
   const values = document.getElementById('data-values')
     .value
-    .split('/n')
+    .split(/\r?\n/)
     .join(',')
     .split(',')
     .map((item) => parseFloat(item.trim()));

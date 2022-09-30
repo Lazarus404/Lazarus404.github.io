@@ -56,19 +56,34 @@ function sum(arr) {
   }, 0);
 }
 
-function variance(arr, sample) {
+function variance(arr, sample, workings) {
+  if (!workings) workings = [];
   let m = mean(arr);
+  workings.push({value: m, desc: 'Get the mean of all values'});
 
   arr = arr.map((el)=>{
     return (el - m) ** 2
   })
+  workings.push({value: arr, desc: 'For each number, minus the mean and then multiply it by itself'});
 
   let total = sum(arr);
+  workings.push({value: total, desc: 'Sum all the resulting values'});
 
-  return total / (arr.length - ((!!sample) ? 1 : 0));
+  const result = total / (arr.length - ((!!sample) ? 1 : 0));
+
+  if (sample) {
+    workings.push({value: result, desc: 'Now, divide sum total by (number of original values minus 1) for the variance'});
+  } else {
+    workings.push({value: result, desc: 'Now, divide sum total by the number of original values for the variance'});
+  }
+
+  return {result, workings};
 }
 
 function standardDeviation(arr, sample) {
-  let varianceVal = variance(arr, sample);
-  return Math.sqrt(varianceVal);
+  let workings = [];
+  let varianceVal = variance(arr, sample, workings);
+  const result = Math.sqrt(varianceVal.result);
+  workings.push({value: result, desc: 'Find the square root of the variance'});
+  return {result, workings};
 }
