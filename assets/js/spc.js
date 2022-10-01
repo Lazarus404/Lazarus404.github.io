@@ -96,6 +96,34 @@ function binomial(size, num, prob, cumulative, workings) {
   }
 }
 
+function poisson(x, micro, cumulative, workings) {
+  if (!workings) workings = [];
+  let runningTotal = 0, res = 0, i;
+  if (!!cumulative) {
+    for (i=x; i>=0; i--) {
+      res = poisson(i, micro, false, workings).result;
+      if (i > 0) {
+        workings.push({value: res, desc: '+<br />'});
+      }
+      runningTotal += res;
+    }
+    if (cumulative === 2) {
+      return {result: runningTotal, workings};
+    }
+    workings.push({value: res, desc: '<code>1 - P(x, &micro;)</code><br />'});
+    return {result: 1 - runningTotal, workings};
+  } else {
+    const e = 2.71828;
+    let desc = `<code>P(${x}, ${micro}) = ${e}<sup>-${micro}</sup> &bull; (${micro}<sup>${x}</sup> / ${x}!)</code><br />`;
+    const log = e**(-micro);
+    const calc = (micro**x) / factorial(x);
+    desc += `<code>P(${x}, ${micro}) = ${log} * ${calc}</code><br />`;
+    const result = log * calc;
+    desc += `<code>P(${x}, ${micro}) = ${result}</code><br />`;
+    workings.push({result, desc});
+    return {result, workings};
+  }
+}
 
 function variance(arr, sample, workings) {
   if (!workings) workings = [];

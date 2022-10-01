@@ -10,17 +10,10 @@ show_tile: false
 <script src="../../assets/js/spc.js"></script>
 <script src="../../assets/js/binomial.js"></script>
 
+<a href="binomial-probability-distributions.html" class="button special small">Binomial Probability Distributions</a>
+<a href="poisson-probability-distributions.html" class="button small">Poisson Probability Distributions</a>
+
 <a href="/quality-management">&#x2190; Back to Quality Management</a>
-
-When working with data, the type of data you're working with dictate the type of graphs and calculations you would apply.  Below is an outline that describes this.
-
-<img src="../../assets/images/probability-distributions.png" />
-
-If your data is continuous (it has no limits), then you would typically calculate as a "normal distribution", If it is discrete, and there are data limits, then you could use "Binomial" or "Poisson" distributions.
-
-Likewise, for continuous data, you might present using an I-MR chart, for example, while discrete data may use a "p" chart.
-
-----
 
 ## Binomial Probability Calculator
 
