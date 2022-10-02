@@ -125,6 +125,76 @@ function poisson(x, micro, cumulative, workings) {
   }
 }
 
+function cdf(x, mean, variance) {
+  return 0.5 * (1 + erf((x - mean) / (Math.sqrt(2 * variance))));
+}
+
+function erf(x) {
+  // save the sign of x
+  var sign = (x >= 0) ? 1 : -1;
+  x = Math.abs(x);
+
+  // constants
+  var a1 =  0.254829592;
+  var a2 = -0.284496736;
+  var a3 =  1.421413741;
+  var a4 = -1.453152027;
+  var a5 =  1.061405429;
+  var p  =  0.3275911;
+
+  // A&S formula 7.1.26
+  var t = 1.0/(1.0 + p*x);
+  var y = 1.0 - (((((a5 * t + a4) * t) + a3) * t + a2) * t + a1) * t * Math.exp(-x * x);
+  return sign * y; // erf(-x) = -erf(x);
+}
+
+function normal_standard_distance(x, cumulative, workings) {
+  if (!workings) workings = [];
+  if (!!cumulative) {
+    const data = cdf(x, 0, 1);
+    workings.push({value: data, desc: 'unable to calculate by normal means'});
+    return {result: data, workings};
+  } else {
+    const e = 2.71828;
+    let desc = '<code>e = 2.71828</code><br />';
+    desc += '<code>z = <sup>1</sup>&frasl;<sub>&sigma;&radic;<span style="text-decoration:overline;">2&pi;</span></sub>e<sup>-<sup>(x - &micro;)<sup>2</sup></sup>&frasl;<sub>2&sigma;<sup>2</sup></sub></sup></code><br />';
+    const pre = 1 / (Math.sqrt(1) * Math.sqrt(2 * Math.PI));
+    const zSq = (x - 0)**2;
+    desc += `<code>z = ${pre} * e<sup>-<sup>${zSq}</sup>&frasl;<sub>2&sigma;<sup>2</sup></sub></sup></code><br />`;
+    desc += `<code>z = ${pre} * ${e}<sup>-<sup>${zSq}</sup>&frasl;<sub>2</sub></sup></code><br />`;
+    const post = e**-(zSq / 2);
+    desc += `<code>z = ${pre} * ${post}</code><br />`;
+    const result = pre * post;
+    workings.push({value: result, desc});
+    return {result: result, workings};
+  }
+}
+
+function normal(x, sd, mean, cumulative, workings) {
+  if (!workings) workings = [];
+  let runningTotal = 0, res = 0, i;
+  if (!!cumulative) {
+    for (i=sd; i>=0; i--) {
+      res = normal(x, i, mean, false, workings).result;
+      if (i > 0) {
+        workings.push({value: res, desc: '+<br />'});
+      }
+      runningTotal += res;
+    }
+    if (cumulative === 2) {
+      return {result: runningTotal, workings};
+    }
+    workings.push({value: res, desc: '<code>1 - P(x, &micro;)</code><br />'});
+    return {result: 1 - runningTotal, workings};
+  } else {
+    const e = 2.71828;
+    const numerator = e - (((x-mean)**2) / (2 * (sd**2)));
+    const denominator = sd * Math.sqrt(2*Math.PI);
+    const result = numerator / denominator;
+    return {result, workings};
+  }
+}
+
 function variance(arr, sample, workings) {
   if (!workings) workings = [];
   let m = mean(arr);
