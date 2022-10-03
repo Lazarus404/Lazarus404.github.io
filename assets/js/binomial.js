@@ -17,7 +17,7 @@ function update() {
   }
   num = parseInt(num);
   if (isNaN(parseFloat(prob)) || parseFloat(prob) <= 0 || parseFloat(prob) >= 1) {
-    result.innerHTML = 'Invalid number of trials value. Must be a float value > 0 and < 1';
+    result.innerHTML = 'Invalid probability value. Must be a float value > 0 and < 1';
     return;
   }
   prob = parseFloat(prob);
