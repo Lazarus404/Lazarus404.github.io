@@ -13,6 +13,7 @@ show_tile: false
 <a href="binomial-probability-distributions.html" class="button small">Binomial Probability Distributions</a>
 <a href="poisson-probability-distributions.html" class="button special small">Poisson Probability Distributions</a>
 <a href="normal-probability-distributions.html" class="button small">Normal Probability Distributions</a>
+<a href="central-limit-theorem.html" class="button small">Central Limit Theorem</a>
 
 <a href="/quality-management">&#x2190; Back to Quality Management</a>
 
