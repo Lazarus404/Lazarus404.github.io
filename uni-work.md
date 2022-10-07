@@ -10,6 +10,4 @@ This year, I've decided to start documenting the subjects I'm learning at Univer
 
 Additionally, I will be including calculators that provide "workings out" for those that find them useful.  This is mainly because I find that putting formulas into code helps me to understand them better.  I am a grizzled coder, after all.
 
-<ul>
-  <li><a href="quality-management">Quality Management</a></li>
-</ul>
+<a href="quality-management" class="button small">Quality Management</a>
