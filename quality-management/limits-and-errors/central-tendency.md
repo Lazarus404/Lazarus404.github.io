@@ -1,22 +1,35 @@
 ---
 layout: page
-title: Quality Management | Central Tendency
+title: Limits and Errors | Central Tendency
 description: The tendency for the centre of a range of values
 image: nil
 nav-menu: false
 show_tile: false
 ---
 
+<a href="central-limit-theorem.html" class="button small">Central Limit Theorem</a>
+<a href="central-tendency.html" class="button special small">Central Tendency</a>
+<a href="standard-deviation.html" class="button small">Standard Deviation</a>
+<a href="error-types.html" class="button small">Error Types</a>
+
 <script src="../assets/js/spc.js"></script>
 <script src="../assets/js/central-tendancy.js"></script>
 
 <a href="/quality-management">&#x2190; Back to Quality Management</a>
+
+Not to be confused with <code>Central Limit Theorem</code>, is where the center or the middle location of the distribution is the average value of a probability distribution.
 
 When given a collection of values, the Central Tendency is the tendency for values to settle in the middle of the value range.  This observation is typical with data that may deviate from a given value by order of probability, meaning that the central tendency should be the desired value while those falling above or below are "deviated" from that desired value.
 
 Note that the central tendency may not always be the desired value.  For instance, in machining a product, the calibration of the machines may be off, meaning that the most common outcome is some way off the desired outcome, forcing the central tendency to be higher (or lower) than what is desired.
 
 Finding a Central Tendency requires simple math; particularly "mean", "median" or "mode" calculations.
+
+----
+
+## Simple Explanation
+
+Central Tendency gives the central value of the population or sample.
 
 ----
 

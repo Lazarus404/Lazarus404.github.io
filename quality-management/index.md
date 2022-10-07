@@ -7,9 +7,8 @@ nav-menu: false
 show_tile: false
 ---
 
-<a href="central-tendency.html" class="button small">Central Tendency</a>
-<a href="dispersion-spread.html" class="button small">Dispersion | Spread</a>
-<a href="control-charts" class="button small">Control Charts</a>
+<a href="probability-distributions" class="button small">Probability Distributions</a>
+<a href="limits-and-errors" class="button small">Limits and Errors</a>
 
 So, this term, I'm learning Quality Management.  In an Electronics degree.  Not something I'm enjoying thus far.  As a person with an R&D nature, I find sweating the small tuff to be against my nature.  I prefer the "meat of the bone".  I exist to figure out the big things.  Forget A-to-B; how do I get from A-to-Z?
 

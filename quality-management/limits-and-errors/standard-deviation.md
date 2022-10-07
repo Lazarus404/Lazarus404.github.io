@@ -1,24 +1,43 @@
 ---
 layout: page
-title: Quality Management | Dispersion / Spread
-description: The distribution of values
+title: Limits and Errors | Standard Deviation
+description: The variation of the distribution of values
 image: nil
 nav-menu: false
 show_tile: false
 ---
+
+<a href="central-limit-theorem.html" class="button small">Central Limit Theorem</a>
+<a href="central-tendency.html" class="button small">Central Tendency</a>
+<a href="standard-deviation.html" class="button special small">Standard Deviation</a>
+<a href="error-types.html" class="button small">Error Types</a>
 
 <script src="../assets/js/spc.js"></script>
 <script src="../assets/js/dispersion.js"></script>
 
 <a href="/quality-management">&#x2190; Back to Quality Management</a>
 
-Standard deviation is a measure of the amount of variation or dispersion of a set of values.
+Standard deviation (&sigma;) is a measure of the amount of variation or dispersion of a set of values and is calculated as the square-root of variance. See <a href="#variance">Variance</a>.
 
-A low standard deviation indicates that the values tend to be close to the mean (also called the expected value) of the set, while a high standard deviation indicates that the values are spread out over a wider range.
+A low standard deviation indicates that the values tend to be close to the mean of the set, while a high standard deviation indicates that the values are spread out over a wider range.  
+
+Standard deviation is described as a number of z-values from the mean, from -3 to +3. If the mean is also the desired value, then values outside of this range are considered beyond control limits due to <code>special causes</code>. Any value within the 3-/+ range is considered acceptable and a deviation from the mean by <code>common causes</code>.
+
+Each z-value represents a range of values of the statistic, whether that is the height of a person, weight of a dog or maximum speed of a car.  Thus, the broader the spead of statistical values, the larger the value each z-value represents.
+
+<img src="../../assets/images/standard-deviation.png" width="700" />
+
+----
+
+## Simple Explanation
+
+Standard deviation is the amount of variability in a data set from the <code>mean</code> (<code><span style="text-decoration: overline;">x</span></code>). In this circumstance, the mean does not necessarily mean the desired value. Thus, a greater standard deviation denotes less control over the output of the product.
 
 ----
 
 ## Calculator
+
+To find the size of the z-value.
 
 <table>
   <tr>
@@ -130,7 +149,7 @@ To find the Standard Deviation of <code>104, 98, 90, 104, 104</code>
 
 ----
 
-## Variance
+## <span id="variance">Variance</span>
 
 Variance was already mentioned above in Standard Deviation.  Variance is the expectation of the squared deviation of a random variable from its population mean or sample mean. In other words, variance is the difference between what is expected and what is actually accomplished.
 
@@ -168,5 +187,21 @@ The formula equates to the following:
   <li>Secondly, we find the standard deviation by finding the<br />
     square root of the variance.<code>&radic;<span style="text-decoration:overline;">&nbsp;(&Sigma;</span>(x - <span style="text-decoration:overline">x</span>)<sup><small>2</small></sup>) / N</code></li>
 </ol>
+
+## Errors
+
+Variations, and thus standard deviations, are inevitable occurances even if all values in a given sample or population should be equivelent, since nothing is faultless.  Such deviations, when attributed to product manufacturing, may be deemed as errors.  Typically, errors are classified as two groups.
+
+### Random Errors
+
+A random error is a component of the overall error which may vary in an unpredicatble way.  Such errors may occur due to a number of circumstances, such as humidity, temperature or vibration of the manufacturing equipment. When such errors occur, no action should be taken to compensate. However, produce of invalid qualities (special causes) should be discarded as necessary.
+
+### Systematic Errors
+
+Systematic errors are variations that have a specific underlying cause that result in a shift of the enitre data set.  For instance, if a control chart anticipates the height of screws to be between 5.5 and 5.55cm, but due to debris on the manufacturing device, all screws are 7mm smaller than they should be, resulting in screw heights typically being between 4.8 and 4.85cm.  When these errors occur, if the cause of the shift can be determined, then it should be corrected.
+
+### Outlying Errors
+
+Occasionally, a value may be plotted beyond the 3 standard deviation limit. If this is a rare occurrance, then it may be deemed an outlyer. If the cause of this error is known, such as incorrect data entry, then the value may be removed. However, if the cause is unknown, it must be kept withiin the larger data set, but must be documented.
 
 <a href="/quality-management">&#x2190; Back to Quality Management</a>

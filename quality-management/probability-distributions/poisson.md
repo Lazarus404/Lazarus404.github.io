@@ -1,7 +1,7 @@
 ---
 layout: page
-title: Control Charts | Poisson Probability Distributions
-description: Choosing your chart and distribution
+title: Probability Distributions | Poisson
+description: Choosing your distribution
 image: nil
 nav-menu: false
 show_tile: false
@@ -10,10 +10,9 @@ show_tile: false
 <script src="../../assets/js/spc.js"></script>
 <script src="../../assets/js/poisson.js"></script>
 
-<a href="binomial-probability-distributions.html" class="button small">Binomial Probability Distributions</a>
-<a href="poisson-probability-distributions.html" class="button special small">Poisson Probability Distributions</a>
-<a href="normal-probability-distributions.html" class="button small">Normal Probability Distributions</a>
-<a href="central-limit-theorem.html" class="button small">Central Limit Theorem</a>
+<a href="binomial.html" class="button small">Binomial</a>
+<a href="poisson.html" class="button special small">Poisson</a>
+<a href="normal.html" class="button small">Normal</a>
 
 <a href="/quality-management">&#x2190; Back to Quality Management</a>
 
