@@ -226,3 +226,28 @@ function standardDeviation(arr, sample) {
   workings.push({value: result, desc: 'Find the square root of the variance'});
   return {result, workings};
 }
+
+function rmsd(predicted, observed, workings) {
+  if (!workings) workings = [];
+  let mean = 0;
+  let tmp;
+  if (predicted.length === 1) {
+    predicted = predicted[0];
+    for (let i=0; i<observed.length; i++) {
+      tmp = (observed[i] - predicted) ** 2;
+      mean += tmp;
+      workings.push({value: tmp, desc: `(${observed[i]} - ${predicted})<sup>2</sup> = ${tmp}`});
+    }
+  } else {
+    for (let i=0; i<observed.length; i++) {
+      tmp = (observed[i] - predicted[i]) ** 2;
+      mean += tmp;
+      workings.push({value: tmp, desc: `(${observed[i]} - ${predicted[i]})<sup>2</sup> = ${tmp}`});
+    }
+  }
+  mean = mean / observed.length;
+  workings.push({value: mean, desc: `The mean of the total is ${mean}`});
+  const result = Math.sqrt(mean);
+  workings.push({value: result, desc: `The square-root of the mean is ${result}`});
+  return {result, workings};
+}

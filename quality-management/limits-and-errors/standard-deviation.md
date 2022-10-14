@@ -10,6 +10,7 @@ show_tile: false
 <a href="central-limit-theorem.html" class="button small">Central Limit Theorem</a>
 <a href="central-tendency.html" class="button small">Central Tendency</a>
 <a href="standard-deviation.html" class="button special small">Standard Deviation</a>
+<a href="rmsd.html" class="button small">RMSD</a>
 <a href="error-types.html" class="button small">Error Types</a>
 
 <script src="../assets/js/spc.js"></script>

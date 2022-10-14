@@ -62,11 +62,10 @@ GEM
 
 PLATFORMS
   ruby
-  x86_64-darwin-21
 
 DEPENDENCIES
   jekyll (~> 4.2)
   jekyll-timeago (~> 0.13.1)
 
 BUNDLED WITH
-   2.3.22
+   2.1.4
