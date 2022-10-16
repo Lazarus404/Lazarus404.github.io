@@ -1,3 +1,27 @@
+const chiTable = [
+  [0.5, 0.1, 0.05, 0.025, 0.01, 0.005],
+  [0.455, 2.706, 3.841, 5.024, 6.635, 7.879],
+  [1.386, 4.605, 5.991, 7.378, 9.210, 10.597],
+  [2.366, 6.251, 7.815, 9.348, 11.345, 12.838],
+  [3.357, 7.779, 9.488, 11.143, 13.277, 14.860],
+  [4.351, 9.236, 11.070, 12.833, 15.086, 16.750],
+  [5.348, 10.645, 12.592, 14.449, 16.812, 18.548],
+  [6.346, 12.017, 14.067, 16.013, 18.475, 20.278],
+  [7.344, 13.362, 15.507, 17.535, 20.090, 21.955],
+  [8.343, 14.684, 16.919, 19.023, 21.666, 23.589],
+  [9.342, 15.987, 18.307, 20.483, 23.209, 25.188],
+  [10.341, 17.275, 19.675, 21.920, 24.725, 26.757],
+  [11.340, 18.549, 21.026, 23.337, 26.217, 28.300],
+  [12.340, 19.812, 22.362, 24.736, 27.688, 29.819],
+  [13.339, 21.064, 23.685, 26.119, 29.141, 31.319],
+  [14.339, 22.307, 24.996, 27.488, 30.578, 32.801],
+  [15.338, 23.542, 26.296, 28.845, 32.000, 34.267],
+  [16.338, 24.769, 27.587, 30.191, 33.409, 35.718],
+  [17.338, 25.989, 28.869, 31.526, 34.805, 37.156],
+  [18.338, 27.204, 30.144, 32.852, 36.191, 38.582],
+  [19.337, 28.412, 31.410, 34.170, 37.566, 39.997]
+];
+
 function mean(numbers) {
   var total = 0, i;
   for (i = 0; i < numbers.length; i += 1) {
@@ -249,5 +273,25 @@ function rmsd(predicted, observed, workings) {
   workings.push({value: mean, desc: `The mean of the total is ${mean}`});
   const result = Math.sqrt(mean);
   workings.push({value: result, desc: `The square-root of the mean is ${result}`});
+  return {result, workings};
+}
+
+function chi(theoretical, actual, alpha, r, workings) {
+  if (!workings) workings = [];
+  let mean = 0;
+  let m = 0;
+  let tmp;
+    for (let i=0; i<actual.length; i++) {
+      tmp = (actual[i] - theoretical[i]) ** 2;
+      if (actual[i] >= 5) m++;
+      mean += tmp;
+      workings.push({value: tmp, desc: `(${actual[i]} - ${theoretical[i]})<sup>2</sup> = ${tmp}`});
+    }
+  result = mean / actual.length;
+  workings.push({value: result, desc: `&chi;<sup>2</sup> is ${result}`});
+  const nu = m - r - 1;
+  const nuValue = chiTable[nu][alpha];
+  workings.push({value: nu, desc: `&nu; = ${m} - ${r} - 1 = ${nu}`});
+  workings.push({value: result < nu, desc: `${result} (&chi;<sup>2</sup>) < ${nuValue} (&nu;)? ${result < nuValue}`});
   return {result, workings};
 }

@@ -28,5 +28,5 @@ function update() {
   let calc, workings;
   calc = rmsd(predicted, observed, workings);
   workings = calc.workings.map(({value, desc}) => desc).join('<br />');
-  result.innerHTML = `RMSDd:<br />${workings}<br /><code>= ${calc.result}</code>`;
+  result.innerHTML = `RMSD:<br />${workings}<br /><code>= ${calc.result}</code>`;
 };
