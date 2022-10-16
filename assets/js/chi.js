@@ -1,8 +1,8 @@
 let nu, param, update, addOptions;
 
 window.onload = () => {
-  console.log("loaded");
   nu = document.getElementById('data-nu');
+  nuTest = document.getElementById('data-test-nu');
   param = document.getElementById('data-param');
 
   update = () => {
@@ -39,6 +39,24 @@ window.onload = () => {
     result.innerHTML = `Chi Goodness-of-Fit:<br />${workings}<br /><code>= ${calc.result}</code>`;
   };
 
+  updateTest = () => {
+    let actual = document.getElementById('data-test-act')
+      .value
+      .trim()
+      .split(/\r?\n/)
+      .map((r) => r
+        .split(',')
+        .map((item) => parseFloat(item.trim()))
+        .filter((item) => !isNaN(item))
+      );
+    const nuSelect = parseFloat(nuTest.options[nuTest.selectedIndex].value.toLowerCase());
+    const result = document.getElementById('test-result');
+    let calc, workings;
+    calc = chiNormalityTest(actual, nuSelect, workings);
+    workings = calc.workings.map(({value, desc}) => desc).join('<br />');
+    result.innerHTML = `Chi Goodness-of-Fit:<br />${workings}<br /><code>= ${calc.result}</code>`;
+  };
+
   addOptions = (list, items) => {
     let opt, i;
     for (i=0; i<items.length; i++) {
@@ -51,5 +69,6 @@ window.onload = () => {
   }
 
   addOptions(nu, chiTable[0]);
+  addOptions(nuTest, chiTable[0]);
   addOptions(param, [...Array(21).keys()]);
 }

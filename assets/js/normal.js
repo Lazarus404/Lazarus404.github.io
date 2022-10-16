@@ -10,7 +10,7 @@ function update() {
   z = parseFloat(z);
 
   let calc, workings;
-  calc = normal_standard_distance(z, cumulative);
+  calc = normalStandardDistance(z, cumulative);
   workings = calc.workings.map(({value, desc}) => desc).join('<br />');
   result.innerHTML = `NORMAL (${cumulative ? 'CUMULATIVE' : 'NON-CUMULATIVE'}):<br />${workings}<br /><code>= ${calc.result}</code>`;
 };

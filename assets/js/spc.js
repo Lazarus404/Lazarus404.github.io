@@ -75,9 +75,21 @@ function range(numbers) {
 }
 
 function sum(arr) {
-  return arr.reduce((acc, curr) => {
-    return acc + curr
+  return arr.reduce((prev, curr) => {
+    return prev + curr
   }, 0);
+}
+
+function max(arr) {
+  return arr.reduce((prev, curr) => {
+    return curr > prev || !prev ? curr : prev;
+  }, null);
+}
+
+function min(arr) {
+  return arr.reduce((prev, curr) => {
+    return curr < prev || !prev ? curr : prev;
+  }, null);
 }
 
 function factorial(value, total = 1) {
@@ -172,7 +184,7 @@ function erf(x) {
   return sign * y; // erf(-x) = -erf(x);
 }
 
-function normal_standard_distance(x, cumulative, workings) {
+function normalStandardDistance(x, cumulative, workings) {
   if (!workings) workings = [];
   if (!!cumulative) {
     const data = cdf(x, 0, 1);
@@ -217,6 +229,14 @@ function normal(x, sd, mean, cumulative, workings) {
     const result = numerator / denominator;
     return {result, workings};
   }
+}
+
+function normalClassSize(count) {
+  return 1 + 3.2 * Math.log10(count);
+}
+
+function valuesInClass(actual, lowerLimit, upperLimit) {
+  return actual.reduce((count, v) => v >= lowerLimit && v < upperLimit ? count+1 : count, 0);
 }
 
 function variance(arr, sample, workings) {
@@ -281,17 +301,215 @@ function chi(theoretical, actual, alpha, r, workings) {
   let mean = 0;
   let m = 0;
   let tmp;
-    for (let i=0; i<actual.length; i++) {
-      tmp = (actual[i] - theoretical[i]) ** 2;
-      if (actual[i] >= 5) m++;
-      mean += tmp;
-      workings.push({value: tmp, desc: `(${actual[i]} - ${theoretical[i]})<sup>2</sup> = ${tmp}`});
-    }
+  for (let i=0; i<actual.length; i++) {
+    tmp = (actual[i] - theoretical[i]) ** 2;
+    if (actual[i] >= 5) m++;
+    mean += tmp;
+    workings.push({value: tmp, desc: `(${actual[i]} - ${theoretical[i]})<sup>2</sup> = ${tmp}`});
+  }
   result = mean / actual.length;
   workings.push({value: result, desc: `&chi;<sup>2</sup> is ${result}`});
   const nu = m - r - 1;
   const nuValue = chiTable[nu][alpha];
   workings.push({value: nu, desc: `&nu; = ${m} - ${r} - 1 = ${nu}`});
-  workings.push({value: result < nu, desc: `${result} (&chi;<sup>2</sup>) < ${nuValue} (&nu;)? ${result < nuValue}`});
+  workings.push({value: result < nu, desc: `${result} (&chi;<sup>2</sup>) < ${nuValue} (&chi;<sub>2</sub>(&nu;, &alpha;))? ${result < nuValue}`});
   return {result, workings};
+}
+
+function findOutlier(actual, mean, sd3) {
+  let r, c, foundR, foundC, foundV, foundDiff = 0;
+  for (r=0; r<actual.length; r++) {
+    for (c=0; c<actual[r].length; c++) {
+      if (actual[r][c] === null) continue;
+      if (actual[r][c] < (mean - sd3)) {
+        if ((mean - sd3) - actual[r][c] > foundDiff) {
+          foundDiff = (mean - sd3) - actual[r][c];
+          foundR = r;
+          foundC = c;
+          foundV = actual[r][c];
+        }
+      }
+      if (actual[r][c] > (mean + sd3)) {
+        if (actual[r][c] - (mean + sd3) > foundDiff) {
+          foundDiff = actual[r][c] - (mean + sd3);
+          foundR = r;
+          foundC = c;
+          foundV = actual[r][c];
+        }
+      }
+    }
+  }
+  if (foundDiff === 0) return [null, actual];
+  actual[foundR][foundC] = null;
+  return [foundV, actual];
+}
+
+function createTable(values, headings, multidimensional) {
+  multidimensional = !!multidimensional;
+  let result = `<br /><table><tr>`;
+  for (let i=0; i<headings.length; i++) {
+    result += `<td>${headings[i]}</td>`
+  }
+  result += '</tr>';
+  if (!multidimensional) {
+    for (let i=0; i<values.length; i++) {
+      if (i % headings.length == 0) {
+        result += '<tr>';
+      }
+      result += `<td>${values[i]}</td>`;
+      if (i % headings.length - 1 == 0) {
+        result += '</tr>';
+      }
+    }
+  } else {
+    for (let i=0; i<values.length; i++) {
+      result += '<tr>';
+      for (var j=0; j<values[i].length; j++) {
+        result += `<td>${!!values[i][j] ? values[i][j] : ''}</td>`;
+      }
+      result += '</tr>';
+    }
+  }
+  result += '</table>';
+  return result;
+}
+
+function chiNormalityTest(actual, alpha, workings) {
+  if (!workings) workings = [];
+  let meanv = 0;
+  let m = 0, r = 2, tmp, minv, maxv, sd, minMean, maxMean, sd3, outlier = true, af;
+  while (!!outlier) {
+    af = actual.flat().filter(v => v !== null);
+    minv = min(af);
+    workings.push({value: minv, desc: `min = ${minv}`});
+    maxv = max(af);
+    workings.push({value: maxv, desc: `max = ${maxv}`});
+    meanv = mean(af);
+    workings.push({value: meanv, desc: `mean = ${meanv}`});
+    sd = standardDeviation(af, true).result;
+    workings.push({value: sd, desc: `sd = ${sd}`});
+    minMean = minv - meanv;
+    workings.push({value: minMean, desc: `min - mean = ${minMean}`});
+    maxMean = maxv - meanv;
+    workings.push({value: maxMean, desc: `max - mean = ${maxMean}`});
+    sd3 = sd * 3;
+    workings.push({value: sd3, desc: `3SD = ${sd3}`});
+    [outlier, actual] = findOutlier(actual, meanv, sd3);
+    if (!!outlier)
+      workings.push({value: outlier, desc: `Outlier = ${outlier}`});
+    else
+      workings.push({value: null, desc: `No outlier!`});
+    headings = [...Array(actual[0].length).keys()];
+    headings = headings.map((v) => v+1);
+    workings.push({value: null, desc: createTable(actual, headings, true)});
+    workings.push({value: null, desc: `<hr />`});
+  }
+  const samples = actual.flat().filter(v => v !== null);
+  const sampleLength = samples.length;
+  const k = normalClassSize(sampleLength);
+  workings.push({value: k, desc: `K = ${k}`});
+  const d = range(samples).range / k;
+  let calculation = [];
+  let lowerLimit = minv, midInterval, zj, fzj, faj, ftj, chiv, chiTotal = 0, entry;
+  while (lowerLimit < maxv) {
+    midInterval = lowerLimit + (d / 2);
+    zj = (midInterval - meanv) / sd;
+    fzj = normalStandardDistance(zj, false).result;
+    faj = valuesInClass(samples, lowerLimit, lowerLimit + d);
+    ftj = fzj * d / sd * sampleLength;
+    entry = {
+      lowerLimit,
+      midInterval,
+      zj,
+      fzj,
+      faj,
+      ftj
+    };
+    lowerLimit += d;
+    calculation.push(entry);
+  }
+  headings = [
+    "class interval",
+    "interval middle Xmj",
+    "Zj (Xmj - <span style='text-decoration: overline;'>x</span>) / SD",
+    "f<sub>Zj</sub>",
+    "f<sub>aj</sub>",
+    "f<sub>tj</sub>"
+  ];
+  let calcAsArray = calculation.map((e) => [
+    e.lowerLimit,
+    e.midInterval,
+    e.zj,
+    e.fzj,
+    e.faj,
+    e.ftj
+  ]);
+  workings.push({value: null, desc: createTable(calcAsArray, headings, true)});
+  const totals = [];
+  let b, t;
+  for (b=0; b<calculation.length; b++) {
+    if (calculation[b].faj < 5) {
+      continue;
+    } else {
+      break;
+    }
+  }
+  let fajt = 0, ftjt = 0;
+  for (let j=0; j<=b; j++) {
+    fajt += calculation[j].faj;
+    ftjt += calculation[j].ftj;
+  }
+  totals.push({faj: fajt, ftj: ftjt, chi: ((fajt - ftjt) ** 2) / ftjt});
+  for (t=calculation.length-1; t>=0; t--) {
+    if (calculation[t].faj < 5) {
+      continue;
+    } else {
+      break;
+    }
+  }
+  fajt = 0;
+  ftjt = 0;
+  for (let j=calculation.length-1; j>=t; j--) {
+    fajt += calculation[j].faj;
+    ftjt += calculation[j].ftj;
+  }
+  const last = {faj: fajt, ftj: ftjt, chi: ((fajt - ftjt) ** 2) / ftjt};
+  for (let j=b+1; j<t; j++) {
+    totals.push({faj: calculation[j].faj, ftj: calculation[j].ftj, chi: ((calculation[j].faj - calculation[j].ftj) ** 2) / calculation[j].ftj});
+  }
+  totals.push(last);
+  headings = [
+    "f<sub>aj'</sub>",
+    "f<sub>tj'</sub>",
+    "(f<sub>aj'</sub> - f<sub>tj'</sub>)<sup>2</sup> / f<sub>tj'</sub>",
+  ];
+  calcAsArray = totals.map((e) => [
+    e.faj,
+    e.ftj,
+    e.chi
+  ]);
+  workings.push({value: null, desc: 'Now to combine tail rows if the f<sub>aj</sub> is smaller than 5.'});
+  workings.push({value: null, desc: createTable(calcAsArray, headings, true)});
+  workings.push({value: null, desc: 'Now total the columns.'});
+  chiv = 0;
+  faj = 0;
+  ftj = 0;
+  let theoretical = [], observed = [];
+  for (let j=0; j<totals.length; j++) {
+    faj += totals[j].faj;
+    ftj += totals[j].ftj;
+    chiv += totals[j].chi;
+    theoretical.push(ftj);
+    observed.push(faj);
+  }
+  workings.push({value: faj, desc: `f<sub>aj</sub> total = ${faj}`});
+  workings.push({value: ftj, desc: `f<sub>tj</sub> total = ${ftj}`});
+  workings.push({value: chiv, desc: `&chi;<sub>2</sub> total = ${chiv}`});
+  workings.push({value: null, desc: `----`});
+  m = totals.length;
+  const nu = m - r - 1;
+  const nuValue = chiTable[nu][alpha];
+  workings.push({value: nu, desc: `&nu; = ${m} - ${r} - 1 = ${nu}`});
+  workings.push({value: result < nu, desc: `${chiv} (&chi;<sup>2</sup>) < ${nuValue} (&chi;<sub>2</sub>(&nu;, &alpha;))? ${chiv < nuValue ? '<span style="color: green;">accepted</span>' : '<span style="color: red;">rejected</span>'}`});
+  return {result: chiv, workings};
 }

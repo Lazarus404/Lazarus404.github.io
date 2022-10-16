@@ -229,7 +229,7 @@ If the value of <code>&chi;<sup>2</sup></code> is smaller than the table result,
 
 ----
 
-## Calculator
+## Chi Calculator
 
 To use, enter the actual frequencies as a comma-delimited or new-line-delimited list. The theoretical values field may be a list with size equal to that of the actual frequencies list.
 
@@ -261,6 +261,43 @@ To use, enter the actual frequencies as a comma-delimited or new-line-delimited 
     <td colspan="6">
       <div style="min-height: 50px; max-width: 1400px; padding: 20px; overflow-x: scroll; display: flex; flex-wrap: no-wrap;">
         <div id="result" style="display: inline-block; flex: 0 0 auto;"></div>
+      </div>
+    </td>
+  </tr>
+</table>
+
+----
+
+## Chi "Test Normality" Calculator
+
+To use, enter the actual frequencies as a comma-delimited list with each sample group on a new-line.
+
+<table>
+  <tr>
+    <td colspan="6">
+      Degree of Freedom (&nu;)
+      <select id="data-test-nu"></select>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="5">
+      <textarea id="data-test-act" onchange="update();" placeholder="Frequency values here">
+18.0, 16.2, 15.3, 12.0, 12.5, 15.5, 13.8, 17.6, 14.8, 15.8
+18.7, 17.6, 14.2, 15.8, 13.4, 17.0, 14.6, 17.2, 17.4, 17.0
+19.2, 15.2, 16.0, 19.4, 14.0, 17.5, 16.3, 17.0, 22.5, 15.4
+16.8, 14.3, 14.6, 130.0,16.4, 11.5, 14.8, 12.9, 16.5, 18.2
+15.5, 18.2, 15.9, 18.4, 13.5, 15.4, 12.5, 16.3, 18.2, 14.8
+16.1, 15.5, 17.3, 16.6, 18.1, 14.6, 14.9, 18.9, 12.8, 15.1
+      </textarea>
+    </td>
+    <td colspan="1" style="max-width: 100px;">
+      <button onclick="updateTest();">Update</button>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="6">
+      <div style="min-height: 50px; max-width: 1400px; padding: 20px; overflow-x: scroll; display: flex; flex-wrap: no-wrap;">
+        <div id="test-result" style="display: inline-block; flex: 0 0 auto;"></div>
       </div>
     </td>
   </tr>
