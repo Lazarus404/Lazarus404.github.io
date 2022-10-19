@@ -10,6 +10,7 @@ show_tile: false
 <a href="central-limit-theorem.html" class="button small">Central Limit Theorem</a>
 <a href="central-tendency.html" class="button small">Central Tendency</a>
 <a href="standard-deviation.html" class="button small">Standard Deviation</a>
+<a href="process-capability.html" class="button small">Process Capability</a>
 <a href="rmsd.html" class="button special small">RMSD</a>
 <a href="chi.html" class="button small">Chi</a>
 <a href="error-types.html" class="button small">Error Types</a>
