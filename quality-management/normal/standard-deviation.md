@@ -10,6 +10,7 @@ show_tile: false
 <a href="../binomial.html" class="button small">Binomial</a>
 <a href="../poisson.html" class="button small">Poisson</a>
 <a href="./" class="button special small">Normal</a>
+<a href="../charts" class="button small">Charts</a>
 
 <hr />
 

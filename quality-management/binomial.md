@@ -13,6 +13,7 @@ show_tile: false
 <a href="binomial.html" class="button special small">Binomial</a>
 <a href="poisson.html" class="button small">Poisson</a>
 <a href="normal" class="button small">Normal</a>
+<a href="charts" class="button small">Charts</a>
 
 <a href="/quality-management">&#x2190; Back to Quality Management</a>
 

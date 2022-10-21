@@ -1,0 +1,32 @@
+---
+layout: page
+title: Charts | Basics of Control Charts
+description: Presenting data correctly depending on context
+image: nil
+nav-menu: false
+show_tile: false
+---
+
+<a href="../binomial.html" class="button small">Binomial</a>
+<a href="../poisson.html" class="button small">Poisson</a>
+<a href="../normal" class="button small">Normal</a>
+<a href="./" class="button special small">Charts</a>
+
+<hr />
+
+<a href="./" class="special" style="border-bottom: none;"><i class="icon alt fa-home">&nbsp;</i></a>
+<a href="xbar-r.html" class="button small">X-Bar R</a>
+<a href="xbar-s.html" class="button small">X-Bar s</a>
+<a href="i-mr_x-mr.html" class="button small">I-MR / X-MR</a>
+
+<a href="/quality-management">&#x2190; Back to Quality Management</a>
+
+There are several chart types you can use when plotting your data, with each chart pertaining to specific types of data.
+
+<img src="/assets/images/choosing-charts.png" width="1000" />
+
+If your data represents absolute integer values, such as the count of a given attribute, then your data should be represented by a <code>Discrete</code> chart. Alternatively, if your data represents a variable floating point value, such as a measurement, then a <code>Continuous</code> chart should be used.
+
+This section covers the different charts, relevant calculations & formulas and a discussion of the types of data pertaining to them.
+
+<a href="/quality-management">&#x2190; Back to Quality Management</a>
