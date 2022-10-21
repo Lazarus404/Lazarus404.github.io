@@ -1,15 +1,28 @@
 ---
 layout: page
-title: Quality Management
-description: A breakdown with calculators
-image: assets/images/pic11.jpg
+title: Quality Management | Probability Distributions
+description: Plotting data in charts
+image: nil
 nav-menu: false
 show_tile: false
 ---
 
-<a href="probability-distributions" class="button small">Probability Distributions</a>
-<a href="limits-and-errors" class="button small">Limits and Errors</a>
+<a href="binomial.html" class="button small">Binomial</a>
+<a href="poisson.html" class="button small">Poisson</a>
+<a href="normal" class="button small">Normal</a>
 
-So, this term, I'm learning Quality Management.  In an Electronics degree.  Not something I'm enjoying thus far.  As a person with an R&D nature, I find sweating the small tuff to be against my nature.  I prefer the "meat of the bone".  I exist to figure out the big things.  Forget A-to-B; how do I get from A-to-Z?
+<a href="/quality-management">&#x2190; Back to Quality Management</a>
 
-When subjects don't grab hold of my interest, I find it difficult to maintain focus.  Thus, this section of the website is even more important.  Let's just get this term over an done with, so I can start with the pleasurable torture of Digital Signal Processing next term.
+When the generation of data, such as manufacturing, is stable, the resulting data set tends to form a pattern. This pattern is a distribution of data around a given desired value. This distribution can vary in location, shape or spread (distance).
+
+There are two basic types of distribution; discrete or continuous.  Discrete distributions compose of whole integer values, such as the possible numbers that may arise when rolling a set number of dice. Continuous data, on the other hand, correlates to real numbers (values with a decimal point) between a range of limits.
+
+Control Charts are used to provide the visual representation of such data. There are numerous types of control charts. The chart you choose depends on the data you're working with. Below is an outline that describes this.
+
+<img src="../../assets/images/control-charts.png" />
+
+If your data is continuous, then you would typically calculate as a "normal distribution", If it is discrete, and there are data limits, then you could use "Binomial" or "Poisson" distributions.
+
+Likewise, for continuous data, you might present using an I-MR chart, for example, while discrete data may use a "p" chart.
+
+<a href="/quality-management">&#x2190; Back to Quality Management</a>

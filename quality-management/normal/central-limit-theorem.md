@@ -1,12 +1,19 @@
 ---
 layout: page
-title: Limits and Errors | Central Limit Theorem
+title: Normal | Central Limit Theorem
 description: The tendancy for values to approximate a normal distribution
 image: nil
 nav-menu: false
 show_tile: false
 ---
 
+<a href="../binomial.html" class="button small">Binomial</a>
+<a href="../poisson.html" class="button small">Poisson</a>
+<a href="./" class="button special small">Normal</a>
+
+<hr />
+
+<a href="./" style="border-bottom: none;"><i class="icon fa-home">&nbsp;</i></a>
 <a href="central-limit-theorem.html" class="button special small">Central Limit Theorem</a>
 <a href="central-tendency.html" class="button small">Central Tendency</a>
 <a href="standard-deviation.html" class="button small">Standard Deviation</a>

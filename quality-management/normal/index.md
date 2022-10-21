@@ -1,18 +1,29 @@
 ---
 layout: page
-title: Probability Distributions | Normal
-description: Choosing your distribution
+title: Normal | Normal Charts
+description: Detecting problems in quality
 image: nil
 nav-menu: false
 show_tile: false
 ---
 
-<script src="../../assets/js/spc.js"></script>
-<script src="../../assets/js/normal.js"></script>
+<a href="../binomial.html" class="button small">Binomial</a>
+<a href="../poisson.html" class="button small">Poisson</a>
+<a href="./" class="button special small">Normal</a>
 
-<a href="binomial.html" class="button small">Binomial</a>
-<a href="poisson.html" class="button small">Poisson</a>
-<a href="normal.html" class="button special small">Normal</a>
+<hr />
+
+<a href="./" class="special" style="border-bottom: none;"><i class="icon alt fa-home">&nbsp;</i></a>
+<a href="central-limit-theorem.html" class="button small">Central Limit Theorem</a>
+<a href="central-tendency.html" class="button small">Central Tendency</a>
+<a href="standard-deviation.html" class="button small">Standard Deviation</a>
+<a href="process-capability.html" class="button small">Process Capability</a>
+<a href="rmsd.html" class="button small">RMSD</a>
+<a href="chi.html" class="button small">Chi</a>
+<a href="error-types.html" class="button small">Error Types</a>
+
+<script src="/assets/js/spc.js"></script>
+<script src="/assets/js/normal.js"></script>
 
 <a href="/quality-management">&#x2190; Back to Quality Management</a>
 
@@ -84,7 +95,5 @@ To create a Standard Normal Distribution from ANY Normal Distribution, you find 
 - <code>x</code> is the value of the element
 - <code>&micro;</code> is the population mean
 - <code>&sigma;</code> is the standard deviation
-
-
 
 <a href="/quality-management">&#x2190; Back to Quality Management</a>

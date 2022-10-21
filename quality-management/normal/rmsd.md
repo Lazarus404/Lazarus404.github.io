@@ -1,12 +1,19 @@
 ---
 layout: page
-title: Limits and Errors | Root-Mean-Square Deviation (RMSD/RMSE)
+title: Normal | Root-Mean-Square Deviation (RMSD/RMSE)
 description: Comparison of values with a model
 image: nil
 nav-menu: false
 show_tile: false
 ---
 
+<a href="../binomial.html" class="button small">Binomial</a>
+<a href="../poisson.html" class="button small">Poisson</a>
+<a href="./" class="button special small">Normal</a>
+
+<hr />
+
+<a href="./" style="border-bottom: none;"><i class="icon fa-home">&nbsp;</i></a>
 <a href="central-limit-theorem.html" class="button small">Central Limit Theorem</a>
 <a href="central-tendency.html" class="button small">Central Tendency</a>
 <a href="standard-deviation.html" class="button small">Standard Deviation</a>
@@ -15,8 +22,8 @@ show_tile: false
 <a href="chi.html" class="button small">Chi</a>
 <a href="error-types.html" class="button small">Error Types</a>
 
-<script src="../../assets/js/spc.js"></script>
-<script src="../../assets/js/rmsd.js"></script>
+<script src="/assets/js/spc.js"></script>
+<script src="/assets/js/rmsd.js"></script>
 
 <a href="/quality-management">&#x2190; Back to Quality Management</a>
 

@@ -7,12 +7,12 @@ nav-menu: false
 show_tile: false
 ---
 
-<script src="../../assets/js/spc.js"></script>
-<script src="../../assets/js/binomial.js"></script>
+<script src="../assets/js/spc.js"></script>
+<script src="../assets/js/binomial.js"></script>
 
 <a href="binomial.html" class="button special small">Binomial</a>
 <a href="poisson.html" class="button small">Poisson</a>
-<a href="normal.html" class="button small">Normal</a>
+<a href="normal" class="button small">Normal</a>
 
 <a href="/quality-management">&#x2190; Back to Quality Management</a>
 

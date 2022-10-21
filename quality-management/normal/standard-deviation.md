@@ -1,12 +1,19 @@
 ---
 layout: page
-title: Limits and Errors | Standard Deviation
+title: Normal | Standard Deviation
 description: The variation of the distribution of values
 image: nil
 nav-menu: false
 show_tile: false
 ---
 
+<a href="../binomial.html" class="button small">Binomial</a>
+<a href="../poisson.html" class="button small">Poisson</a>
+<a href="./" class="button special small">Normal</a>
+
+<hr />
+
+<a href="./" style="border-bottom: none;"><i class="icon fa-home">&nbsp;</i></a>
 <a href="central-limit-theorem.html" class="button small">Central Limit Theorem</a>
 <a href="central-tendency.html" class="button small">Central Tendency</a>
 <a href="standard-deviation.html" class="button special small">Standard Deviation</a>
@@ -15,8 +22,8 @@ show_tile: false
 <a href="chi.html" class="button small">Chi</a>
 <a href="error-types.html" class="button small">Error Types</a>
 
-<script src="../assets/js/spc.js"></script>
-<script src="../assets/js/dispersion.js"></script>
+<script src="/assets/js/spc.js"></script>
+<script src="/assets/js/dispersion.js"></script>
 
 <a href="/quality-management">&#x2190; Back to Quality Management</a>
 
@@ -28,7 +35,7 @@ Standard deviation is described as a number of z-values from the mean, from -3 t
 
 Each z-value represents a range of values of the statistic, whether that is the height of a person, weight of a dog or maximum speed of a car.  Thus, the broader the spead of statistical values, the larger the value each z-value represents.
 
-<img src="../../assets/images/standard-deviation.png" width="700" />
+<img src="/assets/images/standard-deviation.png" width="700" />
 
 ----
 

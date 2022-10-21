@@ -22,6 +22,18 @@ const chiTable = [
   [19.337, 28.412, 31.410, 34.170, 37.566, 39.997]
 ];
 
+const pcTable = [
+  [2700, 465, 63, 7, 0.6, 0.04, 0.002],
+  [3557, 665, 99, 12, 1.1, 0.08, 0.005],
+  [6442, 1382, 236, 32, 3.4, 0.29, 0.02],
+  [12313, 2990, 578, 88, 11, 1.0, 0.1],
+  [22782, 6213, 1350, 233, 32, 3.4, 0.3],
+  [40070, 12225, 2980, 577, 88, 11, 0.1],
+  [66811, 22750, 6210, 1350, 233, 32, 3.4],
+  [105651, 40059, 12224, 2980, 577, 88, 11],
+  [158656, 66807, 22750, 6210, 1350, 233, 32]
+]
+
 function mean(numbers) {
   var total = 0, i;
   for (i = 0; i < numbers.length; i += 1) {
@@ -512,4 +524,38 @@ function chiNormalityTest(actual, alpha, workings) {
   workings.push({value: nu, desc: `&nu; = ${m} - ${r} - 1 = ${nu}`});
   workings.push({value: result < nu, desc: `${chiv} (&chi;<sup>2</sup>) < ${nuValue} (&chi;<sub>2</sub>(&nu;, &alpha;))? ${chiv < nuValue ? '<span style="color: green;">accepted</span>' : '<span style="color: red;">rejected</span>'}`});
   return {result: chiv, workings};
+}
+
+function process_capability(tolerance, plus, minus, sd, mean) {
+  const workings = [];
+  const sigma = (minus + plus) / sd;
+  workings.push({value: sigma, desc: `SD = ${sigma / 2}`});
+  const usl = tolerance + plus;
+  const lsl = tolerance - minus;
+  const tm = (lsl + usl) / 2;
+  workings.push({value: tm, desc: `T<sub>m</sub> = ${tm}`});
+  const cp = (usl - lsl) / (sigma / 2);
+  workings.push({value: cp, desc: `C<sub>p</sub> = <sup>${usl} - ${lsl}</sup>/<sub>${sigma / 2}&sigma;</sub> = ${cp} = ${cp > 1.33 ? '<span style="color: green">very capable</span>' : cp > 1 ? '<span style="color: green">capable</span>' : '<span style="color: red">poor</span>'}`});
+  const k = Math.abs(tm - mean) / ((usl - lsl) / 2);
+  workings.push({value: k, desc: `k = <sup>|T<sub>m</sub> - <span style='text-decoration: overline;'>X</span>|</sup>/<sub>T / 2</sub> = <sup>|${tm} - ${mean}|</sup>/<sub>${usl - lsl} / 2</sub> = ${k}`});
+  const cpk = cp * (1-k);
+  workings.push({value: k, desc: `C<sub>pk</sub> = C<sub>p</sub> * (1-k) = ${cpk} = ${cpk > 1 ? '<span style="color: green">performance is good</span>' : '<span style="color: red">performance is bad</span>'}`});
+  const shift = Math.abs(tm - mean) / sd;
+  const post = mean === tm
+    ? ''
+    : mean < tm
+      ? ` SD's to the left`
+      : ` SD's to the right`;
+  workings.push({value: shift, desc: `Mean shifted ${shift}${post}. ${shift > 1.5 ? '<span style="color: red">Requires resetting!</span>' : '<span style="color: green">Setting acceptable</span>'}`});
+  const shiftIndx = 0 ? 0 : shift / 0.25;
+  let result = null;
+  if (shift > 2) {
+    workings.push({value: null, desc: `Shift too great and beyond table definition.`});
+  } else if (sigma > 12) {
+    workings.push({value: null, desc: `SD width too small and beyond table definition.`});
+  } else {
+    result = pcTable[shiftIndx][((sigma / 2) - 3) * 2];
+    workings.push({value: result, desc: `Parts lost per Million = ${result}`});
+  }
+  return {result, workings};
 }

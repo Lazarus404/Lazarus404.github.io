@@ -1,12 +1,19 @@
 ---
 layout: page
-title: Limits and Errors | Error Types
+title: Normal | Error Types
 description: When values determine a problem has occurred
 image: nil
 nav-menu: false
 show_tile: false
 ---
 
+<a href="../binomial.html" class="button small">Binomial</a>
+<a href="../poisson.html" class="button small">Poisson</a>
+<a href="./" class="button special small">Normal</a>
+
+<hr />
+
+<a href="./" style="border-bottom: none;"><i class="icon fa-home">&nbsp;</i></a>
 <a href="central-limit-theorem.html" class="button small">Central Limit Theorem</a>
 <a href="central-tendency.html" class="button small">Central Tendency</a>
 <a href="standard-deviation.html" class="button small">Standard Deviation</a>
@@ -23,7 +30,7 @@ Now, if there are <code>special causes</code> in a control chart and the reader 
 
 Additionally, if the reader of the chart chooses to make no adjustments to the process, but the process has indeed changed during the duration of the chart, then this is a <code>Type II</code> error.
 
-<img src="../../assets/images/errors.png" width="500" />
+<img src="/assets/images/errors.png" width="500" />
 
 ----
 

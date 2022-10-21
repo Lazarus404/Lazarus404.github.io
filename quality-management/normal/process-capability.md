@@ -1,12 +1,19 @@
 ---
 layout: page
-title: Limits and Errors | Process Capability
+title: Normal | Process Capability
 description: Is the data capable?
 image: nil
 nav-menu: false
 show_tile: false
 ---
 
+<a href="../binomial.html" class="button small">Binomial</a>
+<a href="../poisson.html" class="button small">Poisson</a>
+<a href="./" class="button special small">Normal</a>
+
+<hr />
+
+<a href="./" style="border-bottom: none;"><i class="icon fa-home">&nbsp;</i></a>
 <a href="central-limit-theorem.html" class="button small">Central Limit Theorem</a>
 <a href="central-tendency.html" class="button small">Central Tendency</a>
 <a href="standard-deviation.html" class="button small">Standard Deviation</a>
@@ -15,14 +22,14 @@ show_tile: false
 <a href="chi.html" class="button small">Chi</a>
 <a href="error-types.html" class="button small">Error Types</a>
 
-<script src="../assets/js/spc.js"></script>
-<script src="../assets/js/process-capability.js"></script>
+<script src="/assets/js/spc.js"></script>
+<script src="/assets/js/process-capability.js"></script>
 
 <a href="/quality-management">&#x2190; Back to Quality Management</a>
 
 The measure of the performance or capability of a model is the percentage of its rejects. We can measure this using Process Capability.
 
-<img src="../../assets/images/process-capability.png" width="500" />
+<img src="/assets/images/process-capability.png" width="500" />
 
 Process Capability can be measured as the ratio between the specified tolerance (T) and the process variation (<code>&#xB1;3&sigma;</code>), otherwise known as the Process Capability Index <code>C<sub>p</sub></code>
 
@@ -36,7 +43,7 @@ Where;
 
 It is possible for a <code>C<sub>p</sub></code> to be > 1, yet still have poor performance, if the <code><span style="text-decoration: overline;">X</span></code> has shifted from the Tolerance middle (<code>T<sub>m</sub></code>).
 
-<img src="../../assets/images/process-capability-shift.png" width="500" />
+<img src="/assets/images/process-capability-shift.png" width="500" />
 
 We can account for this using a Process Capability correction <code>C<sub>pk</sub></code>
 
@@ -165,6 +172,47 @@ Looking at the table below, if <code>6&sigma;</code> can be achieved with a shif
     <td>1350</td>
     <td>233</td>
     <td>32</td>
+  </tr>
+</table>
+
+----
+
+## Calculator
+
+<table>
+  <tr>
+    <td colspan="2">
+      Tolerance
+      <input type="text" id="data-tolerance" />
+    </td>
+    <td colspan="2">
+      Plus
+      <input type="text" id="data-plus" />
+    </td>
+    <td colspan="2">
+      Minus
+      <input type="text" id="data-minus" />
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2">
+      Standard Deviation
+      <input type="text" id="data-sd" />
+    </td>
+    <td colspan="2">
+      Mean
+      <input type="text" id="data-mean" />
+    </td>
+    <td colspan="2" style="max-width: 100px;">
+      <button onclick="update();">Update</button>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="6">
+      <div style="min-height: 50px; max-width: 1400px; padding: 20px; overflow-x: scroll; display: flex; flex-wrap: no-wrap;">
+        <div id="result" style="display: inline-block; flex: 0 0 auto;"></div>
+      </div>
+    </td>
   </tr>
 </table>
 
