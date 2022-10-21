@@ -15,6 +15,10 @@ show_tile: false
 <hr />
 
 <a href="./" style="border-bottom: none;"><i class="icon fa-home">&nbsp;</i></a>
+<a href="p.html" class="button small">p Chart</a>
+<a href="pn.html" class="button small">pn Chart</a>
+<a href="u.html" class="button small">u Chart</a>
+<a href="c.html" class="button small">c Chart</a>
 <a href="xbar-r.html" class="button small">X-Bar R</a>
 <a href="xbar-s.html" class="button special small">X-Bar s</a>
 <a href="i-mr_x-mr.html" class="button small">I-MR / X-MR</a>
