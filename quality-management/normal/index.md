@@ -11,6 +11,7 @@ show_tile: false
 <a href="../poisson.html" class="button small">Poisson</a>
 <a href="./" class="button special small">Normal</a>
 <a href="../charts" class="button small">Charts</a>
+<a href="../hypothesis-testing.html" class="button small">Hypothesis Testing</a>
 
 <hr />
 
@@ -89,6 +90,8 @@ When you have a Normal Distribution;
 - The probability that X is greater than or less than a value = area under the normal curve in that direction.
 
 To create a Standard Normal Distribution from ANY Normal Distribution, you find the <code>z-value</code>. Here, you find how many standard deviations an element is from the mean.
+
+Note that any outliers present within the data will impact variance, standard-deviation, range and average values.  Median will NOT be affected.
 
 <code>z = (x - &micro;) / &sigma;
 

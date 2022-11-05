@@ -11,6 +11,7 @@ show_tile: false
 <a href="../poisson.html" class="button small">Poisson</a>
 <a href="../normal" class="button small">Normal</a>
 <a href="./" class="button special small">Charts</a>
+<a href="../hypothesis-testing.html" class="button small">Hypothesis Testing</a>
 
 <hr />
 
@@ -30,6 +31,8 @@ There are several chart types you can use when plotting your data, with each cha
 <img src="/assets/images/choosing-charts.png" width="1000" />
 
 If your data represents absolute integer values, such as the count of a given attribute, then your data should be represented by a <code>Discrete</code> chart. Alternatively, if your data represents a variable floating point value, such as a measurement, then a <code>Continuous</code> chart should be used.
+
+Variable data includes attributes such as the percentage of humidity (eg. 82.63%) or the length, width or height of a given product.
 
 This section covers the different charts, relevant calculations & formulas and a discussion of the types of data pertaining to them.
 

@@ -11,6 +11,7 @@ show_tile: false
 <a href="../poisson.html" class="button small">Poisson</a>
 <a href="./" class="button special small">Normal</a>
 <a href="../charts" class="button small">Charts</a>
+<a href="../hypothesis-testing.html" class="button small">Hypothesis Testing</a>
 
 <hr />
 
@@ -60,6 +61,8 @@ If <code>C<sub>p</sub></code> > 1, but <code>C<sub>pk</sub></code> < 1, then the
 
 If, however, both <code>C<sub>p</sub></code> and <code>C<sub>pk</sub></code> < 1, then the process has no potential and the performance will be bad.
 
+<code>C<sub>pk</sub></code> can be negative if the average of the process output is shifted more than half the tolerance, or if the <code>average</code> is out of the tolerance.
+
 ## Six Sigma Quality
 
 If process variation can be reduced to half of the design tolerance (<code>C<sub>p</sub></code> = 2.0) then 12 &sigma;'s should be able to fit within the original tolerance.
@@ -67,6 +70,12 @@ If process variation can be reduced to half of the design tolerance (<code>C<sub
 <code>C<sub>p</sub> = <sup>T</sup>/<sub>6&sigma;</sub></code> therefore <code>&sigma; = <sup>T</sup>/<sub>12</sub></code>
 
 If this is achievable, then we must check that the mean <code><span style="text-decoration: overline;">X</span></code> is within <code>&#xB1;1.5&sigma;</code> from tolerance middle <code>T<sub>m</sub></code>.
+
+In some cases, controlling the process to stay centred on the target is less expensive than reducing the `process variation`.
+
+The concept of 6 Sigma Quality is closely related to the process capability indices Cp and Cpk (see <a href="chi.html">Chi</a>).
+
+The number of sigmas that will fit between the process mean and the nearest specification limit is likely to drop over time, compared to an initial short-term study. If the mean of the process drifts away from the centre of the tolerance, the distance between the mean and the nearest specification limit will be reduced and fewer standard deviations will fit between them.
 
 Looking at the table below, if <code>6&sigma;</code> can be achieved with a shift in the mean of exactly 1.5, then the loss calculated at that rate will average 3.4 per million. 
 
