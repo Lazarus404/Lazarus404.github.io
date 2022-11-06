@@ -11,6 +11,7 @@ show_tile: false
 <a href="../poisson.html" class="button small">Poisson</a>
 <a href="./" class="button special small">Normal</a>
 <a href="../charts" class="button small">Charts</a>
+<a href="../histograms.html" class="button small">Histograms</a>
 <a href="../hypothesis-testing.html" class="button small">Hypothesis Testing</a>
 
 <hr />

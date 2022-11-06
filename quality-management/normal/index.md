@@ -11,6 +11,7 @@ show_tile: false
 <a href="../poisson.html" class="button small">Poisson</a>
 <a href="./" class="button special small">Normal</a>
 <a href="../charts" class="button small">Charts</a>
+<a href="../histograms.html" class="button small">Histograms</a>
 <a href="../hypothesis-testing.html" class="button small">Hypothesis Testing</a>
 
 <hr />
@@ -99,5 +100,17 @@ Note that any outliers present within the data will impact variance, standard-de
 - <code>x</code> is the value of the element
 - <code>&micro;</code> is the population mean
 - <code>&sigma;</code> is the standard deviation
+
+## Standard Normal Distribution
+
+The "normal distribution" with mean <code>&micro; = 0</code> and variance <code>&sigma;<sup>2</sup> = 1</code>, which is denoted as <code>N(0,1)</code> is called the Standard (Unit) Normal Distribution.
+
+The Standard Normal Distribution is much easier to work with and to calculate the area under the curve.
+
+The Standard Normal Cumulative Distribution is tabulated, so you don't need to perform the calculation yourself, but instead use the tables.
+
+To transform any Normal Distribution fo a Standard (Unit), you simply substitute <code>x</code> for <code>z</code>, where;
+
+<code>z = <sup>x - &micro;</sup> &frasl; <sub>&sigma;</sub></code>
 
 <a href="/quality-management">&#x2190; Back to Quality Management</a>

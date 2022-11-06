@@ -11,6 +11,7 @@ show_tile: false
 <a href="../poisson.html" class="button small">Poisson</a>
 <a href="../normal" class="button small">Normal</a>
 <a href="./" class="button special small">Charts</a>
+<a href="../histograms.html" class="button small">Histograms</a>
 <a href="../hypothesis-testing.html" class="button small">Hypothesis Testing</a>
 
 <hr />
@@ -26,7 +27,7 @@ show_tile: false
 
 <a href="/quality-management">&#x2190; Back to Quality Management</a>
 
-A u chart is used when we're looking a the `number of defects` and the properties of interest are `variable`.  For instance, you may check the number of pin-holes in enamel wire or the unevenness of a material.  This is where u charts are useful.
+A u chart is used when we're looking a the `number of defects` and the sample size is `variable`.  For instance, you may check the number of pin-holes in enamel wire or the unevenness of a material.  This is where u charts are useful.
 
 ## Control Limits
 
