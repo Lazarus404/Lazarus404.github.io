@@ -24,6 +24,7 @@ show_tile: false
 <a href="xbar-r.html" class="button small">X-Bar R</a>
 <a href="xbar-s.html" class="button small">X-Bar s</a>
 <a href="i-mr_x-mr.html" class="button small">I-MR / X-MR</a>
+<a href="out-of-control.html" class="button small">Out-of-Control</a>
 
 <a href="/quality-management">&#x2190; Back to Quality Management</a>
 
