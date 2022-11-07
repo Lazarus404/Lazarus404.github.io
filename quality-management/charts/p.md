@@ -34,6 +34,8 @@ A p chart is used when we're looking a the `number of defectives` and the subgro
 
 Since the subgroup size is NOT constant, so the upper and lower control limits (UCL & LCL) are NOT constant, either.  So, for every sample, there will be a separate upper and lower control limit.  This results in having a `narrower` control limit the larger your sample size is.  Remember, p charts represent a `Binomial` distribution.  Therefore, the <a href="../binomial.html">Binomial calculations apply</a>.
 
+The subgroup size for <code>n</code> should be over 50.
+
 * Control Line (CL) = <span style="text-decoration: overline;">p</span> = <code><sup>total defectives</sup>/<sub>total inspected</sub> = <sup>&Sigma;pn</sup>/<sub>&Sigma;n</sub></code>
 * Upper Control Limit (UCL) = <code><span style="text-decoration: overline;">p</span> + 3&radic;<span style="text-decoration: overline;"> </span>(<sup><span style="text-decoration: overline;">p</span>(1 - <span style="text-decoration: overline;">p</span>)</sup>&frasl;<sub>n</sub>)</code>
 * Lower Control Limit (LCL) = <code><span style="text-decoration: overline;">p</span> - 3&radic;<span style="text-decoration: overline;"> </span>(<sup><span style="text-decoration: overline;">p</span>(1 - <span style="text-decoration: overline;">p</span>)</sup>&frasl;<sub>n</sub>)</code>
