@@ -108,11 +108,11 @@ The number occurring the most number of times.
 In the below histogram, we can see that the highest peak is the mode, since<br />
 it represents the most common value.
 
-<img src="/assets/images/histogram.png" width="500"/>
+<img src="/assets/images/quality-management/histogram.png" width="500"/>
 
 In a bi-modal histogram, we would say there are "two modes". Hence <br />
 why it's called bi-modal (two-modes).
 
-<img src="/assets/images/bi-modal-histogram.png" width="500" />
+<img src="/assets/images/quality-management/bi-modal-histogram.png" width="500" />
 
 <a href="/quality-management">&#x2190; Back to Quality Management</a>

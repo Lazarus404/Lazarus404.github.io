@@ -38,7 +38,7 @@ Standard deviation is described as a number of z-values from the mean, from -3 t
 
 Each z-value represents a range of values of the statistic, whether that is the height of a person, weight of a dog or maximum speed of a car.  Thus, the broader the spead of statistical values, the larger the value each z-value represents.
 
-<img src="/assets/images/standard-deviation.png" width="700" />
+<img src="/assets/images/quality-management/standard-deviation.png" width="700" />
 
 ----
 

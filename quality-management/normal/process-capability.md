@@ -32,7 +32,7 @@ show_tile: false
 
 The measure of the performance or capability of a model is the percentage of its rejects. We can measure this using Process Capability.
 
-<img src="/assets/images/process-capability.png" width="500" />
+<img src="/assets/images/quality-management/process-capability.png" width="500" />
 
 Process Capability can be measured as the ratio between the specified tolerance (T) and the process variation (<code>&#xB1;3&sigma;</code>), otherwise known as the Process Capability Index <code>C<sub>p</sub></code>
 
@@ -46,7 +46,7 @@ Where;
 
 It is possible for a <code>C<sub>p</sub></code> to be > 1, yet still have poor performance, if the <code><span style="text-decoration: overline;">X</span></code> has shifted from the Tolerance middle (<code>T<sub>m</sub></code>).
 
-<img src="/assets/images/process-capability-shift.png" width="500" />
+<img src="/assets/images/quality-management/process-capability-shift.png" width="500" />
 
 We can account for this using a Process Capability correction <code>C<sub>pk</sub></code>
 

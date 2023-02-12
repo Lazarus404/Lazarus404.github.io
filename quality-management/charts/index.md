@@ -30,7 +30,7 @@ show_tile: false
 
 There are several chart types you can use when plotting your data, with each chart pertaining to specific types of data.
 
-<img src="/assets/images/choosing-charts.png" width="1000" />
+<img src="/assets/images/quality-management/choosing-charts.png" width="1000" />
 
 If your data represents absolute integer values, such as the count of a given attribute, then your data should be represented by a <code>Discrete</code> chart. Alternatively, if your data represents a variable floating point value, such as a measurement, then a <code>Continuous</code> chart should be used.
 

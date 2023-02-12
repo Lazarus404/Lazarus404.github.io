@@ -41,7 +41,7 @@ Therefore;
 - The "average of averages" is simply that <code>&micro;<sub><span style="text-decoration: overline;">x</span></sub> = &micro;</code>.
 - The variance of the sample mean's will be the variance of the population divided by the total sample size <code>&sigma;<sup>2</sup><sub><span style="text-decoration: overline;">x</span></sub> = <code><sup>&sigma;<sup>2</sup><sub>x</sub></sup>&frasl;<sub>n</sub></code>. Or, put another way, <code>&sigma;<sub><span style="text-decoration: overline;">x</span></sub> = <sup>&sigma;<sub>x</sub></sup>&frasl;<sub>&radic;<span style="text-decoration: overline;">n</span></sub></code>. Thus, "the stardard deviation of sample averages / means" is equal to "the standard deviation of the population" devided by "the square-root of <code>n</code>". 
 
-<img src="/assets/images/clt.png" width="1000" />
+<img src="/assets/images/quality-management/clt.png" width="1000" />
 
 ----
 

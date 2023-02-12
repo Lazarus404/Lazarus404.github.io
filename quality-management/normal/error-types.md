@@ -33,7 +33,7 @@ Now, if there are <code>special causes</code> in a control chart and the reader 
 
 Additionally, if the reader of the chart chooses to make no adjustments to the process, but the process has indeed changed during the duration of the chart, then this is a <code>Type II</code> error.
 
-<img src="/assets/images/errors.png" width="500" />
+<img src="/assets/images/quality-management/errors.png" width="500" />
 
 ----
 

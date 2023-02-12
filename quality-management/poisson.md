@@ -75,7 +75,7 @@ A poisson experiment has the following properties:
 
 - The experiment results in outcomes that can be classified as successes or failures.
 - The average number of successes (&micro;) that occurs in a specified region is unknown.
-- Outcomes are random. The occurrance of one outcome does not influence the chance of another outcome of interese.
+- Outcomes are random. The occurrance of one outcome does not influence the chance of another outcome of interest.
 - The outcomes of interest are rare relative to the possible outcomes. For example, road accidents, queue at the counter, number of defects.
 
 The formula to determine <code>x</code> number of successes with Poisson Distribution is:

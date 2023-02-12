@@ -2,7 +2,7 @@
 title: Xirsys
 layout: landing
 description: 'Global TURN server infrastructure for powering WebRTC applications and services'
-image: assets/images/xirsys.jpg
+image: assets/images/global/xirsys.jpg
 nav-menu: true
 show_tile: true
 ---
@@ -29,7 +29,7 @@ show_tile: true
 <section id="two" class="spotlights">
   <section>
     <a href="generic.html" class="image">
-      <img src="{% link assets/images/pic08.jpg %}" alt="" data-position="center center" />
+      <img src="{% link assets/images/global/pic08.jpg %}" alt="" data-position="center center" />
     </a>
     <div class="content">
       <div class="inner">
@@ -42,7 +42,7 @@ show_tile: true
   </section>
   <section>
     <a href="generic.html" class="image">
-      <img src="{% link assets/images/pic09.jpg %}" alt="" data-position="top center" />
+      <img src="{% link assets/images/global/pic09.jpg %}" alt="" data-position="top center" />
     </a>
     <div class="content">
       <div class="inner">
@@ -55,7 +55,7 @@ show_tile: true
   </section>
   <section>
     <a href="generic.html" class="image">
-      <img src="{% link assets/images/pic10.jpg %}" alt="" data-position="25% 25%" />
+      <img src="{% link assets/images/global/pic10.jpg %}" alt="" data-position="25% 25%" />
     </a>
     <div class="content">
       <div class="inner">
@@ -68,7 +68,7 @@ show_tile: true
   </section>
   <section>
     <a href="generic.html" class="image">
-      <img src="{% link assets/images/pic11.jpg %}" alt="" data-position="top center" />
+      <img src="{% link assets/images/global/pic11.jpg %}" alt="" data-position="top center" />
     </a>
     <div class="content">
       <div class="inner">

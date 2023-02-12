@@ -22,7 +22,7 @@ There are two basic types of distribution; discrete or continuous.  Discrete dis
 
 Control Charts are used to provide the visual representation of such data. There are numerous types of control charts. The chart you choose depends on the data you're working with. Below is an outline that describes this.
 
-<img src="../../assets/images/control-charts.png" />
+<img src="../../assets/images/quality-management/control-charts.png" />
 
 If your data is continuous, then you would typically calculate as a "normal distribution", If it is discrete, and there are data limits, then you could use "Binomial" or "Poisson" distributions.
 
