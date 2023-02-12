@@ -10,13 +10,13 @@ show_tile: false
 <a href="sampling-theorem.html" class="button small">Quantization & Sampling Theorem</a>
 <a href="linear-systems.html" class="button small">Linear Systems</a>
 <a href="convolution.html" class="button special small">Convolution</a>
-<a href="fourier-transform.html" class="button small">Fourier Transform</a>
+<a href="fourier-transform" class="button small">Fourier Transform</a>
 
 <a href="/digital-signal-processing">&#x2190; Back to Digital Signal Processing</a>
 
 Convolution is the mathematical operation of combining two signals to get a resulting signal. Typically, the two signals in question are the *input signal* and the *impulse response*.
 
-<img src="../../assets/images/dsp/convolution.png" />
+<img src="/assets/images/dsp/convolution.png" />
 
 ### Delta Function
 
@@ -32,11 +32,11 @@ The impulse response is the signal produced as output when the delta function is
 
 The impulse response is denoted as <code>h[n]</code>, pronounced *h of n*.
 
-<img src="../../assets/images/dsp/delta-and-impulse.png" />
+<img src="/assets/images/dsp/delta-and-impulse.png" />
 
 Any impulse can be represented as a *shifted* and *scaled* delta function. For example, <code>x[n] = -1.5&delta;[n - 8]</code> would result in;
 
-<img src="../../assets/images/dsp/delta-shift-scale.png" />
+<img src="/assets/images/dsp/delta-shift-scale.png" />
 
 which is essentially the delta function shifted right by 8 samples and multipled by 1.5.
 
@@ -65,11 +65,11 @@ Impulse Response <code>[1, -0.5]</code>
 
 To convolute, we apply the scale from the impulse response to index *n*, shifted *n* places for each index up to <code>x[n] - (h[n] - 1)</code>
 
-<img src="../../assets/images/dsp/output-of-convolution.png" />
+<img src="/assets/images/dsp/output-of-convolution.png" />
 
 The equation, therefore, is;
 
-<img src="../../assets/images/dsp/convolution-equation.png" />
+<img src="/assets/images/dsp/convolution-equation.png" />
 
 where <code>M</code> is the number of samples in <code>h[n]</code> and <code>j</code> is merely an iterator.
 

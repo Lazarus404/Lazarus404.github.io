@@ -10,7 +10,7 @@ show_tile: false
 <a href="sampling-theorem.html" class="button special small">Quantization & Sampling Theorem</a>
 <a href="linear-systems.html" class="button small">Linear Systems</a>
 <a href="convolution.html" class="button small">Convolution</a>
-<a href="fourier-transform.html" class="button small">Fourier Transform</a>
+<a href="fourier-transform" class="button small">Fourier Transform</a>
 
 <a href="/digital-signal-processing">&#x2190; Back to Digital Signal Processing</a>
 
@@ -37,7 +37,7 @@ The following image presents four different types of signals;
       4. Periodic discrete<br />
     </td>
     <td>
-      <img src="../../assets/images/dsp/types-of-signal.png" width="300" />
+      <img src="/assets/images/dsp/types-of-signal.png" width="300" />
     </td>
   </tr>
 </table>
@@ -50,6 +50,6 @@ Without the antialias filter, the Sampling Theorem risks being violated. If this
 
 For instance, if a signal contains 1khz and 20khz signals and the output signal is required to be 3khz maximum, then it would be necessary to filter out the 20khz signal, so that only the 1khz signal was converted to digital. Failure to do so results in undersampling which means the resolution of the quantization is insufficient to digitize the sample correctly, as in the image below.
 
-<img src="../../assets/images/dsp/undersampling.png" width="400" />
+<img src="/assets/images/dsp/undersampling.png" width="400" />
 
 <a href="/digital-signal-processing">&#x2190; Back to Digital Signal Processing</a>

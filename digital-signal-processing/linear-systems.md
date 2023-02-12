@@ -10,7 +10,7 @@ show_tile: false
 <a href="sampling-theorem.html" class="button small">Quantization & Sampling Theorem</a>
 <a href="linear-systems.html" class="button special small">Linear Systems</a>
 <a href="convolution.html" class="button small">Convolution</a>
-<a href="fourier-transform.html" class="button small">Fourier Transform</a>
+<a href="fourier-transform" class="button small">Fourier Transform</a>
 
 <a href="/digital-signal-processing">&#x2190; Back to Digital Signal Processing</a>
 
@@ -62,7 +62,7 @@ Impulse decomposition breaks up an *n* samples signal into *n* component signals
 
 The aim of impulse decomposition is to enable the analysis of each sample, one at a time. Since linear systems are predictable, the output can therefore be calculated for any given input.
 
-<img src="../../assets/images/dsp/impulse-decomposition.png" />
+<img src="/assets/images/dsp/impulse-decomposition.png" />
 
 ##### Step Decomposition
 
@@ -70,6 +70,6 @@ Step decomposition breaks up an *n* samples signal similarly to impulse decompos
 
 Step decomposition characterizes signals by the difference between adjacent samples.
 
-<img src="../../assets/images/dsp/step-decomposition.png" />
+<img src="/assets/images/dsp/step-decomposition.png" />
 
 <a href="/digital-signal-processing">&#x2190; Back to Digital Signal Processing</a>
