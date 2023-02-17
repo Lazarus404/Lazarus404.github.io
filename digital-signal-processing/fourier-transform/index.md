@@ -7,10 +7,15 @@ nav-menu: false
 show_tile: false
 ---
 
+<a href="../calculators.html" class="button small">Calculators</a>
 <a href="../sampling-theorem.html" class="button small">Quantization & Sampling Theorem</a>
 <a href="../linear-systems.html" class="button small">Linear Systems</a>
 <a href="../convolution.html" class="button small">Convolution</a>
 <a href="../fourier-transform" class="button special small">Fourier Transform</a>
+
+<hr />
+
+<a href="./" style="border-bottom: none;"><i class="icon fa-home">&nbsp;</i></a>
 
 <a href="/digital-signal-processing">&#x2190; Back to Digital Signal Processing</a>
 
@@ -45,7 +50,7 @@ Any continuous periodic signal could be represented as the sum of *properly chos
       Aperiodic discrete
     </td>
     <td style="vertical-align: top;">
-      Discrete Time Fourier Transform
+      Discrete-time Fourier Transform
     </td>
   </tr>
   <tr>
@@ -53,7 +58,7 @@ Any continuous periodic signal could be represented as the sum of *properly chos
       Periodic discrete
     </td>
     <td style="vertical-align: top;">
-      Discrete Fourier Transform
+      Discrete-time Fourier Series
     </td>
   </tr>
 </table>
@@ -82,5 +87,14 @@ When labelling the horizontal axis for the frequency domain, it can be approache
 * as a natural frequency from 0 to &pi;.
 
 Note that when labelling as a fraction, it is only necessary to go to 0.5. This is due to the Nyquist Theorem. If the signal is properly sampled, there should be no frequency above 0.5.
+
+### Time and Frequency Domain Symmetry
+
+It is important to note that there are certain symmetries between the time and frequency domains known as *Duality*. These are;
+
+* A single point in the frequency domain corresponds to a sinusoid in the time domain.
+* A single point in the time domain corresponds to a sinusoid in the frequency domain.
+* Convolution in the frequency domain corresponds to multiplication in the time domain.
+* Convolution in the time domain corresponds to multiplication in the frequency domain.
 
 <a href="/digital-signal-processing">&#x2190; Back to Digital Signal Processing</a>
