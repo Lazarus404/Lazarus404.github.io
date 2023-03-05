@@ -42,7 +42,29 @@ show_tile: false
   <tr>
     <td colspan="6">
       <div style="min-height: 50px; max-width: 1400px; padding: 20px; overflow-x: scroll; display: flex; flex-wrap: no-wrap;">
-        <div id="result" style="display: inline-block; flex: 0 0 auto;"></div>
+        <div id="conv-result" style="display: inline-block; flex: 0 0 auto;"></div>
+      </div>
+    </td>
+  </tr>
+</table>
+
+## Running Sum
+
+<a name="convolution_rs" />
+
+<table>
+  <tr>
+    <td colspan="5">
+      <textarea id="convrs-x-values" onchange="convrs_update();" placeholder="Put sample values here"></textarea>
+    </td>
+    <td colspan="1" style="max-width: 100px;">
+      <button onclick="convrs_update();">Update</button>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="6">
+      <div style="min-height: 50px; max-width: 1400px; padding: 20px; overflow-x: scroll; display: flex; flex-wrap: no-wrap;">
+        <div id="convrs-result" style="display: inline-block; flex: 0 0 auto;"></div>
       </div>
     </td>
   </tr>

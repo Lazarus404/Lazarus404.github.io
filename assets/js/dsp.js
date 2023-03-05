@@ -1,4 +1,4 @@
-function convolution(x, h, indx, workings) {
+function make_convolution(x, h, indx, workings) {
   if (!workings) workings = [];
   workings.push({value: '', desc: `y[${indx}] =`});
   let result = [];
@@ -25,5 +25,19 @@ function convolution(x, h, indx, workings) {
   }
   desc = desc.filter(r => !!r).map(r => r.join(' + ')).join('<br />');
   workings.push({value: '', desc});
+  return {result, workings};
+}
+
+function convolution(x, h, indx, maybe_workings) {
+  let {result, workings} = make_convolution(x, h, indx, maybe_workings);
   return {result: result[indx], workings};
+}
+
+function convolution_running_sum(x, workings) {
+  if (!workings) workings = [];
+  let result = [];
+  for (let i=0; i<x.length; i++) {
+    result[i] = (result[i-1] || 0) + x[i];
+  }
+  return {result, workings};
 }
