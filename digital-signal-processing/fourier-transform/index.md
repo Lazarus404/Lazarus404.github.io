@@ -13,6 +13,7 @@ show_tile: false
 <a href="../convolution.html" class="button small">Convolution</a>
 <a href="../fourier-transform" class="button special small">Fourier Transform</a>
 <a href="../z-domain" class="button small">Z-Domain</a>
+<a href="../filters" class="button small">Filters</a>
 
 <hr />
 

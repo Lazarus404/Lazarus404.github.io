@@ -24,6 +24,7 @@ MathJax = {
 <a href="../convolution.html" class="button small">Convolution</a>
 <a href="../fourier-transform" class="button small">Fourier Transform</a>
 <a href="../z-domain" class="button special small">Z-Domain</a>
+<a href="../filters" class="button small">Filters</a>
 
 <hr />
 

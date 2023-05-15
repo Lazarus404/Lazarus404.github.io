@@ -16,6 +16,7 @@ show_tile: false
 <a href="convolution.html" class="button small">Convolution</a>
 <a href="fourier-transform" class="button small">Fourier Transform</a>
 <a href="z-domain" class="button small">Z-Domain</a>
+<a href="filters" class="button small">Filters</a>
 
 <a href="/digital-signal-processing">&#x2190; Back to Digital Signal Processing</a>
 
