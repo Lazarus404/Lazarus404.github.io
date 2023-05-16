@@ -30,6 +30,7 @@ MathJax = {
 
 <a href="./" style="border-bottom: none;"><i class="icon fa-home">&nbsp;</i></a>
 <a href="biquad.html" class="button special small">Biquadratic</a>
+<a href="pz-placement.html" class="button small">PZ Placement</a>
 
 <a href="/digital-signal-processing">&#x2190; Back to Digital Signal Processing</a>
 
@@ -151,7 +152,7 @@ $$C = \frac{(-p_{2}+B) \times (-p_{2}+C)}{-p_{2} \times (-p_{2}+p_{1})} = \frac{
 
 ### Magnitude of Frequency Response
 
-Determine the magnitude of the frequency response at \\(\omega = 0.19 \times \pi\\).
+Determine the magnitude of the frequency response at \\(\Omega = 0.19 \times \pi\\).
 
 Given the z-domain equation;
 
@@ -159,16 +160,16 @@ $$H(z) = \frac{0.16 - 0.5z^{-1} + 0.06z^{-2}}{1 - 0.37z^{-1} + 0.02z^{-2}}$$
 
 which has complex frequency response;
 
-$$H(z) = \frac{0.16 - 0.5e^{-j \omega} + 0.06e^{-j2 \omega}}{1 - 0.37e^{-j \omega} + 0.02e^{-j2 \omega}}$$
+$$H(z) = \frac{0.16 - 0.5e^{-j \Omega} + 0.06e^{-j2 \Omega}}{1 - 0.37e^{-j \Omega} + 0.02e^{-j2 \Omega}}$$
 
 which has magnitude squared;
 
-$$|H(z)|^{2} = \frac{|0.16 - 0.5e^{-j \omega} + 0.06e^{-j2 \omega}|^{2}}{|1 - 0.37e^{-j \omega} + 0.02e^{-j2 \omega}|^{2}} \\
+$$|H(z)|^{2} = \frac{|0.16 - 0.5e^{-j \Omega} + 0.06e^{-j2 \Omega}|^{2}}{|1 - 0.37e^{-j \Omega} + 0.02e^{-j2 \Omega}|^{2}} \\
 
-= \frac{(0.16 - 0.5 cos(\omega) + 0.06 cos(2\omega))^{2} + (- 0.5 sin(\omega) + 0.06 sin(2\omega))^{2}}{(1 - 0.37 cos(\omega) + 0.02 cos(2 \omega))^{2} + (- 0.37 sin(\omega) + 0.02 sin(2 \omega))^{2}}$$
+= \frac{(0.16 - 0.5 cos(\Omega) + 0.06 cos(2\Omega))^{2} + (- 0.5 sin(\Omega) + 0.06 sin(2\Omega))^{2}}{(1 - 0.37 cos(\Omega) + 0.02 cos(2 \Omega))^{2} + (- 0.37 sin(\Omega) + 0.02 sin(2 \Omega))^{2}}$$
 
-$$|H(z)| = \frac{\sqrt{0.1670}}{\sqrt{0.5277}}$$
+$$|H(z)| = \frac{\sqrt{0.1043}}{\sqrt{0.5277}}$$
 
-$$\therefore |H(z)| = -4.9965dB$$
+$$\therefore |H(z)| = -7.0406dB$$
 
 <a href="/digital-signal-processing">&#x2190; Back to Digital Signal Processing</a>

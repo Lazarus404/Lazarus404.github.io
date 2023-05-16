@@ -19,6 +19,7 @@ show_tile: false
 
 <a href="./" style="border-bottom: none;"><i class="icon fa-home">&nbsp;</i></a>
 <a href="biquad.html" class="button small">Biquadratic</a>
+<a href="pz-placement.html" class="button small">PZ Placement</a>
 
 <a href="/digital-signal-processing">&#x2190; Back to Digital Signal Processing</a>
 
