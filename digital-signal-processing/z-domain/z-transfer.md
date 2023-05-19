@@ -175,4 +175,68 @@ Thus, we have;
 
 $$A = 0.8, B = 1.1, C = \frac{1}{3}$$
 
+### System Analysis
+
+The following system;
+
+<img src="/assets/images/dsp/filter1.png" />
+
+has the following transfer function;
+
+$$G(z) = \frac{(z+0.54)(z+0.49)}{(z-0.12)(z-0.31)}$$
+
+Answer the following question giving answers to 4 decimal places.
+
+If \\(c_{2} = 0.31\\) then determine \\(d_{0}, d_{1}, d_{2}, c_{1}\\);
+
+$$\frac{G(z)}{z} = \frac{(z+0.54)(z+0.49)}{z(z-0.12)(z-0.31)} = \frac{A}{z} + \frac{B}{(z-0.12)} + \frac{C}{(z-0.31)}$$
+
+Cross-multiply and remove denominator;
+
+$$G(z) = (z+0.54)(z+0.49) = A(z-0.12)(z-0.31)+Bz(z-0.31)+Cz(z-0.12)$$
+
+Determine \\(A - z = 0\\);
+
+$$\displaylines{
+= (0+0.54)(0+0.49) \\
+= (0-0.12) + (B \times 0(0-0.31) = 0) + (C \times 0(0-0.12) = 0) \\
+= 0.54 + 0.49 = A(-0.12)(-0.31) \\
+\therefore A = \frac{0.54 \times 0.49}{-0.12 \times -0.31} \\
+A = \frac{0.2646}{0.0372} = 7.1129
+}$$
+
+Determine \\(B - z = 0.12\\);
+
+$$\displaylines{
+= (0.12+0.54)(0.12+0.49) = B 0.12(0.12-0.31) \\
+\therefore 0.66 \times 0.61 = B 0.12 \times -0.19 \\
+B = \frac{0.66 \times 0.61}{0.12 \times -0.19} = -17.6579
+}$$
+
+Determine \\(C - z = 0.31\\);
+
+$$\displaylines{
+= (0.31+0.54)(0.31+0.49) = C 0.31(0.31-0.12) \\
+\therefore 0.85 \times 0.80 = C 0.31 \times 0.19 \\
+C = \frac{0.85 \times 0.80}{0.31 \times 0.19} = 11.5450
+}$$
+
+$$G(z) = 7.1129 - \frac{17.6579}{z-0.12} + \frac{11.5450}{z-0.31}$$
+
+$$\displaylines{
+d_{0} = 7.1129 \\
+d_{1} = -17.6579 \\
+d_{2} = 11.5450 \\
+c_{1} = 0.12
+}$$
+
+For the real world reconstruction filter, it is designed to be an order 8 low pass analogue filter. It is desired to achieve -43dB of attenuation in the stop band. How many whole number of decades is the transition band likely to cover?
+
+To answer this, recall that IIR filters attenuate at a rate of 20dB/decade per order;
+
+$$\displaylines{
+8 * 20 = 160\text{dB/decade} \\
+\therefore \text{the answer is: 1 decade}
+}$$
+
 <a href="/digital-signal-processing">&#x2190; Back to Digital Signal Processing</a>
