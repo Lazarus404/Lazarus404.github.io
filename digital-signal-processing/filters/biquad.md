@@ -32,6 +32,7 @@ MathJax = {
 <a href="biquad.html" class="button special small">Biquadratic</a>
 <a href="pz-placement.html" class="button small">PZ Placement</a>
 <a href="lp-chebyshev-type-1.html" class="button small">Lowpass Chebyshev</a>
+<a href="iir-filter.html" class="button small">IIR Filter</a>
 
 <a href="/digital-signal-processing">&#x2190; Back to Digital Signal Processing</a>
 
