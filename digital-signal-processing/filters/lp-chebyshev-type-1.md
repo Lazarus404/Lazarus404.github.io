@@ -50,31 +50,68 @@ f_{s} = 28800Hz}$$
 Determine the digital frequencies to 5 significant figures (sig.fig.);
 
 $$\displaylines{
-\text{Pass band: }\omega_{dp} = 2\pi \times 1200 = 7539.8 \text{ rad/s} \\
-\text{Stop band: }\omega_{ds} = 2\pi \times 12000 = 75398 \text{ rad/s}
+\text{Pass band: }\omega_{dp} = \frac{fpass}{fs/2} \times \pi = 0.2618 \text{ rad/s} \\
+\text{Stop band: }\omega_{ds} = \frac{fstop}{fs/2} \times \pi = 2.6180 \text{ rad/s}
 }$$
+
+##### MATLAB
+
+    HpassdB = 0.5; HstopdB = 15; fpass = 1200; fstop = 12000; fs = 28800;
+    omegadp = (fpass / (fs/2)) * pi
+    % ans =
+    %     0.2618
+    omegads = (fstop / (fs/2)) * pi
+    % ans =
+    %     2.6180
 
 ### Warping the Filter
 
 Apply the warping equation to determine the following frequencies;
 
 $$\displaylines{
-\text{Pass band: }\omega_{ap} = 2f_{s} \times tan(\frac{7539.8}{2f_{s}}) = 57600 \times tan(\frac{7539.8}{57600}) = 7583.2 \text{ rad/s} \\
-\text{Stop band: }\omega_{as} = 2f_{s} \times tan(\frac{75398}{2f_{s}}) = 57600 \times tan(\frac{75398}{57600}) = 214966 \text{ rad/s}
+\text{Pass band: }\omega_{ap} = 2f_{s} \times tan(\frac{fpass}{2f_{s}}) = 57600 \times tan(\frac{0.2618}{57600}) = 0.2618 \text{ rad/s} \\
+\text{Stop band: }\omega_{as} = 2f_{s} \times tan(\frac{fstop}{2f_{s}}) = 57600 \times tan(\frac{2.6180}{57600}) = 2.6180 \text{ rad/s}
 }$$
+
+##### MATLAB
+
+    omegaap = 2 * fs * tan(omegadp/(2*fs))
+    % ans =
+    %     0.2618
+    omegaas = 2 * fs * tan(omegads/(2*fs))
+    % ans =
+    %     2.6180
 
 ### Filter Order
 
 Determine the order of the filter and the actual required order;
 
 $$\displaylines{
-\text{Order of the filter: } Order_{e} = \frac{1}{acosh(\frac{max(\omega_{ap},\omega_{as})}{min(\omega_{ap},\omega_{as})})} \times \frac{acosh(\sqrt{10^{0.1 \times H_{stop}dB)}-1})}{10^{(0.1 \times H_{pass}dB)-1}} \\
+\text{Order of the filter: } Order_{e} = \frac{1}{acosh(\frac{max(\omega_{ap},\omega_{as})}{min(\omega_{ap},\omega_{as})})} \times acosh\left(\sqrt{\frac{10^{0.1 \times H_{stop}dB)}-1}{10^{(0.1 \times H_{pass}dB)}-1}}\right) \\
 \text{when } V_{s} = \frac{max(\omega_{ap},\omega_{as})}{min(\omega_{ap},\omega_{as})} = 28.3477402704905 \\
 \epsilon_{stop} = 10^{0.1 \times H_{stop}dB}-1 = 30.6228 \\
 \epsilon_{pass} = 10^{0.1 \times H_{pass}dB}-1 = 0.1220 \\
-\therefore Order_{e} = \frac{1}{acosh(V_{s})} \times \frac{acosh(\sqrt{\epsilon_{stop}})}{\epsilon_{pass}} = 0.826020164 \\
+\therefore Order_{e} = \frac{1}{acosh(V_{s})} \times acosh(\sqrt{\frac{\epsilon_{stop}}{\epsilon_{pass}}}) = 0.826020164 \\
 \text{Required order of the filter: } Order_{a} = ceil(Order_{e}) = 1
 }$$
+
+##### MATLAB
+
+    Vs = max(omegaap,omegaas) / min(omegaap,omegaas)
+    % ans =
+    %     28.3477402704905
+    Estop = 10^(0.1*HstopdB) - 1
+    % ans =
+    %     30.6228
+    Epass = 10^(0.1*HpassdB) - 1
+    % ans =
+    %     0.1220
+    OrderE = (1/acosh(Vs)) * (acosh(sqrt(Estop/Epass)))
+    % ans =
+    %     0.826020164
+    OrderR = ceil(OrderE)
+    % ans =
+    %     1
 
 ### Analogue Prototype
 
@@ -86,9 +123,21 @@ where
 
 $$\displaylines{
 \Omega_{fc} = \frac{f_{pass}}{f_{s}/2} \times \pi = 0.2618 \\
-A = tan(\frac{\Omega_{fc}}{2}) = 0.1317 \\
+A = tan\left(\frac{\Omega_{fc}}{2}\right) = 0.1317 \\
 \therefore H(s) = \frac{2f_{c}A}{s + 2f_{c}A} = \frac{7583.2}{s + 7583.2} \\
 }$$
+
+##### MATLAB
+
+    Omegafc = (fpass / (fs/2)) * pi
+    % ans =
+    %     0.2618
+    A = tan(Omegafc/2)
+    % ans =
+    %     0.1317
+    b = 2*fpass*A
+    % ans =
+    %     7583.2 
 
 Therefore;
 
