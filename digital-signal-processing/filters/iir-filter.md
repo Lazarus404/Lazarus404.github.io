@@ -66,6 +66,13 @@ $$\displaylines{
 A = \frac{0.2646}{0.0372} = 7.1129
 }$$
 
+##### MATLAB
+
+    z1 = 0.54; z2 = 0.49; p1 = 0.12; p2 = 0.31;
+    A = (z1 * z2)/(p1 * p2)
+    % ans =
+    %     7.1129
+
 Determine \\(B - z = 0.12\\);
 
 $$\displaylines{
@@ -73,6 +80,13 @@ $$\displaylines{
 \therefore 0.66 \times 0.61 = B 0.12 \times -0.19 \\
 B = \frac{0.66 \times 0.61}{0.12 \times -0.19} = -17.6579
 }$$
+
+##### MATLAB
+
+    z1 = 0.54; z2 = 0.49; p1 = 0.12; p2 = 0.31;
+    B = ((p1 + z1) * (p1 + z2)) / (p1 * (p1 - p2))
+    % ans =
+    %     -17.6579
 
 Determine \\(C - z = 0.31\\);
 
@@ -82,6 +96,13 @@ $$\displaylines{
 C = \frac{0.85 \times 0.80}{0.31 \times 0.19} = 11.5450
 }$$
 
+##### MATLAB
+
+    z1 = 0.54; z2 = 0.49; p1 = 0.12; p2 = 0.31;
+    B = ((p2 + z1) * (p2 + z2)) / (p2 * (p2 - p1))
+    % ans =
+    %     11.5450
+
 $$G(z) = 7.1129 - \frac{17.6579}{z-0.12} + \frac{11.5450}{z-0.31}$$
 
 $$\displaylines{
@@ -90,6 +111,7 @@ d_{1} = -17.6579 \\
 d_{2} = 11.5450 \\
 c_{1} = 0.12
 }$$
+
 
 ### Decibels Per-Decade
 
@@ -141,31 +163,76 @@ H(z) = \frac{Y(z)}{X(z)} = \frac{z + \gamma_{1}}{z + \gamma_{2}} + \frac{z + \ga
 \text{Thus, }\frac{z - 0.32}{z + 0.35} + \frac{z + 0.571}{z - 0.72}
 }$$
 
-Obtained the least common multiple, we place the LCM as the denominator of each fraction and in the numerator of each fraction we add the factors that we need to complete
+Obtained the least common multiple, we place the LCM as the denominator of each fraction and in the numerator of each fraction we add the factors that we need to complete;
 
-$$\displaylines{= \frac{(z - 0.32)(z - 0.72)}{(z + 0.35)(z - 0.72)}+\frac{(z + 0.571)(z + 0.35)}{(z + 0.35)(z - 0.72)} \\
-= \frac{(z - \frac{8}{25})(z - \frac{18}{25})}{(z + \frac{7}{20})(z - \frac{18}{25})}+\frac{(z + 0.571)(z + \frac{7}{20})}{(z + \frac{7}{20})(z - \frac{18}{25})}
+$$= \frac{(z - 0.32)(z - 0.72)}{(z + 0.35)(z - 0.72)} + \frac{(z + 0.571)(z + 0.35)}{(z - 0.72)(z + 0.35)}$$
+
+Multiplying out the numerators, gives us;
+
+$$\displaylines{
+z * z = z^{2} \\
+z * -0.72 = -0.72z \\
+-0.32 * z = -0.32z \\
+-0.32 * -0.72 = 0.2304
 }$$
 
-Simplify the numerators
+And;
 
-$$= \frac{z^{2} - \frac{26}{25}z + 0.2304}{(z + \frac{7}{20})(z - \frac{18}{25})}+\frac{z^{2} + 0.921z + 0.19985}{(z + \frac{7}{20})(z - \frac{18}{25})}$$
+$$\displaylines{
+z * z = z^{2} \\
+z * 0.35 = 0.35z \\
+0.571 * z = 0.571z \\
+0.571 * 0.35 = 0.19985
+}$$
 
-Combine and simplify all terms in the same fraction with common denominator;
+Which results in;
 
-$$\frac{0.4303 + 2z^{2} - 0.1190z}{(z + \frac{7}{20})(z - \frac{18}{25})}$$
+$$= \frac{z^{2} - 0.72z - 0.32z + 0.2304}{(z + 0.35)(z - 0.72)} + \frac{z^{2} + 0.35z + 0.571z + 0.19985}{(z - 0.72)(z + 0.35)}$$
 
-Rearrange the numerator and denominator;
+Then, combine matched \\(z\\)'s;
 
-$$= \frac{2z^{2} - 0.1190z + 0.4303}{z^{2} - 0.37z - 0.252}$$
+$$= \frac{z^{2} - 1.04z + 0.2304}{(z + 0.35)(z - 0.72)} + \frac{z^{2} + 0.921z + 0.19985}{(z - 0.72)(z + 0.35)}$$
+
+Add the numerators, keeping the denominator as is;
+
+$$\frac{2z^{2} - 0.1190z + 0.4302}{(z + 0.35)(z - 0.72)}$$
+
+Finally, multiply the values and combine in the denominator;
+
+$$\displaylines{
+z * z = z^{2} \\
+z * 0.35 = 0.35z \\
+-0.72 * z = -0.72z \\
+0.35 * -0.72 = -0.252
+}$$
+
+Which results in;
+
+$$\frac{2z^{2} - 0.1190z + 0.4303}{z^{2} - 0.37z - 0.252}$$
 
 Therefore;
 
 $$\displaylines{
 \beta_{1} = -0.1190 \\
-\beta_{2} = 0.4304 \\
+\beta_{2} = 0.4302 \\
 \beta_{3} = -0.37 \\
 \beta_{4} = -0.252 \\
 }$$
+
+##### MATLAB
+
+    z1 = -0.32; p1 = 0.35; z2 = 0.571; p2 = -0.72;
+    z1out = z1 + p2 + z2 + p1
+    % ans =
+    %     -0.1190
+    z2out = z1 * p2 + z2 * p1
+    % ans =
+    %     0.4302
+    p1out = p1 + p2
+    % ans =
+    %     -0.37
+    p2out = p1 * p2
+    % ans =
+    %     -0.252
 
 <a href="/digital-signal-processing">&#x2190; Back to Digital Signal Processing</a>

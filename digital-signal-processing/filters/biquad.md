@@ -150,15 +150,15 @@ $$H(z) = \frac{0.16 \times (z - 0.1250)(z - 3.000)}{(z-0.0657)(z-0.3043)}$$
     radical = sqrt(b^2 - 4*a*c);
     x = [(-b + radical) / (2*a), (-b - radical) / (2*a)]
     % ans =
-    %   0.3043
-    %   0.0657
+    %     0.3043
+    %     0.0657
     % calculate for x
     A = 1; B = a; C = b;
     radical = sqrt(b^2 - 4*a*c);
     y = [(-b + radical) / (2*a), (-b - radical) / (2*a)]
     % ans =
-    %   3.0000
-    %   0.1250
+    %     3.0000
+    %     0.1250
 
 ### Partial Fraction Expansion
 
@@ -176,7 +176,7 @@ $$A = \frac{B \times C}{p_{1} \times p_{2}} = \frac{0.1250 \times 3.0000}{0.0657
     p1 = 0.0657; p2 = 0.3043;
     A = (z1 * z2) / (p1 * p2)
     % ans =
-    %   18.7570
+    %     18.7570
 
 $$B = \frac{(-p_{1}+B) \times (-p_{1}+C)}{-p_{1} \times (-p_{1}+p_{2})} = \frac{(-0.0657+0.1250) \times (-0.0657+3.0000)}{-0.0657 \times (-0.0657+0.3043)} = -11.1000$$
 
@@ -186,7 +186,7 @@ $$B = \frac{(-p_{1}+B) \times (-p_{1}+C)}{-p_{1} \times (-p_{1}+p_{2})} = \frac{
     p1 = 0.0657; p2 = 0.3043;
     B = ((-p1+z1) * (-p1+z2)) / (-p1 * (-p1 + p2))
     % ans =
-    %   -11.1000
+    %     -11.1000
 
 $$C = \frac{(-p_{2}+B) \times (-p_{2}+C)}{-p_{2} \times (-p_{2}+p_{1})} = \frac{(-0.3043+0.1250) \times (-0.3043+3.0000)}{-0.3043 \times (-0.3043+0.0657)} = -6.6570$$
 
@@ -196,7 +196,7 @@ $$C = \frac{(-p_{2}+B) \times (-p_{2}+C)}{-p_{2} \times (-p_{2}+p_{1})} = \frac{
     p1 = 0.0657; p2 = 0.3043;
     C = ((-p2+z1) * (-p2+z2)) / (-p2 * (-p2+p1))
     % ans =
-    %   -6.6570
+    %     -6.6570
 
 $$\therefore A = 18.7570\text{, }B = -11.1000\text{ & }C = -6.6570$$ 
 
@@ -227,12 +227,12 @@ $$\therefore |H(z)| = 0.4446dB$$
     z1 = 0.16; z2 = -0.5; z3 = 0.06; p1 = 1; p2 = -0.37; p3 = 0.02;
     num = (z1 + z2 * cos(omega) + z3 * cos(2*omega))^2 + (z2 * sin(omega) + z3 * sin(2*omega))^2
     % ans =
-    %   0.1043
+    %     0.1043
     denom = (p1 + p2 * cos(omega) + p3 * cos(2*omega))^2 + (p2 * sin(omega) + p3 * sin(2*omega))^2
     % ans =
-    %   0.5277
+    %     0.5277
     magHz = sqrt(num) / sqrt(denom)
     % ans =
-    %   0.4446
+    %     0.4446
 
 <a href="/digital-signal-processing">&#x2190; Back to Digital Signal Processing</a>
