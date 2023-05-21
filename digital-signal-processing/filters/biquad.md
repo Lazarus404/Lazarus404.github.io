@@ -104,7 +104,7 @@ $$H(z) = \frac{0.16z^{2} - 0.5z + 0.06}{z^{2} - 0.37z + 0.02}$$
 
 To determine the zeros, we can bring out the \\(0.16z\\), but then we need to divide the remaining values by \\(0.16\\);
 
-$$H(z) = \frac{0.16z(z - 3.125)(z + 0.375)}{z^{2} - 0.37z + 0.02}$$
+$$H(z) = \frac{0.16(z^{2} - 3.125z + 0.375)}{z^{2} - 0.37z + 0.02}$$
 
 Thus, the zeros are - in size order! - \\(0.375\\) and \\(3.125\\), while the multiplier is \\(0.16\\).
 
@@ -134,9 +134,31 @@ Dividing by \\(2a\\) (or \\(2\\)) and arranging in size order;
 
 $$x = [0.0657, 0.3043]$$
 
+Performing the same process for the zeros, we get'
+
+$$y = [0.1250, 3.0000]$$
+
 The equation is therefore;
 
-$$H(z) = \frac{0.16 \times (z-0.375)(z-3.125)}{(z-0.0657)(z-0.3043)}$$
+$$H(z) = \frac{0.16 \times (z - 0.1250)(z - 3.000)}{(z-0.0657)(z-0.3043)}$$
+
+##### MATLAB
+
+    k = 0.16; a = -0.37; b = 0.02; c = -3.125; d = 0.375;
+    % calculate for y
+    A = 1; B = c; C = d;
+    radical = sqrt(b^2 - 4*a*c);
+    x = [(-b + radical) / (2*a), (-b - radical) / (2*a)]
+    % ans =
+    %   0.3043
+    %   0.0657
+    % calculate for x
+    A = 1; B = a; C = b;
+    radical = sqrt(b^2 - 4*a*c);
+    y = [(-b + radical) / (2*a), (-b - radical) / (2*a)]
+    % ans =
+    %   3.0000
+    %   0.1250
 
 ### Partial Fraction Expansion
 
@@ -144,13 +166,39 @@ Perform partial fraction expansion for the system in the form;
 
 $$H(z)/K = A + \frac{z \times B}{(z-p_{1})} + \frac{z \times C}{(z - p_{2})}$$
 
-If the zeros are 0.375 & 3.125 and the poles are 0.0657 & 0.3043, then;
+If the zeros are 3.0000 & 0.1250 and the poles are 0.3043 & 0.0657, then;
 
-$$A = \frac{B \times C}{p_{1} \times p_{2}} = \frac{0.375 \times 3.125}{0.0657 \times 0.3043} = 58.6157016$$
+$$A = \frac{B \times C}{p_{1} \times p_{2}} = \frac{0.1250 \times 3.0000}{0.0657 \times 0.3043} = 18.7570$$
 
-$$B = \frac{(-p_{1}+B) \times (-p_{1}+C)}{-p_{1} \times (-p_{1}+p_{2})} = \frac{(-0.0657+0.375) \times (-0.0657+3.125)}{-0.0657 \times (-0.0657+0.3043)} = -60.3623554$$
+##### MATLAB
 
-$$C = \frac{(-p_{2}+B) \times (-p_{2}+C)}{-p_{2} \times (-p_{2}+p_{1})} = \frac{(-0.3043+0.375) \times (-0.3043+3.125)}{-0.3043 \times (-0.3043+0.0657)} = 2.7466538$$
+    z1 = 0.1250; z2 = 3.000;
+    p1 = 0.0657; p2 = 0.3043;
+    A = (z1 * z2) / (p1 * p2)
+    % ans =
+    %   18.7570
+
+$$B = \frac{(-p_{1}+B) \times (-p_{1}+C)}{-p_{1} \times (-p_{1}+p_{2})} = \frac{(-0.0657+0.1250) \times (-0.0657+3.0000)}{-0.0657 \times (-0.0657+0.3043)} = -11.1000$$
+
+##### MATLAB
+
+    z1 = 0.1250; z2 = 3.000;
+    p1 = 0.0657; p2 = 0.3043;
+    B = ((-p1+z1) * (-p1+z2)) / (-p1 * (-p1 + p2))
+    % ans =
+    %   -11.1000
+
+$$C = \frac{(-p_{2}+B) \times (-p_{2}+C)}{-p_{2} \times (-p_{2}+p_{1})} = \frac{(-0.3043+0.1250) \times (-0.3043+3.0000)}{-0.3043 \times (-0.3043+0.0657)} = -6.6570$$
+
+##### MATLAB
+
+    z1 = 0.1250; z2 = 3.000;
+    p1 = 0.0657; p2 = 0.3043;
+    C = ((-p2+z1) * (-p2+z2)) / (-p2 * (-p2+p1))
+    % ans =
+    %   -6.6570
+
+$$\therefore A = 18.7570\text{, }B = -11.1000\text{ & }C = -6.6570$$ 
 
 ### Magnitude of Frequency Response
 
@@ -172,6 +220,19 @@ $$|H(z)|^{2} = \frac{|0.16 - 0.5e^{-j \Omega} + 0.06e^{-j2 \Omega}|^{2}}{|1 - 0.
 
 $$|H(z)| = \frac{\sqrt{0.1043}}{\sqrt{0.5277}}$$
 
-$$\therefore |H(z)| = -7.0406dB$$
+$$\therefore |H(z)| = 0.4446dB$$
+
+##### MATLAB
+
+    z1 = 0.16; z2 = -0.5; z3 = 0.06; p1 = 1; p2 = -0.37; p3 = 0.02;
+    num = (z1 + z2 * cos(omega) + z3 * cos(2*omega))^2 + (z2 * sin(omega) + z3 * sin(2*omega))^2
+    % ans =
+    %   0.1043
+    denom = (p1 + p2 * cos(omega) + p3 * cos(2*omega))^2 + (p2 * sin(omega) + p3 * sin(2*omega))^2
+    % ans =
+    %   0.5277
+    magHz = sqrt(num) / sqrt(denom)
+    % ans =
+    %   0.4446
 
 <a href="/digital-signal-processing">&#x2190; Back to Digital Signal Processing</a>
