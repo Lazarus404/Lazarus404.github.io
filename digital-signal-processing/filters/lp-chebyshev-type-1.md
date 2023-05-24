@@ -50,37 +50,37 @@ f_{s} = 28800Hz}$$
 Determine the digital frequencies to 5 significant figures (sig.fig.);
 
 $$\displaylines{
-\text{Pass band: }\omega_{dp} = \frac{fpass}{fs/2} \times \pi = 0.2618 \text{ rad/s} \\
-\text{Stop band: }\omega_{ds} = \frac{fstop}{fs/2} \times \pi = 2.6180 \text{ rad/s}
+\text{Pass band: }\omega_{dp} = 2 \times \pi \times fpass = 7539.8 \text{ rad/s} \\
+\text{Stop band: }\omega_{ds} = 2 \times \pi \times fstop = 75398 \text{ rad/s}
 }$$
 
 ##### MATLAB
 
     HpassdB = 0.5; HstopdB = 15; fpass = 1200; fstop = 12000; fs = 28800;
-    omegadp = (fpass / (fs/2)) * pi
+    omegadp = 2 * pi * fpass
     % ans =
-    %     0.2618
-    omegads = (fstop / (fs/2)) * pi
+    %     7539.8
+    omegads = 2 * pi * fstop
     % ans =
-    %     2.6180
+    %     75398
 
 ### Warping the Filter
 
 Apply the warping equation to determine the following frequencies;
 
 $$\displaylines{
-\text{Pass band: }\omega_{ap} = 2f_{s} \times tan(\frac{fpass}{2f_{s}}) = 57600 \times tan(\frac{0.2618}{57600}) = 0.2618 \text{ rad/s} \\
-\text{Stop band: }\omega_{as} = 2f_{s} \times tan(\frac{fstop}{2f_{s}}) = 57600 \times tan(\frac{2.6180}{57600}) = 2.6180 \text{ rad/s}
+\text{Pass band: }\omega_{ap} = 2f_{s} \times tan(\frac{fpass}{2f_{s}}) = 57600 \times tan(\frac{7539.8}{57600}) = 7.5832 \text{ rad/s} \\
+\text{Stop band: }\omega_{as} = 2f_{s} \times tan(\frac{fstop}{2f_{s}}) = 57600 \times tan(\frac{75398}{57600}) = 2.1497 \text{ rad/s}
 }$$
 
 ##### MATLAB
 
     omegaap = 2 * fs * tan(omegadp/(2*fs))
     % ans =
-    %     0.2618
+    %     7.5832
     omegaas = 2 * fs * tan(omegads/(2*fs))
     % ans =
-    %     2.6180
+    %     2.1497
 
 ### Filter Order
 
@@ -106,7 +106,7 @@ $$\displaylines{
     Epass = 10^(0.1*HpassdB) - 1
     % ans =
     %     0.1220
-    OrderE = (1/acosh(Vs)) * (acosh(sqrt(Estop/Epass)))
+    OrderE = (1/acosh(Vs)) * acosh(sqrt(Estop/Epass))
     % ans =
     %     0.826020164
     OrderR = ceil(OrderE)
@@ -119,31 +119,11 @@ Determine the analogue prototype with the form;
 
 $$H(s) = \frac{b_{1}}{s + b_{0}}$$
 
-where
+Is simply;
 
 $$\displaylines{
-\Omega_{fc} = \frac{f_{pass}}{f_{s}/2} \times \pi = 0.2618 \\
-A = tan\left(\frac{\Omega_{fc}}{2}\right) = 0.1317 \\
-\therefore H(s) = \frac{2f_{c}A}{s + 2f_{c}A} = \frac{7583.2}{s + 7583.2} \\
-}$$
-
-##### MATLAB
-
-    Omegafc = (fpass / (fs/2)) * pi
-    % ans =
-    %     0.2618
-    A = tan(Omegafc/2)
-    % ans =
-    %     0.1317
-    b = 2*fpass*A
-    % ans =
-    %     7583.2 
-
-Therefore;
-
-$$\displaylines{
-b_{1} = 7583.2 \\
-b_{0} = 7583.2
+b_{1} = 2.8628 * \Omega_{ap} = 21709 \\
+b_{0} = 2.8628 * \Omega_{ap} = 21709
 }$$
 
 ### Bilinear Transform
@@ -156,17 +136,32 @@ Thus;
 
 $$\displaylines{
 s = 2f_{s}\frac{1-z^{-1}}{1+z^{-1}} \\
-\therefore H(z) = \frac{2f_{s}A}{2f_{s}\frac{1-z^{-1}}{1+z^{-1}}+2f_{s}A} = \left(\frac{2f_s}{2f_{s}}\right) \cdot \frac{A(1+z^{1})}{(1-z^{-1})+A(1+z^{-1})} \\
-H(z) = \frac{0.1317(1+z^{1})}{(1-z^{-1})+0.1317(1+z^{-1})}
+\therefore H(z) = \frac{b_{1}}{2f_{s}\frac{1-z^{-1}}{1+z^{-1}}+b_{0}} = \frac{21709(z+1)}{57600(z-1)+21709(z+1)}
 }$$
 
-The z-transform is then;
+Multiply out the brackets of the denominator;
 
-$$H(z) = \frac{Y(z)}{X(z)} = \frac{A + Az^{-1}}{1 + A + (A - 1)z^{-1}}$$
+$$H(z) = \frac{b_{1}}{2f_{s}\frac{1-z^{-1}}{1+z^{-1}}+b_{0}} = \frac{21709(z+1)}{57600z-57600+21709z+21709}$$
 
-Rearranging, we have;
+Group like terms;
 
-$$H(z) = \frac{A}{1+A} \cdot \frac{z+1}{z+\frac{A-1}{1+A}} = \frac{0.1317}{1.1317} \cdot \frac{z+1}{z+0.7673} = \frac{0.1317(z+1)}{z+0.1490}$$
+$$H(z) = \frac{21709(z+1)}{z(57600+21709)+21709-57600}$$
 
+Divide by numbers with \\(z\\);
+
+$$H(z) = \frac{\left(\frac{21709(z+1)}{57600+21709}\right)}{z+\left(\frac{21709-57600}{57600+21709}\right)}$$
+
+Results in;
+
+$$H(z) = \frac{0.2737(z+1)}{z-0.4525}$$
+
+##### MATLAB
+
+    Y = b1 / ((2*fs)+b1)
+    % ans =
+    %     0.2737
+    X = (b0 - (2*fs)) / ((2*fs)+b0)
+    % ans =
+    %     -0.4525
 
 <a href="/digital-signal-processing">&#x2190; Back to Digital Signal Processing</a>
