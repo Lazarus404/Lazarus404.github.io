@@ -139,13 +139,13 @@ H_{1}(z) = \frac{z + \gamma_{1}}{z + \gamma_{2}} \\
 H_{2}(z) = \frac{z + \gamma_{3}}{z + \gamma_{4}}
 }$$
 
-Looking at the inputs on the left and the outputs on the right, we have;
+Looking at the inputs on the left and the outputs on the right, inverting the values for inputs, we have;
 
 $$\displaylines{
 \gamma_{1} = b_{1} = -0.32 \\
-\gamma_{2} = a_{1} = 0.35 \\
+\gamma_{2} = a_{1} = -0.35 \\
 \gamma_{3} = b_{2} = 0.571 \\
-\gamma_{4} = a_{2} = -0.72
+\gamma_{4} = a_{2} = 0.72
 }$$
 
 ### Overall Transfer Function
