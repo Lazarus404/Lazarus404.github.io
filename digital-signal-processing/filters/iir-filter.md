@@ -277,8 +277,8 @@ H(z) = \frac{Y(z)}{X(z)} = \frac{z + \gamma_{1}}{z + \gamma_{2}} \times \frac{z 
 Multiplying both sides, we have;
 
 $$\displaylines{
-H(z) = \frac{z^{2} - 0.76z + 0.85z - 0.646}{z^{2} - 0.72z + 0.35z - 0.252} \\
-= \frac{z^{2} + 0.09z - 0.646}{z^{2} - 0.37z - 0.252}
+H(z) = \frac{z^{2} - 0.76z + 0.85z - 0.646}{z^{2} - 0.54z + 0.37z - 0.1998} \\
+= \frac{z^{2} + 0.09z - 0.646}{z^{2} - 0.17z - 0.1998}
 }$$
 
 Therefore;
@@ -286,8 +286,8 @@ Therefore;
 $$\displaylines{
 \beta_{1} = 0.09 \\
 \beta_{2} = -0.646 \\
-\beta_{3} = -0.37 \\
-\beta_{4} = -0.252 \\
+\beta_{3} = -0.17 \\
+\beta_{4} = -0.1998 \\
 }$$
 
 ##### MATLAB
@@ -301,10 +301,10 @@ $$\displaylines{
     %     -0.646
     p1out = p1 + p2
     % ans =
-    %     -0.37
+    %     -0.17
     p2out = p1 * p2
     % ans =
-    %     -0.252
+    %     -0.1998
 
 
 <a href="/digital-signal-processing">&#x2190; Back to Digital Signal Processing</a>

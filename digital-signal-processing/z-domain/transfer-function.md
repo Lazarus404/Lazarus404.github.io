@@ -126,6 +126,8 @@ Determine the pulse response of the system in the form;
 
 $$h[k] = A \times (0.59^{k}) + B \times (0.5^{k})$$
 
-TO BE COMPLETED
+Here, we simply populate the values with those determined above;
+
+$$h[k] = 0.0027 \times (0.59^{k}) + 0.0726 \times (0.5^{k})$$
 
 <a href="/digital-signal-processing">&#x2190; Back to Digital Signal Processing</a>
