@@ -165,4 +165,30 @@ $$H(z) = \frac{0.1172(z+1)}{z-0.7656}$$
     % ans =
     %     -0.7656
 
+### Time Domain
+
+Derive a time domain equation representing the input signal as \\(x[n]\\) and the output as \\(y[n]\\) so that:
+
+$$y[n] = d_{0}x[n] + d_{1}x[n-1] + d_{2}y[n-1]$$
+
+So, with;
+
+$$H(z) = \frac{0.1172(z+1)}{z-0.7656}$$
+
+Multiply out the brackets;
+
+$$H(z) = \frac{0.1172z+0.1172}{z-0.7656} = \frac{Y(z)}{X(z)}$$
+
+Cross multiply the bottom to \\(Y(z)\\);
+
+$$y(z) \times z-0.7656 = x(z) \times 0.1172z+0.1172$$
+
+Multiply out the brackets;
+
+$$z - 0.7656z^{-1} = 0.1172z + 0.1172z^{-1}$$
+
+Invert and arrange to fit answer (invert signs that move);
+
+$$y[n] = 0.1172x[n] + 0.1172x[n-1] + 0.7656y[n-1]$$
+
 <a href="/digital-signal-processing">&#x2190; Back to Digital Signal Processing</a>

@@ -165,4 +165,30 @@ $$H(z) = \frac{0.2737(z+1)}{z-0.4525}$$
     % ans =
     %     -0.4525
 
+### Time Domain
+
+Derive a time domain equation representing the input signal as \\(x[n]\\) and the output as \\(y[n]\\) so that:
+
+$$y[n] = d_{0}x[n] + d_{1}x[n-1] + d_{2}y[n-1]$$
+
+So, with;
+
+$$H(z) = \frac{0.2737(z+1)}{z-0.4525}$$
+
+Multiply out the brackets;
+
+$$H(z) = \frac{0.2737z+0.2737}{z-0.4525} = \frac{Y(z)}{X(z)}$$
+
+Cross multiply the bottom to \\(Y(z)\\);
+
+$$y(z) \times z-0.4525 = x(z) \times 0.2737z+0.2737$$
+
+Multiply out the brackets;
+
+$$z - 0.4525z^{-1} = 0.2737z + 0.2737z^{-1}$$
+
+Invert and arrange to fit answer (invert signs that move);
+
+$$y[n] = 0.2737x[n] + 0.2737x[n-1] + 0.4525y[n-1]$$
+
 <a href="/digital-signal-processing">&#x2190; Back to Digital Signal Processing</a>
