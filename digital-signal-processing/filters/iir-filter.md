@@ -233,4 +233,78 @@ $$\displaylines{
     % ans =
     %     -0.252
 
+### System Analysis 3
+
+A filter has the following realisation;
+
+<img src="/assets/images/dsp/filter3.png" />
+
+where the values of the multipliers are \\(a_{1} = -0.37\\), \\(a_{2} = 0.54\\), \\(b_{1} = 0.85\\) and \\(b_{2} = -0.76\\).
+
+Answer the following, giving answers to four decimal places.
+
+For the following transfer functions, determine the values of the coefficients;
+
+$$\displaylines{
+H_{1}(z) = \frac{z + \gamma_{1}}{z + \gamma_{2}} \\
+H_{2}(z) = \frac{z + \gamma_{3}}{z + \gamma_{4}}
+}$$
+
+Looking at the inputs on the left and the outputs on the right, inverting the values for inputs, we have;
+
+$$\displaylines{
+\gamma_{1} = b_{1} = 0.85 \\
+\gamma_{2} = a_{1} = 0.37 \\
+\gamma_{3} = b_{2} = -0.76 \\
+\gamma_{4} = a_{2} = -0.54
+}$$
+
+### Overall Transfer Function
+
+For the overall transfer function;
+
+$$H(z) = \frac{z^{2} + z\beta_{1} + \beta_{2}}{z^{2} + z\beta_{3} + \beta_{4}}$$
+
+Determine the coefficients;
+
+Since our transfer functions are series, we multiply them. Thus;
+
+$$\displaylines{
+H(z) = \frac{Y(z)}{X(z)} = \frac{z + \gamma_{1}}{z + \gamma_{2}} \times \frac{z + \gamma_{3}}{z + \gamma_{4}} \\
+\text{Thus, }\frac{z + 0.85}{z + 0.37} \times \frac{z - 0.76}{z - 0.54}
+}$$
+
+Multiplying both sides, we have;
+
+$$\displaylines{
+H(z) = \frac{z^{2} - 0.76z + 0.85z - 0.646}{z^{2} - 0.72z + 0.35z - 0.252} \\
+= \frac{z^{2} + 0.09z - 0.646}{z^{2} - 0.37z - 0.252}
+}$$
+
+Therefore;
+
+$$\displaylines{
+\beta_{1} = 0.09 \\
+\beta_{2} = -0.646 \\
+\beta_{3} = -0.37 \\
+\beta_{4} = -0.252 \\
+}$$
+
+##### MATLAB
+
+    z1 = 0.85; p1 = 0.37; z2 = -0.76; p2 = -0.54;
+    z1out = z1 + z2
+    % ans =
+    %     0.09
+    z2out = z1 * z2
+    % ans =
+    %     -0.646
+    p1out = p1 + p2
+    % ans =
+    %     -0.37
+    p2out = p1 * p2
+    % ans =
+    %     -0.252
+
+
 <a href="/digital-signal-processing">&#x2190; Back to Digital Signal Processing</a>
