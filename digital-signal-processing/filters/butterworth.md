@@ -85,11 +85,11 @@ $$\displaylines{
 Determine the order of the filter and the actual required order;
 
 $$\displaylines{
-\text{Order of the filter: } Order_{e} = \frac{1}{acosh(\frac{max(\omega_{ap},\omega_{as})}{min(\omega_{ap},\omega_{as})})} \times acosh\left(\sqrt{\frac{10^{0.1 \times H_{stop}dB)}-1}{10^{(0.1 \times H_{pass}dB)}-1}}\right) \\
+\text{Order of the filter: } Order_{e} = log_{10}\left(\frac{10^{0.1 \times H_{stop}dB}-1}{10^{0.1 \times H_{pass}dB}-1}\right) \times \frac{1}{2 \cdot log_{10}\left(\frac{max(\omega_{ap},\omega_{as})}{min(\omega_{ap},\omega_{as})}\right)} \\
 \text{when } V_{s} = \frac{max(\omega_{ap},\omega_{as})}{min(\omega_{ap},\omega_{as})} = 15.6398 \\
 \epsilon_{stop} = 10^{0.1 \times H_{stop}dB}-1 = 198.5262 \\
 \epsilon_{pass} = 10^{0.1 \times H_{pass}dB}-1 = 0.9953 \\
-\therefore Order_{e} = \frac{1}{acosh(V_{s})} \times acosh(\sqrt{\frac{\epsilon_{stop}}{\epsilon_{pass}}}) = 0.9703 \\
+\therefore Order_{e} = log_{10}\left(\frac{\epsilon_{stop}}{\epsilon_{pass}}\right) \times \frac{1}{2 \cdot log_{10}(Vs)} = 0.9629 \\
 \text{Required order of the filter: } Order_{a} = ceil(Order_{e}) = 1
 }$$
 
@@ -104,9 +104,9 @@ $$\displaylines{
     Epass = 10^(0.1*HpassdB) - 1
     % ans =
     %     0.9953
-    OrderE = (1/acosh(Vs)) * acosh(sqrt(Estop/Epass))
+    OrderE = log10(Estop/Epass)*1/(2*log10(Vs))
     % ans =
-    %     0.9703
+    %     0.9629
     OrderR = ceil(OrderE)
     % ans =
     %     1
