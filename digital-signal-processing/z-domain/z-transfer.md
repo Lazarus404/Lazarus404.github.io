@@ -29,6 +29,7 @@ MathJax = {
 <a href="z-transform.html" class="button small">Z-Transform</a>
 <a href="z-transfer.html" class="button special small">Z-Transfer</a>
 <a href="impulse-response.html" class="button small">Impulse Response</a>
+<a href="transfer-function.html" class="button small">Transfer Function</a>
 
 <a href="/digital-signal-processing">&#x2190; Back to Digital Signal Processing</a>
 
