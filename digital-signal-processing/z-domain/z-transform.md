@@ -19,10 +19,7 @@ MathJax = {
 </script>
 
 <a href="../calculators.html" class="button small">Calculators</a>
-<a href="../sampling-theorem.html" class="button small">Quantization & Sampling Theorem</a>
-<a href="../linear-systems.html" class="button small">Linear Systems</a>
-<a href="../convolution.html" class="button small">Convolution</a>
-<a href="../fourier-transform" class="button small">Fourier Transform</a>
+<a href="../theory" class="button small">Theory</a>
 <a href="../z-domain" class="button special small">Z-Domain</a>
 <a href="../filters" class="button small">Filters</a>
 
@@ -31,6 +28,7 @@ MathJax = {
 <a href="./" style="border-bottom: none;"><i class="icon fa-home">&nbsp;</i></a>
 <a href="z-transform.html" class="button special small">Z-Transform</a>
 <a href="z-transfer.html" class="button small">Z-Transfer</a>
+<a href="impulse-response.html" class="button small">Impulse Response</a>
 
 <a href="/digital-signal-processing">&#x2190; Back to Digital Signal Processing</a>
 

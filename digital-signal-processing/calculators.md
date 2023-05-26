@@ -11,10 +11,7 @@ show_tile: false
 <script src="/assets/js/calculators.js"></script>
 
 <a href="calculators.html" class="button special small">Calculators</a>
-<a href="sampling-theorem.html" class="button small">Quantization & Sampling Theorem</a>
-<a href="linear-systems.html" class="button small">Linear Systems</a>
-<a href="convolution.html" class="button small">Convolution</a>
-<a href="fourier-transform" class="button small">Fourier Transform</a>
+<a href="theory" class="button small">Theory</a>
 <a href="z-domain" class="button small">Z-Domain</a>
 <a href="filters" class="button small">Filters</a>
 

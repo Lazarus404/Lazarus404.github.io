@@ -1,23 +1,24 @@
 ---
 layout: page
-title: DSP | DFT
+title: DSP | Theory | DFT
 description: Digital Signal Processing
 image: nil
 nav-menu: false
 show_tile: false
 ---
 
-<a href="../calculators.html" class="button small">Calculators</a>
-<a href="../sampling-theorem.html" class="button small">Quantization & Sampling Theorem</a>
-<a href="../linear-systems.html" class="button small">Linear Systems</a>
-<a href="../convolution.html" class="button small">Convolution</a>
-<a href="../fourier-transform" class="button special small">Fourier Transform</a>
-<a href="../z-domain" class="button small">Z-Domain</a>
-<a href="../filters" class="button small">Filters</a>
+<a href="../../calculators.html" class="button small">Calculators</a>
+<a href="../../theory" class="button special small">Theory</a>
+<a href="../../z-domain" class="button small">Z-Domain</a>
+<a href="../../filters" class="button small">Filters</a>
 
 <hr />
 
 <a href="./" style="border-bottom: none;"><i class="icon fa-home">&nbsp;</i></a>
+<a href="../" class="button small">Quantization & Sampling Theorem</a>
+<a href="../linear-systems.html" class="button small">Linear Systems</a>
+<a href="../convolution.html" class="button small">Convolution</a>
+<a href="../fourier-transform" class="button special small">Fourier Transform</a>
 
 <a href="/digital-signal-processing">&#x2190; Back to Digital Signal Processing</a>
 
