@@ -1,6 +1,6 @@
 ---
 layout: page
-title: DSP | Filters | Lowpass Chebyshev Type 1 Filter
+title: DSP | Filters | Chebyshev Type 1 Filter
 description: Digital Signal Processing
 image: nil
 nav-menu: false
@@ -31,7 +31,8 @@ MathJax = {
 <a href="./" style="border-bottom: none;"><i class="icon fa-home">&nbsp;</i></a>
 <a href="biquad.html" class="button small">Biquadratic</a>
 <a href="pz-placement.html" class="button small">PZ Placement</a>
-<a href="lp-chebyshev-type-1.html" class="button special small">Lowpass Chebyshev</a>
+<a href="butterworth.html" class="button small">Butterworth</a>
+<a href="chebyshev-type-1.html" class="button special small">Chebyshev</a>
 <a href="iir-filter.html" class="button small">IIR Filter</a>
 
 <a href="/digital-signal-processing">&#x2190; Back to Digital Signal Processing</a>
@@ -69,8 +70,8 @@ $$\displaylines{
 Apply the warping equation to determine the following frequencies;
 
 $$\displaylines{
-\text{Pass band: }\omega_{ap} = 2f_{s} \times tan(\frac{fpass}{2f_{s}}) = 57600 \times tan(\frac{7539.8}{57600}) = 7.5832 \text{ rad/s} \\
-\text{Stop band: }\omega_{as} = 2f_{s} \times tan(\frac{fstop}{2f_{s}}) = 57600 \times tan(\frac{75398}{57600}) = 2.1497 \text{ rad/s}
+\text{Pass band: }\omega_{ap} = 2f_{s} \times tan(\frac{omegadp}{2f_{s}}) = 57600 \times tan(\frac{7539.8}{57600}) = 7.5832 \text{ rad/s} \\
+\text{Stop band: }\omega_{as} = 2f_{s} \times tan(\frac{omegads}{2f_{s}}) = 57600 \times tan(\frac{75398}{57600}) = 2.1497 \text{ rad/s}
 }$$
 
 ##### MATLAB
