@@ -81,6 +81,15 @@ Convert the above to the following form;
 
 $$H(z) = K \times \frac{z^{2} + \beta_{1}z + \beta_{2}}{z^{2} + \alpha_{1}z + \alpha_{2}}$$
 
+Simply;
+
+$$\displaylines{
+\beta_{1} = 0.0000 \\
+\beta_{2} = -1.0000 \\
+\beta_{3} = 0.3114 \\
+\beta_{4} = 0.9899
+}$$
+
 ### Manual Calculation of Polys
 
 To manually calculate the polynomials from the complex conjugate pair, we start with \\(1\\) and zero'd values for each complex number;
