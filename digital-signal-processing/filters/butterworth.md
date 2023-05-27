@@ -34,9 +34,9 @@ MathJax = {
 
 <a href="/digital-signal-processing">&#x2190; Back to Digital Signal Processing</a>
 
-### Design a Lowpass Butterworth Filter
+### Design a Butterworth Filter
 
-A low pass Butterworth filter is required to be designed with the following specification;
+A (low pass or high pass) Butterworth filter is required to be designed with the following specification;
 
 $$\displaylines{
 H_{pass}dB = 3dB \\
@@ -111,7 +111,7 @@ $$\displaylines{
     % ans =
     %     1
 
-### Analogue Prototype
+### Analogue Prototype (low pass)
 
 Determine the analogue prototype with the form;
 
@@ -124,7 +124,27 @@ b_{1} = \Omega_{ap} = 12007 \\
 b_{0} = \Omega_{ap} = 12007
 }$$
 
-### Bilinear Transform
+### Analogue Prototype (high pass)
+
+Determine the analogue prototype with the form;
+
+$$\frac{b_{0}^{2}}{s^{2}+b_{1}s+b_{2}}$$
+
+From the prototype, we have; 
+
+$$\displaylines{
+b_{0} = 1 \\
+b_{1} = \frac{\Omega_{ap}}{Q} = \frac{\Omega_{ap}}{\frac{1}{\sqrt{2}}} = 16980.46 \\
+b_{2} = \Omega_{ap}^{2} = 144168049
+}$$
+
+##### MATLAB
+
+    b0 = 1
+    b1 = omegaap / (1/sqrt(2))
+    b2 = omegaap^2
+
+### Bilinear Transform (low pass)
 
 Using the Bilinear transformation, derive the z-domain transfer function and put it in the form;
 
@@ -162,7 +182,13 @@ $$H(z) = \frac{0.1172(z+1)}{z-0.7656}$$
     % ans =
     %     -0.7656
 
-### Time Domain
+### Bilinear Transform (high pass)
+
+Using the bilinear transformation, derive the z-domain transfer function and put it in the form;
+
+$$H(z) = \frac{c_{0}(z-1)^2}{z^{2}+c_{1}z+c_{2}}$$
+
+### Time Domain (low pass)
 
 Derive a time domain equation representing the input signal as \\(x[n]\\) and the output as \\(y[n]\\) so that:
 
@@ -187,5 +213,11 @@ $$z - 0.7656z^{-1} = 0.1172z + 0.1172z^{-1}$$
 Invert and arrange to fit answer (invert signs that move);
 
 $$y[n] = 0.1172x[n] + 0.1172x[n-1] + 0.7656y[n-1]$$
+
+### Time Domain (high pass)
+
+Derive a time domain equation representing the input signal as \\(x[n]\\) and the output as \\(y[n]\\) so that:
+
+$$y[n] = d_{0}x[n] + d_{1}x[n-1] + d_{2}x[n-2] + d_{3}y[n-1] + d_{4}y[n-2]$$
 
 <a href="/digital-signal-processing">&#x2190; Back to Digital Signal Processing</a>
