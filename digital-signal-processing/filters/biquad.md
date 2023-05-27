@@ -88,6 +88,14 @@ Cancelling \\(W(z)\\);
 
 $$H(z) = \frac{0.16 - 0.5z^{-1} + 0.06z^{-2}}{1 - 0.37z^{-1} + 0.02z^{-2}}$$
 
+##### MATLAB
+
+    a = 0.37; b = -0.02; c = 0.16; d = -0.5; e = 0.06;
+    % invert the values in the denominator
+    a = a * -1
+    b = b * -1
+    % the rest are intact
+
 ### Z-Domain Transfer Function of Filter
 
 From the above, we can determine the z-domain trasnfer function of the filter;
@@ -105,6 +113,12 @@ To determine the zeros, we can bring out the \\(0.16z\\), but then we need to di
 $$H(z) = \frac{0.16(z^{2} - 3.125z + 0.375)}{z^{2} - 0.37z + 0.02}$$
 
 Thus, the zeros are - in size order! - \\(0.375\\) and \\(3.125\\), while the multiplier is \\(0.16\\).
+
+##### MATLAB (midway)
+
+    % bringing out c, we divide the other two zeros
+    d = d / c
+    e = e / c
 
 The roots of the denominator can be found using MATLAB's <code>roots</code> function, but here we use the quadratic root-finding equation;
 
@@ -142,15 +156,15 @@ $$H(z) = \frac{0.16 \times (z - 0.1250)(z - 3.000)}{(z-0.0657)(z-0.3043)}$$
 
 ##### MATLAB
 
-    k = 0.16; a = -0.37; b = 0.02; c = -3.125; d = 0.375;
-    % calculate for y
-    A = 1; B = c; C = d;
-    radical = sqrt(b^2 - 4*a*c);
-    x = [(-b + radical) / (2*a), (-b - radical) / (2*a)]
+    k = c;
+    % calculate for x
+    A = 1; B = d; C = e;
+    radical = sqrt(B^2 - 4*A*C);
+    x = [(-B + radical) / (2*A), (-B - radical) / (2*A)]
     % ans =
     %     0.3043
     %     0.0657
-    % calculate for x
+    % calculate for y
     A = 1; B = a; C = b;
     radical = sqrt(b^2 - 4*a*c);
     y = [(-b + radical) / (2*a), (-b - radical) / (2*a)]
