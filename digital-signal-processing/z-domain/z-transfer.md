@@ -85,6 +85,17 @@ Converting this to decibels, we have;
 
 $$20 \cdot log_{10}(0.825) = -1.6709$$
 
+##### MATLAB
+
+    num = 3.3 * (cos(pi) + 1i * sin(pi))
+    denom = 3 * (cos(pi) + 1i * sin(pi)) - 1
+    mag = num / denom
+    % ans
+    %     0.8250 - 0.0000i
+    magdB = 20 * log10(mag)
+    % ans
+    %     -1.6709
+
 ### Convert to Time-Domain
 
 If the input sequence to the filter is denoted by \\(x[n]\\) and the output sequence is denoted by \\(y[n]\\), derive the difference equation that specifies \\(y[n]\\) as a function of past outputs and current & past inputs, of the form;
