@@ -62,13 +62,24 @@ $$\frac{(z-1)(z+1)}{(z-(-0.1557 + j0.9827))(z-(-0.1557 - j0.9827))}$$
 
 To convert this to standard form, you can use <code>poly</code> in MATLAB, where;
 
-    poly([-0.1557 + 0.9827i, -0.1557 - 0.9827i])
+    f0 = 1.7279; bw = 0.01; att1 = 0; att2 = 3.1416;
+    z1 = cos(0) + 1i * sin(0)
+    z2 = cos(pi) + 1i * sin(pi)
+    p1 = (1-(bw/2)) * cos(f0) + 1i * (1-(bw/2)) * sin(f0)
+    p2 = (1-(bw/2)) * cos(f0) - 1i * (1-(bw/2)) * sin(f0)
+    poly([p1 p2])
     ans =
         1.0000 0.3114 0.9899
 
 Thus, multiplying out the \\(z\\) in the numerator, we have the form;
 
 $$\frac{K(z^{2}-1)}{z^{2} + 0.3114z + 0.9899}$$
+
+### Adjust Form
+
+Convert the above to the following form;
+
+$$H(z) = K \times \frac{z^{2} + \beta_{1}z + \beta_{2}}{z^{2} + \alpha_{1}z + \alpha_{2}}$$
 
 ### Manual Calculation of Polys
 

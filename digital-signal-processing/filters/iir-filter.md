@@ -141,9 +141,9 @@ Looking at the inputs on the left and the outputs on the right, inverting the va
 
 $$\displaylines{
 \gamma_{1} = b_{1} = -0.32 \\
-\gamma_{2} = a_{1} = 0.35 \times -1 = -0.35 \\
+\gamma_{2} = a_{1} \times -1 = 0.35 \times -1 = -0.35 \\
 \gamma_{3} = b_{2} = 0.571 \\
-\gamma_{4} = a_{2} = -0.72 \times -1 = 0.72
+\gamma_{4} = a_{2} \times -1 = -0.72 \times -1 = 0.72
 }$$
 
 ### Overall Transfer Function
@@ -254,9 +254,9 @@ Looking at the inputs on the left and the outputs on the right, inverting the va
 
 $$\displaylines{
 \gamma_{1} = b_{1} = 0.85 \\
-\gamma_{2} = a_{1} = -0.37 \times -1 = 0.37 \\
+\gamma_{2} = a_{1} \times -1 = -0.37 \times -1 = 0.37 \\
 \gamma_{3} = b_{2} = -0.76 \\
-\gamma_{4} = a_{2} = 0.54 \times -1 = -0.54
+\gamma_{4} = a_{2} \times -1 = 0.54 \times -1 = -0.54
 }$$
 
 ### Overall Transfer Function
