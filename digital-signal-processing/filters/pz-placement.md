@@ -142,6 +142,14 @@ $$K = 1.5 \times \frac{\sqrt{3.2545}}{\sqrt{2.2505}}$$
 
 $$\therefore K = 1.8037$$
 
+##### MATLAB
+
+    omega = 0.7226;
+    p1 = 0.3114; p2 = 0.9899;
+    denom = sqrt((cos(2*omega) + p1 * cos(omega) + p2)^2 + (sin(2*omega) + p1 * sin(omega))^2)
+    num = sqrt((cos(2*omega) + 1)^2 + sin(2*omega)^2)
+    k = denom / num
+
 ### Time Domain
 
 Determine the coefficients for the following equation that relates the time domain input and output for current time and the past times for the designed filter;
