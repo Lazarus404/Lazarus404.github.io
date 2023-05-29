@@ -133,16 +133,16 @@ $$\frac{b_{0}^{2}}{s^{2}+b_{1}s+b_{2}}$$
 From the prototype, we have; 
 
 $$\displaylines{
-b_{0} = 1 \\
-b_{1} = \frac{\Omega_{ap}}{Q} = \frac{\Omega_{ap}}{\frac{1}{\sqrt{2}}} = 16980.46 \\
-b_{2} = \Omega_{ap}^{2} = 144168049
+b_{0} = \Omega_{ap}^{2} = 144189053 \\
+b_{1} = \frac{\Omega_{ap}}{Q} = \frac{\Omega_{ap}}{\frac{1}{\sqrt{2}}} = 16981.70 \\
+b_{2} = b_{0}
 }$$
 
 ##### MATLAB
 
-    b0 = 1
-    b1 = omegaap / (1/sqrt(2))
-    b2 = omegaap^2
+    b0 = omegaap^2
+    b1 = omegaap * sqrt(2)
+    b2 = b0
 
 ### Bilinear Transform (low pass)
 
@@ -187,6 +187,15 @@ $$H(z) = \frac{0.1172(z+1)}{z-0.7656}$$
 Using the bilinear transformation, derive the z-domain transfer function and put it in the form;
 
 $$H(z) = \frac{c_{0}(z-1)^2}{z^{2}+c_{1}z+c_{2}}$$
+
+Taking our prototype, we divide the numerator and denominator by \\(2 \times f_{s}\\);
+
+$$\displaylines{
+H(z) = \frac{\frac{144189053}{90440}}{s^{2}+\frac{16981.70}{90440}s+\frac{144189053}{90440}} \\
+= \frac{1594.306}{s^{2}+0.187767s+1594.306}
+}$$
+
+Then, multiplying both numerator and denominator by \\((z+1)^{2}\\) leads to;
 
 ### Time Domain (low pass)
 

@@ -16,6 +16,7 @@ show_tile: false
 
 <a href="./" style="border-bottom: none;"><i class="icon fa-home">&nbsp;</i></a>
 <a href="./" class="button special small">Quantization & Sampling Theorem</a>
+<a href="math" class="button small">Math</a>
 <a href="linear-systems.html" class="button small">Linear Systems</a>
 <a href="convolution.html" class="button small">Convolution</a>
 <a href="fourier-transform" class="button small">Fourier Transform</a>
