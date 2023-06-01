@@ -30,6 +30,7 @@ MathJax = {
 <a href="pz-placement.html" class="button small">PZ Placement</a>
 <a href="butterworth.html" class="button special small">Butterworth</a>
 <a href="chebyshev-type-1.html" class="button small">Chebyshev</a>
+<a href="prototypes.html" class="button small">Prototypes</a>
 <a href="iir-filter.html" class="button small">IIR Filter</a>
 
 <a href="/digital-signal-processing">&#x2190; Back to Digital Signal Processing</a>
@@ -188,14 +189,14 @@ Using the bilinear transformation, derive the z-domain transfer function and put
 
 $$H(z) = \frac{c_{0}(z-1)^2}{z^{2}+c_{1}z+c_{2}}$$
 
-Taking our prototype, we divide the numerator and denominator by \\(2 \times f_{s}\\);
+Taking our prototype, we divide the numerator and denominator by \\(s\\);
 
 $$\displaylines{
-H(z) = \frac{\frac{144189053}{90440}}{s^{2}+\frac{16981.70}{90440}s+\frac{144189053}{90440}} \\
-= \frac{1594.306}{s^{2}+0.187767s+1594.306}
+H(z) = \frac{1}{\frac{12007}{s}^{2}+\left(\frac{12007}{s}\sqrt{2}\right) + 1} \\
+= \frac{s^{2}}{12007^{2}+\left(s12007\sqrt{2}\right)+s^{2}}
 }$$
 
-Then, multiplying both numerator and denominator by \\((z+1)^{2}\\) leads to;
+Then, multiplying both numerator and denominator by \\(2 \times f_{s} \times \frac{(z-1)}{(z+1)}\\) leads to;
 
 ### Time Domain (low pass)
 

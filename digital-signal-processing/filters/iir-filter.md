@@ -30,6 +30,7 @@ MathJax = {
 <a href="pz-placement.html" class="button small">PZ Placement</a>
 <a href="butterworth.html" class="button small">Butterworth</a>
 <a href="chebyshev-type-1.html" class="button small">Chebyshev</a>
+<a href="prototypes.html" class="button small">Prototypes</a>
 <a href="iir-filter.html" class="button special small">IIR Filter</a>
 
 <a href="/digital-signal-processing">&#x2190; Back to Digital Signal Processing</a>
@@ -193,7 +194,7 @@ $$= \frac{z^{2} - 1.04z + 0.2304}{(z + 0.35)(z - 0.72)} + \frac{z^{2} + 0.921z +
 
 Add the numerators, keeping the denominator as is;
 
-$$\frac{2z^{2} - 0.1190z + 0.4302}{(z + 0.35)(z - 0.72)}$$
+$$\frac{2z^{2} - 0.1190z + 0.4303}{(z + 0.35)(z - 0.72)}$$
 
 Finally, multiply the values and combine in the denominator;
 
@@ -212,7 +213,7 @@ Therefore;
 
 $$\displaylines{
 \beta_{1} = -0.1190 \\
-\beta_{2} = 0.4302 \\
+\beta_{2} = 0.4303 \\
 \beta_{3} = -0.37 \\
 \beta_{4} = -0.252 \\
 }$$
@@ -225,7 +226,7 @@ $$\displaylines{
     %     -0.1190
     z2out = z1 * p2 + z2 * p1
     % ans =
-    %     0.4302
+    %     0.4303
     p1out = p1 + p2
     % ans =
     %     -0.37

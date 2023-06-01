@@ -30,6 +30,7 @@ MathJax = {
 <a href="pz-placement.html" class="button small">PZ Placement</a>
 <a href="butterworth.html" class="button small">Butterworth</a>
 <a href="chebyshev-type-1.html" class="button special small">Chebyshev</a>
+<a href="prototypes.html" class="button small">Prototypes</a>
 <a href="iir-filter.html" class="button small">IIR Filter</a>
 
 <a href="/digital-signal-processing">&#x2190; Back to Digital Signal Processing</a>
