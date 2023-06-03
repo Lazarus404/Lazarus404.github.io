@@ -127,9 +127,7 @@ $$\frac{K(z^{2}-1)}{z^{2} + 0.3114z + 0.9899}$$
 
 If \\(\Omega = 0.7226\\) Rads, then;
 
-$$|H(z)|^{2} = \frac{|K \times e^{j2 \Omega} + 1|^{2}}{|e^{j2 \Omega} + 0.3114e^{j \Omega} + 0.9899|^{2}} \\
-
-= \frac{K \times (cos(2\Omega) + 1)^{2} + sin(2\Omega)^{2}}{(cos(2\Omega) + 0.3114 cos(\Omega) + 0.9899)^{2} + (sin(2\Omega) + 0.3114sin(\Omega))^{2}}$$
+$$|H(z)|^{2} = \frac{|K \times e^{j2 \Omega} - 1|^{2}}{|e^{j2 \Omega} + 0.3114e^{j \Omega} + 0.9899|^{2}} = \frac{K \times (cos(2\Omega) - 1)^{2} + sin(2\Omega)^{2}}{(cos(2\Omega) + 0.3114 cos(\Omega) + 0.9899)^{2} + (sin(2\Omega) + 0.3114sin(\Omega))^{2}}$$
 
 $$\therefore |\frac{H(z)}{K}| = \frac{\sqrt{2.2505}}{\sqrt{3.2545}} = -1.6021dB$$
 
@@ -148,7 +146,7 @@ $$\therefore K = 1.8037$$
     omega = 0.7226;
     p1 = 0.3114; p2 = 0.9899;
     denom = sqrt((cos(2*omega) + p1 * cos(omega) + p2)^2 + (sin(2*omega) + p1 * sin(omega))^2)
-    num = sqrt((cos(2*omega) + 1)^2 + sin(2*omega)^2)
+    num = sqrt((cos(2*omega) - 1)^2 + sin(2*omega)^2)
     k = denom / num
 
 ### Time Domain
