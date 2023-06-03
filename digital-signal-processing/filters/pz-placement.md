@@ -150,7 +150,7 @@ $$\therefore K = 1.8037$$
     denom = sqrt((cos(2*omega) + p1 * cos(omega) + p2)^2 + (sin(2*omega) + p1 * sin(omega))^2)
     num = sqrt((cos(2*omega) - 1)^2 + sin(2*omega)^2)
     magK = 20 * log10(num/denom)
-    k = 1.5 * (denom / num)
+    k = 1.5 * (denom/num)
 
 ### Time Domain
 
