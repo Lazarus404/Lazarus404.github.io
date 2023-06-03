@@ -201,7 +201,33 @@ H(z) = \frac{1}{\frac{12007}{s}^{2}+\left(\frac{12007}{s}\sqrt{2}\right) + 1} \\
 = \frac{s^{2}}{12007^{2}+\left(s12007\sqrt{2}\right)+s^{2}}
 }$$
 
-Then, multiplying both numerator and denominator by \\(2 \times f_{s} \times \frac{(z-1)}{(z+1)}\\) leads to;
+Then, replacing \\(s\\) with \\(2 \times f_{s} \times \frac{(z-1)}{(z+1)}\\) leads to;
+
+$$\frac{\left(90440\frac{(z-1)}{(z+1)}\right)^{2}}{\left(90440\frac{(z-1)}{(z+1)}\right)^{2}+\left(\left(90440\frac{(z-1)}{(z+1)}\right)12007\sqrt{2}\right)+12007^{2}}$$
+
+Multiply the top and bottom by \\((z+1)^{2}\\);
+
+$$\frac{\left(90440(z-1)\right)^{2}}{\left(90440(z-1)\right)^{2}+\left(\left(90440(z-1)(z+1)\right)12007\sqrt{2}\right)+12007(z+1)^{2}}$$
+
+Apply the rule of algebra, factoring common power of \\(z\\). Divide both numerator and denominator by \\(\left(90440\right)^{2}\\);
+
+$$\displaylines{
+\frac{\frac{\left(90440(z-1)\right)^{2}}{\left(90440\right)^{2}}}{\frac{\left(90440(z-1)\right)^{2}}{\left(90440\right)^{2}}+\frac{\left(\left(90440(z-1)(z+1)\right)12007\sqrt{2}\right)}{\left(90440\right)^{2}}+\frac{12007(z+1)^{2}}{\left(90440\right)^{2}}} \\
+= \frac{(z-1)^{2}}{(z-1)^{2}+\left((z-1)(z+1)0.1877539\right)+0.0176258(z+1)^{2}} \\
+= \frac{(z-1)^{2}}{z^{2}-2z+1+z^{2}-1(0.1877539)+z^{2}+2z+1(0.0176258)} \\
+= \frac{(z-1)^{2}}{z^{2}-2z+1+0.1877539z^{2}-0.1877539+0.0176258z^{2}+0.0352516z+0.0176258}
+}$$
+
+Collect like terms;
+
+$$\frac{(z-1)^{2}}{1.20538z^2-1.964748z+0.829872}$$
+
+Divide top and bottom by \\(1.20538\\);
+
+$$\displaylines{
+\frac{\frac{(z-1)^{2}}{1.20538}}{\frac{1.20538z^2}{1.20538}-\frac{1.964748z}{1.20538}+\frac{0.829872}{1.20538}} \\
+= \frac{0.8296(z-1)^{2}}{z^2-1.6300z+0.6885}
+}$$
 
 ### Time Domain (low pass)
 
