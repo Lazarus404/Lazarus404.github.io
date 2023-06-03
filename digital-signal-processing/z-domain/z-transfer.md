@@ -169,11 +169,38 @@ $$\frac{D}{z-1} + \frac{E}{z-\frac{1}{3}}$$
 
 From the \\(Y(z)\\) expression, we could try to find the inverse z-transform, but there may not be any pattern matches from the z-transform tables. As such, if we perform partial expansion, we can get two expressions of \\(Y(z)\\) and, from this, we can take the inverse z-transforms of both terms. This will give us the time domain expression for the step input that was specified.
 
+Thus, taking the fraction from step 1 and the other from step 4, we have;
+
+$$\displaylines{
+\frac{D}{z-1} + \frac{E}{z-\frac{1}{3}} \\
+\frac{0.8z}{(z-1)} \times \frac{1.1z}{\left(z-\frac{1}{3}\right)} = \frac{0.88z^{2}}{(z-1)\left(z-\frac{1}{3}\right)} \\
+= \frac{D\left(z-\frac{1}{3}\right) + E(z-1)}{(z-1)\left(z-\frac{1}{3}\right)}
+}$$
+
+To determine D, let \\(z = 1\\);
+
+$$\displaylines{
+0.88 \times 1 = D\left(1-\frac{1}{3}\right) + E(0) \\
+\therefore D = \frac{0.88}{1-\frac{1}{3}} \\
+\therefore D = 1.32
+}$$
+
+To determine E, let \\(z = \frac{1}{3}\\);
+
+$$\displaylines{
+0.88 \times \frac{1}{3} = D(0) + E\left(\frac{1}{3} - 1\right) \\
+\therefore E = \frac{0.88 \times \frac{1}{3}}{\frac{1}{3} - 1} \\
+\therefore E = -0.44
+}$$
+
+To confirm;
+
+$$1.32 - 0.44 = 0.88$$
+
 Thus;
 
-$$D = 0.8$$
-
-$$E = 1.1$$
+$$D = 1.32$$
+$$E = -0.44$$
 
 ### Time Difference Equation
 
