@@ -125,6 +125,11 @@ b_{1} = \Omega_{ap} = 12007 \\
 b_{0} = \Omega_{ap} = 12007
 }$$
 
+##### MATLAB
+
+    b0 = omegaap
+    b1 = omegaap
+
 ### Analogue Prototype (high pass)
 
 Determine the analogue prototype with the form;
