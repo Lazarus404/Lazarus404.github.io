@@ -202,6 +202,12 @@ Thus;
 $$D = 1.32$$
 $$E = -0.44$$
 
+##### MATLAB
+
+    z1 = 0.8; z2 = 1.1; p1 = 1; p2 = 1/3
+    D = (z1 * z2)/(p1 - p2)
+    E = (z1 * z2 * p2)/(p2 - p1)
+
 ### Time Difference Equation
 
 Determine the time difference equation for the output sequence, where;
