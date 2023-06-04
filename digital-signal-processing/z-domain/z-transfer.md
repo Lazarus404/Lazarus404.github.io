@@ -214,8 +214,8 @@ Determine the time difference equation for the output sequence, where;
 
 $$y[n] = A \times u[n] + B \times (C)^{n}$$
 
-Thus, we have;
+Thus, using the values from the previous part, we have;
 
-$$A = 0.8, B = 1.1, C = \frac{1}{3}$$
+$$A = 1.32, B = -0.44, C = \frac{1}{3}$$
 
 <a href="/digital-signal-processing">&#x2190; Back to Digital Signal Processing</a>
