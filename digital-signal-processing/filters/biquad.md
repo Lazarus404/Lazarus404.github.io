@@ -167,8 +167,8 @@ $$H(z) = \frac{0.16 \times (z - 0.1250)(z - 3.000)}{(z-0.0657)(z-0.3043)}$$
     %     0.0657
     % calculate for x
     A = 1; B = a; C = b;
-    radical = sqrt(b^2 - 4*a*c);
-    x = sort([(-b + radical) / (2*a), (-b - radical) / (2*a)])
+    radical = sqrt(B^2 - 4*A*C);
+    x = sort([(-B + radical) / (2*A), (-B - radical) / (2*A)])
     % ans =
     %     3.0000
     %     0.1250
