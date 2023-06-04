@@ -139,16 +139,16 @@ $$\frac{b_{0}^{2}}{s^{2}+b_{1}s+b_{2}}$$
 From the prototype, we have; 
 
 $$\displaylines{
-b_{0} = \Omega_{ap}^{2} = 144189053 \\
-b_{1} = \frac{\Omega_{ap}}{Q} = \frac{\Omega_{ap}}{\frac{1}{\sqrt{2}}} = 16981.70 \\
-b_{2} = b_{0}
+b_{0} = 1 \\
+b_{1} = \frac{\Omega_{ap}}{Q} = \frac{\Omega_{ap}}{\left(\frac{1}{\sqrt{2}}\right)} = \Omega_{ap} \times \sqrt{2} = 16981.70 \\
+b_{2} = \Omega_{ap}^{2} = 144189053
 }$$
 
 ##### MATLAB
 
-    b0 = omegaap^2
+    b0 = 1
     b1 = omegaap * sqrt(2)
-    b2 = b0
+    b2 = omegaap^2
 
 ### Bilinear Transform (low pass)
 
