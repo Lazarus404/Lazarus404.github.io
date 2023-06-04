@@ -62,6 +62,14 @@ Results in;
 
 $$h[k] + -1.09 \times h[k-1] + 0.295 \times h[k-2] = 0.23 \times \delta[k] + -0.1058 \times \delta[k-1]$$
 
+##### MATLAB
+
+    z1 = 0.23; z2 = -0.46; p1 = -0.59; p2 = -0.5;
+    A = p1 + p2;
+    B = p1 * p2;
+    C = z1;
+    D = z1 * z2;
+
 ### Difference Equation
 
 If the input sequence to the system is \\(x[n]\\) and its output sequence is \\(y[n]\\), derive the difference equation which specifies the current output in terms of previous outputs and current and previous inputs.
@@ -123,14 +131,14 @@ B = \frac{0.0092}{-0.09} = -0.10222222 = -0.1022
 ##### MATLAB
 
     z1 = 0.23; z2 = -0.46;
-    p1 = -0.5; p2 = -0.59;
+    p1 = -0.59; p2 = -0.5;
     A = (z1 * (abs(p2) + z2))/(abs(p2) + p1)
     B = (z1 * (abs(p1) + z2))/(abs(p1) + p2)
     %
     % Note, if the numerator is of the form 0.23z^2, then;
     %
     z1 = 0.23;
-    p1 = -0.5; p2 = -0.59;
+    p1 = -0.59; p2 = -0.5;
     A = (z1 * abs(p2))/(abs(p2) + p1)
     B = (z1 * abs(p1))/(abs(p1) + p2)
 
