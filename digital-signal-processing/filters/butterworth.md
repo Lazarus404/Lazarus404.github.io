@@ -229,6 +229,17 @@ $$\displaylines{
 = \frac{0.8296(z-1)^{2}}{z^2-1.6300z+0.6885}
 }$$
 
+##### MATLAB
+
+    fs = 45220; omegaap = 12007; fs2 = fs * 2;
+    p1 = 1 + ((omegaap * sqrt(2))/fs2) + (omegaap^2 / fs2^2);
+    p3 = 1 - ((omegaap * sqrt(2))/fs2) + (omegaap^2 / fs2^2);
+    p2 = -2 + ((omegaap * sqrt(2))^2 / fs2^2);
+    z1 = 1 / p1
+    p2 = p2 / p1
+    p3 = p3 / p1
+    p1 = 1
+
 ### Time Domain (low pass)
 
 Derive a time domain equation representing the input signal as \\(x[n]\\) and the output as \\(y[n]\\) so that:
