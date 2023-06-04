@@ -131,17 +131,15 @@ $$|\frac{H(\Omega)}{K}| = \frac{e^{j2 \Omega} - 1}{e^{j2 \Omega} + 0.3114e^{j \O
 
 Combining the real terms together and the imaginary terms together;
 
-$$|\frac{H(\Omega)}{K}| = \frac{(cos(2\Omega) - 1) + (jsin(2\Omega))}{(cos(2\Omega) + 0.3114 cos(\Omega) + 0.9899) + j\{sin(2\Omega) + 0.3114 sin(\Omega)\}}$$
+$$|\frac{H(\Omega)}{K}| = \frac{(cos(2\Omega) - 1) + jsin(2\Omega)}{(cos(2\Omega) + 0.3114 cos(\Omega) + 0.9899) + j\{sin(2\Omega) + 0.3114 sin(\Omega)\}}$$
 
 $$\therefore |\frac{H(\Omega)}{K}| = \frac{1.32267427189203}{1.80401404861056} = 0.733184019775647$$
 
-Now, to determine the value of \\(K\\) so that the peak passband \\(H_{peak} = 1.5\\);
+Now, to determine the value of \\(K\\) so that the peak passband \\(H_{peak} = 1.5\\), we follow the same process, replacing \\(Omega\\) for \\(f_{0}\\) and multiplying the result by \\(H_{peak}\\);
 
-$$1.5 = \frac{K \times \sqrt{(cos(2\Omega) + 1)^{2} + sin(2\Omega)^{2}}}{\sqrt{(cos(2\Omega) + 0.3114 cos(\Omega) + 0.9899)^{2} + (sin(2\Omega) + 0.3114sin(\Omega))^{2}}}$$
+$$K = \frac{(cos(2f_{0}) - 1) + jsin(2f_{0})}{(cos(2f_{0}) + 0.3114 cos(f_{0}) + 0.9899) + j\{sin(2f_{0}) + 0.3114 sin(f_{0})\}} \times 1.5$$
 
-$$K = 1.5 \times \frac{\sqrt{(cos(2\Omega) + 0.3114 cos(\Omega) + 0.9899)^{2} + (sin(2\Omega) + 0.3114sin(\Omega))^{2}}}{\sqrt{(cos(2\Omega) + 1)^{2} + sin(2\Omega)^{2}}}$$
-
-$$K = 1.5 \times \frac{1.80401404861056}{1.32267427189203}$$
+$$K = \frac{1.80401404861056}{1.32267427189203} \times 1.5$$
 
 $$\therefore K = 0.0076$$
 
@@ -151,13 +149,14 @@ $$\therefore K = 0.0076$$
     Omega = 0.7226;
     Hpeak = 1.5;
     p1 = 0.3114; p2 = 0.9899;
+    % calculate magnitude of H(Omega)
     num = exp(j*2*Omega) - 1
     denom = exp(j*2*Omega) + p1 * exp(j*Omega) + p2
     magK = abs(num / denom)
+    % calculate K
     Knum = exp(j*2*f0) + p1 * exp(j*f0) + p2
     Kdenom = exp(j*2*f0) - 1
     K = abs(Knum / Kdenom) * Hpeak
-    k = ((abs(complex(((cos(2*f0))+((cos(f0)*p1)+p2)),((sin(2*f0))+(sin(f0)*p1)))))/(abs(complex((cos(2*f0)-1),(sin(2*f0))))))*Hpeak
 
 ### Time Domain
 
