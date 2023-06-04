@@ -125,11 +125,15 @@ This functions similarly to the <a href="biquad.html">Biquad</a> implementation;
 
 $$\frac{K(z^{2}-1)}{z^{2} + 0.3114z + 0.9899}$$
 
-If \\(\Omega = 0.7226\\) Rads, then;
+If \\(\Omega = 0.7226\\) Rads, then the Fourier response is;
 
-$$|H(z)|^{2} = \frac{|K \times e^{j2 \Omega} - 1|^{2}}{|e^{j2 \Omega} + 0.3114e^{j \Omega} + 0.9899|^{2}} = \frac{K \times (cos(2\Omega) - 1)^{2} + sin(2\Omega)^{2}}{(cos(2\Omega) + 0.3114 cos(\Omega) + 0.9899)^{2} + (sin(2\Omega) + 0.3114sin(\Omega))^{2}}$$
+$$|\frac{H(\Omega)}{K}| = \frac{e^{j2 \Omega} - 1}{e^{j2 \Omega} + 0.3114e^{j \Omega} + 0.9899} = \frac{cos(2\Omega) + jsin(2\Omega) - 1}{cos(2\Omega) + jsin(2\Omega) + 0.3114 cos(\Omega) + 0.3114 jsin(\Omega) + 0.9899}$$
 
-$$\therefore |\frac{H(z)}{K}| = \frac{1.32267427189203}{1.80401404861056} = 0.733184019775647$$
+Combining the real terms together and the imaginary terms together;
+
+$$|\frac{H(\Omega)}{K}| = \frac{(cos(2\Omega) - 1) + (jsin(2\Omega))}{(cos(2\Omega) + 0.3114 cos(\Omega) + 0.9899) + j\{sin(2\Omega) + 0.3114 sin(\Omega)\}}$$
+
+$$\therefore |\frac{H(\Omega)}{K}| = \frac{1.32267427189203}{1.80401404861056} = 0.733184019775647$$
 
 Now, to determine the value of \\(K\\) so that the peak passband \\(H_{peak} = 1.5\\);
 
@@ -143,12 +147,16 @@ $$\therefore K = 0.0076$$
 
 ##### MATLAB
 
-    omega = 0.7226;
+    f0 = 1.7279;
+    Omega = 0.7226;
     Hpeak = 1.5;
     p1 = 0.3114; p2 = 0.9899;
-    denom = abs(complex(((cos(2*omega))+(cos(omega)*p1)+p2),((sin(2*omega))+(sin(omega)*p1))))
-    num = abs(complex(cos(2*omega)-1,sin(2*omega)))
-    magK = num/denom
+    num = exp(j*2*Omega) - 1
+    denom = exp(j*2*Omega) + p1 * exp(j*Omega) + p2
+    magK = abs(num / denom)
+    Knum = exp(j*2*f0) + p1 * exp(j*f0) + p2
+    Kdenom = exp(j*2*f0) - 1
+    K = abs(Knum / Kdenom) * Hpeak
     k = ((abs(complex(((cos(2*f0))+((cos(f0)*p1)+p2)),((sin(2*f0))+(sin(f0)*p1)))))/(abs(complex((cos(2*f0)-1),(sin(2*f0))))))*Hpeak
 
 ### Time Domain
