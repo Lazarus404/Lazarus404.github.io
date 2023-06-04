@@ -65,10 +65,10 @@ $$h[k] + -1.09 \times h[k-1] + 0.295 \times h[k-2] = 0.23 \times \delta[k] + -0.
 ##### MATLAB
 
     z1 = 0.23; z2 = -0.46; p1 = -0.59; p2 = -0.5;
-    A = p1 + p2;
-    B = p1 * p2;
-    C = z1;
-    D = z1 * z2;
+    A = p1 + p2
+    B = p1 * p2
+    C = z1
+    D = z1 * z2
 
 ### Difference Equation
 
