@@ -132,15 +132,15 @@ B = \frac{0.0092}{-0.09} = -0.10222222 = -0.1022
 
     z1 = 0.23; z2 = -0.46;
     p1 = -0.59; p2 = -0.5;
-    A = (z1 * (abs(p2) + z2))/(abs(p2) + p1)
-    B = (z1 * (abs(p1) + z2))/(abs(p1) + p2)
+    A = (z1 * (abs(p1) + z2))/(abs(p1) + p2)
+    B = (z1 * (abs(p2) + z2))/(abs(p2) + p1)
     %
     % Note, if the numerator is of the form 0.23z^2, then;
     %
     z1 = 0.23;
     p1 = -0.59; p2 = -0.5;
-    A = (z1 * abs(p2))/(abs(p2) + p1)
-    B = (z1 * abs(p1))/(abs(p1) + p2)
+    A = (z1 * abs(p1))/(abs(p1) + p2)
+    B = (z1 * abs(p2))/(abs(p2) + p1)
 
 ### Pulse Response
 
