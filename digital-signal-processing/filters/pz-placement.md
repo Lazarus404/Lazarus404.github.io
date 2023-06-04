@@ -182,6 +182,6 @@ The filter is to be implemented with the following structure;
 
 What are the values?
 
-$$a = 0.3114, b = 0.9899, c = 1.8037, d = 0, e = -1.8037$$
+$$a = -0.3114, b = -0.9899, c = 0.0076, d = 0, e = -0.0076$$
 
 <a href="/digital-signal-processing">&#x2190; Back to Digital Signal Processing</a>
