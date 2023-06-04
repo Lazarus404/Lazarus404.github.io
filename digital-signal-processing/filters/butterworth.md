@@ -272,4 +272,20 @@ Derive a time domain equation representing the input signal as \\(x[n]\\) and th
 
 $$y[n] = d_{0}x[n] + d_{1}x[n-1] + d_{2}x[n-2] + d_{3}y[n-1] + d_{4}y[n-2]$$
 
+So, with;
+
+$$\frac{0.8296(z-1)^{2}}{z^2-1.6300z+0.6885}$$
+
+Multiply out the brackets;
+
+$$\frac{0.8296z^2-1.6592z+0.8296}{z^2-1.6300z+0.6885}$$
+
+Divide top and bottom by \\(z^2\\);
+
+$$\frac{0.8296z-1.6592z^{-1}+0.8296z^{-2}}{1-1.6300z^{-1}+0.6885z^{-2}}$$
+
+Therefore;
+
+$$y[n] = 1x[n] + 1.6300x[n-1] + 0.6885x[n-2] + 1.6592y[n-1] + 0.8296y[n-2]$$
+
 <a href="/digital-signal-processing">&#x2190; Back to Digital Signal Processing</a>
