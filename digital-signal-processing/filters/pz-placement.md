@@ -129,9 +129,7 @@ If \\(\Omega = 0.7226\\) Rads, then;
 
 $$|H(z)|^{2} = \frac{|K \times e^{j2 \Omega} - 1|^{2}}{|e^{j2 \Omega} + 0.3114e^{j \Omega} + 0.9899|^{2}} = \frac{K \times (cos(2\Omega) - 1)^{2} + sin(2\Omega)^{2}}{(cos(2\Omega) + 0.3114 cos(\Omega) + 0.9899)^{2} + (sin(2\Omega) + 0.3114sin(\Omega))^{2}}$$
 
-$$\therefore |\frac{H(z)}{K}| = \frac{\sqrt{2.2505}}{\sqrt{3.2545}} = 0.83156723798$$
-
-$$20 \times log_{10}(0.83156723798) = -1.6021dB$$
+$$\therefore |\frac{H(z)}{K}| = \frac{1.32267427189203}{1.80401404861056} = 0.733184019775647$$
 
 Now, to determine the value of \\(K\\) so that the peak passband \\(H_{peak} = 1.5\\);
 
@@ -139,18 +137,19 @@ $$1.5 = \frac{K \times \sqrt{(cos(2\Omega) + 1)^{2} + sin(2\Omega)^{2}}}{\sqrt{(
 
 $$K = 1.5 \times \frac{\sqrt{(cos(2\Omega) + 0.3114 cos(\Omega) + 0.9899)^{2} + (sin(2\Omega) + 0.3114sin(\Omega))^{2}}}{\sqrt{(cos(2\Omega) + 1)^{2} + sin(2\Omega)^{2}}}$$
 
-$$K = 1.5 \times \frac{\sqrt{3.2545}}{\sqrt{2.2505}}$$
+$$K = 1.5 \times \frac{1.80401404861056}{1.32267427189203}$$
 
-$$\therefore K = 1.8037$$
+$$\therefore K = 0.0076$$
 
 ##### MATLAB
 
     omega = 0.7226;
+    Hpeak = 1.5;
     p1 = 0.3114; p2 = 0.9899;
-    denom = sqrt((cos(2*omega) + p1 * cos(omega) + p2)^2 + (sin(2*omega) + p1 * sin(omega))^2)
-    num = sqrt((cos(2*omega) - 1)^2 + sin(2*omega)^2)
-    magK = 20 * log10(num/denom)
-    k = 1.5 * (denom/num)
+    denom = abs(complex(((cos(2*omega))+(cos(omega)*p1)+p2),((sin(2*omega))+(sin(omega)*p1))))
+    num = abs(complex(cos(2*omega)-1,sin(2*omega)))
+    magK = num/denom
+    k = ((abs(complex(((cos(2*f0))+((cos(f0)*p1)+p2)),((sin(2*f0))+(sin(f0)*p1)))))/(abs(complex((cos(2*f0)-1),(sin(2*f0))))))*Hpeak
 
 ### Time Domain
 
@@ -168,7 +167,7 @@ $$\frac{K-K^{-2}}{1 + 0.3114z^{-1} + 0.9899z^{-2}}$$
 
 Notice, the zeros only have values at powers \\(0\\) and \\(-2\\). Thus;
 
-$$y[n] = 1 \times x[n] + 0.3114 \times x[n-1] + 0.9899 \times x[n-2] + 0 \times y[n-1] + -1.8037 \times y[n-2]$$
+$$y[n] = 0.0076 \times x[n] + 0.0000 \times x[n-1] + -0.0076 \times x[n-2] + -0.3114 \times y[n-1] + -0.9899 \times y[n-2]$$
 
 The filter is to be implemented with the following structure;
 
