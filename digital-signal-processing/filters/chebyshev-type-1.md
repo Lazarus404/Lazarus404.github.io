@@ -208,6 +208,117 @@ $$H(z) = \frac{0.7262(z-1)}{z+0.4525}$$
     %     0.4525
 
 </details>
+
+<details markdown=block>
+<summary markdown=span>Low pass - 2nd order</summary>
+
+Using the bilinear transformation, derive the z-domain transfer function and put it in the form;
+
+$$H(z) = \frac{c_{0}(z-1)^2}{z^{2}+c_{1}z+c_{2}}$$
+
+We can easily attain the form;
+
+$$\frac{\beta_{0}z^2 + \beta_{1}z + \beta_{2}}{\alpha_{0}z^2 \alpha_{1}z + \alpha}$$
+
+Taking the value of \\(\frac{\omega_{ap}}{2f_{s}}\\) as \\(\omega\\), we derive;
+
+$$\displaylines{
+\beta_{0} = \beta_{2} = \frac{\omega^2}{1+\sqrt{2}\omega + \omega^2} \\
+\beta_{1} = 2\beta_{0} \\
+\alpha_{0} = 1 \\
+\alpha_{1} = \frac{2(\omega^{2}-1)}{1+\sqrt{2}\omega+\omega^{2}} \\
+\alpha_{2} = \frac{\omega^{2}-\sqrt{2}\omega+1}{1+\sqrt{2}\omega+\omega^{2}}
+}$$
+
+Resulting in;
+
+$$\displaylines{
+\frac{0.0848z^2 + 0.1696z - 0.0848}{z^2 -1.0243z + 0.3636} \\
+= \frac{0.0848(z+1)^{2}}{z^2 -1.0243z + 0.3636}
+}$$
+
+We then multiply by the Chebyshev prototype values for second order;
+
+$$\displaylines{
+\frac{(1.4314 \times 0.0848)(z+1)^{2}}{z^2 + (1.4256 \times -1.0243)z + (1.5162 \times 0.3636)} \\
+= \frac{0.1214(z+1)^{2}}{z^2 -1.4602z + 0.5513}
+}$$
+
+##### MATLAB
+
+    fs = 28800; omegaap = 21709; fs2 = fs * 2;
+    p1 = 1 + ((omegaap * sqrt(2))/fs2) + (omegaap^2 / fs2^2);
+    p3 = 1 - ((omegaap * sqrt(2))/fs2) + (omegaap^2 / fs2^2);
+    p2 = -2 + ((omegaap * sqrt(2))^2 / fs2^2);
+    w = omegaap/fs2;
+    z1 = ((w^2)/(1 + sqrt(2) * w + w^2)) * 1.4314
+    p2 = (p2 / p1) * 1.4256
+    p3 = (p3 / p1) * 1.5162
+    p1 = 1
+
+</details>
+
+<details markdown=block>
+<summary markdown=span>High pass - 2nd order</summary>
+
+Using the bilinear transformation, derive the z-domain transfer function and put it in the form;
+
+$$H(z) = \frac{c_{0}(z-1)^2}{z^{2}+c_{1}z+c_{2}}$$
+
+Taking our prototype, we divide the numerator and denominator by \\(s\\);
+
+$$\displaylines{
+H(z) = \frac{1}{\frac{21709}{s}^{2}+\left(\frac{21709}{s}\sqrt{2}\right) + 1} \\
+= \frac{s^{2}}{21709^{2}+\left(s21709\sqrt{2}\right)+s^{2}}
+}$$
+
+Then, replacing \\(s\\) with \\(2 \times f_{s} \times \frac{(z-1)}{(z+1)}\\) leads to;
+
+$$\frac{\left(57600\frac{(z-1)}{(z+1)}\right)^{2}}{\left(57600\frac{(z-1)}{(z+1)}\right)^{2}+\left(\left(57600\frac{(z-1)}{(z+1)}\right)21709\sqrt{2}\right)+21709^{2}}$$
+
+Multiply the top and bottom by \\((z+1)^{2}\\);
+
+$$\frac{\left(57600(z-1)\right)^{2}}{\left(57600(z-1)\right)^{2}+\left(\left(57600(z-1)(z+1)\right)21709\sqrt{2}\right)+21709(z+1)^{2}}$$
+
+Apply the rule of algebra, factoring common power of \\(z\\). Divide both numerator and denominator by \\(\left(57600\right)^{2}\\);
+
+$$\displaylines{
+\frac{\frac{\left(57600(z-1)\right)^{2}}{\left(57600\right)^{2}}}{\frac{\left(57600(z-1)\right)^{2}}{\left(57600\right)^{2}}+\frac{\left(\left(57600(z-1)(z+1)\right)21709\sqrt{2}\right)}{\left(57600\right)^{2}}+\frac{21709(z+1)^{2}}{\left(57600\right)^{2}}} \\
+= \frac{(z-1)^{2}}{(z-1)^{2}+\left((z-1)(z+1)0.5330063\right)+0.1420479(z+1)^{2}} \\
+= \frac{(z-1)^{2}}{z^{2}-2z+1+z^{2}-1(0.5330063)+z^{2}+2z+1(0.1420479)} \\
+= \frac{(z-1)^{2}}{z^{2}-2z+1+0.5330063z^{2}-0.5330063+0.1420479z^{2}+0.0352516z+0.1420479}
+}$$
+
+Collect like terms;
+
+$$\frac{(z-1)^{2}}{1.6750542z^2-1.7159091z+0.6090416}$$
+
+Divide top and bottom by \\(1.20538\\);
+
+$$\displaylines{
+\frac{\frac{(z-1)^{2}}{1.6750542}}{\frac{1.6750542z^2}{1.6750542}-\frac{1.7159091z}{1.6750542}+\frac{0.6090416}{1.6750542}} \\
+= \frac{0.5970(z-1)^{2}}{z^2+1.0243z+0.3636}
+}$$
+
+We then multiply by the Chebyshev prototype values for second order;
+
+$$\displaylines{
+\frac{(1.4314 \times 0.5970)(z-1)^{2}}{z^2 + (1.4256 \times -1.0243)z + (1.5162 \times 0.3636)} \\
+= \frac{0.8545(z-1)^{2}}{z^2 -1.4602z + 0.5513}
+}$$
+
+##### MATLAB
+
+    fs = 28800; omegaap = 21709; fs2 = fs * 2;
+    p1 = 1 + ((omegaap * sqrt(2))/fs2) + (omegaap^2 / fs2^2);
+    p3 = 1 - ((omegaap * sqrt(2))/fs2) + (omegaap^2 / fs2^2);
+    p2 = -2 + ((omegaap * sqrt(2))^2 / fs2^2);
+    z1 = (1 / p1) * 1.4314
+    p2 = (p2 / p1) * 1.4256
+    p3 = (p3 / p1) * 1.5162
+    p1 = 1
+
+</details>
 <p></p>
 
 ### Time Domain
