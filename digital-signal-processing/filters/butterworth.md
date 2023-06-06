@@ -175,11 +175,7 @@ s = 2f_{s}\frac{1-z^{-1}}{1+z^{-1}} \\
 \therefore H(z) = \frac{b_{1}}{2f_{s}\frac{1-z^{-1}}{1+z^{-1}}+b_{0}} = \frac{12007(z+1)}{90440(z-1)+12007(z+1)}
 }$$
 
-Multiply out the brackets of the denominator;
-
-$$H(z) = \frac{b_{1}}{2f_{s}\frac{1-z^{-1}}{1+z^{-1}}+b_{0}} = \frac{12007(z+1)}{57600z-90440+21709z+12007}$$
-
-Group like terms;
+Multiply out the brackets of the denominator and group like terms;
 
 $$H(z) = \frac{12007(z+1)}{z(90440+12007)+12007-90440}$$
 
@@ -199,6 +195,51 @@ $$H(z) = \frac{0.1172(z+1)}{z-0.7656}$$
     X = (b0 - (2*fs)) / ((2*fs)+b0)
     % ans =
     %     -0.7656
+
+</details>
+
+<details markdown=block>
+<summary markdown=span>High pass - 1st order</summary>
+
+Using the Bilinear transformation, derive the z-domain transfer function and put it in the form;
+
+$$H(z) = \frac{c_{0}(z+1)}{z+c{1}}$$
+
+Taking the lowpass analog prototype;
+
+$$H(s) = \frac{1}{s + 1}$$
+
+We apply the prototype transformation to highpass;
+
+$$H(s) = \frac{1}{\frac{\omega_{c}}{s} + 1} = \frac{s}{s + 12007}$$
+
+Thus;
+
+$$\displaylines{
+s = 2f_{s}\frac{1-z^{-1}}{1+z^{-1}} \\
+\therefore H(z) = \frac{2f_{s}\frac{1-z^{-1}}{1+z^{-1}}}{2f_{s}\frac{1-z^{-1}}{1+z^{-1}} + 12007} = \frac{90440(z-1)}{12007(z+1)+90440(z-1)}
+}$$
+
+Multiply out the brackets of the denominator and group like terms;
+
+$$H(z) = \frac{90440(z-1)}{z(12007+90440)+90440-12007}$$
+
+Divide by numbers with \\(z\\);
+
+$$H(z) = \frac{\left(\frac{90440(z-1)}{12007+90440}\right)}{z+\left(\frac{90440-12007}{12007+90440}\right)}$$
+
+Results in;
+
+$$H(z) = \frac{0.8828(z+1)}{z+0.7656}$$
+
+##### MATLAB
+
+    Y = (2*fs) / (b1+(2*fs))
+    % ans =
+    %     0.8828
+    X = ((2*fs) - b0) / (b0+(2*fs))
+    % ans =
+    %     0.7656
 
 </details>
 
