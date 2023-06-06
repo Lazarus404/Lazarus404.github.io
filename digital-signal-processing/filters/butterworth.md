@@ -244,6 +244,47 @@ $$H(z) = \frac{0.8828(z+1)}{z+0.7656}$$
 </details>
 
 <details markdown=block>
+<summary markdown=span>Low pass - 2nd order</summary>
+
+Using the bilinear transformation, derive the z-domain transfer function and put it in the form;
+
+$$H(z) = \frac{c_{0}(z-1)^2}{z^{2}+c_{1}z+c_{2}}$$
+
+We can easily attain the form;
+
+$$\frac{\beta_{0}z^2 + \beta_{1}z + \beta_{2}}{\alpha_{0}z^2 \alpha_{1}z + \alpha}$$
+
+Taking the value of \\(\frac{\omega_{ap}}{2f_{s}}\\) as \\(\omega\\), we derive;
+
+$$\displaylines{
+\beta_{0} = \beta_{2} = \frac{\omega^2}{1+\sqrt{2}\omega + \omega^2} \\
+\beta_{1} = 2\beta_{0} \\
+\alpha_{0} = 1 \\
+\alpha_{1} = \frac{2(\omega^{2}-1)}{1+\sqrt{2}\omega+\omega^{2}} \\
+\alpha_{2} = \frac{\omega^{2}-\sqrt{2}\omega+1}{1+\sqrt{2}\omega+\omega^{2}}
+}$$
+
+Resulting in;
+
+$$\displaylines{
+\frac{0.0146z^2 + 0.0292z - 0.0146}{z^2 -1.6300z + 0.6885} \\
+= \frac{0.0146(z+1)^{2}}{z^2 -1.6300z + 0.6885}
+}$$
+
+##### MATLAB
+
+    fs = 45220; omegaap = 12007; fs2 = fs * 2;
+    p1 = 1 + ((omegaap * sqrt(2))/fs2) + (omegaap^2 / fs2^2);
+    p3 = 1 - ((omegaap * sqrt(2))/fs2) + (omegaap^2 / fs2^2);
+    p2 = -2 + ((omegaap * sqrt(2))^2 / fs2^2);
+    z1 = (omegaap^2)/(1 + sqrt(2) * omegaap + omegaap^2)
+    p2 = p2 / p1
+    p3 = p3 / p1
+    p1 = 1
+
+</details>
+
+<details markdown=block>
 <summary markdown=span>High pass - 2nd order</summary>
 
 Using the bilinear transformation, derive the z-domain transfer function and put it in the form;
