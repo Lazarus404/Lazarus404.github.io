@@ -277,7 +277,8 @@ $$\displaylines{
     p1 = 1 + ((omegaap * sqrt(2))/fs2) + (omegaap^2 / fs2^2);
     p3 = 1 - ((omegaap * sqrt(2))/fs2) + (omegaap^2 / fs2^2);
     p2 = -2 + ((omegaap * sqrt(2))^2 / fs2^2);
-    z1 = (omegaap^2)/(1 + sqrt(2) * omegaap + omegaap^2)
+    w = omegaap/fs2;
+    z1 = (w^2)/(1 + sqrt(2) * w + w^2)
     p2 = p2 / p1
     p3 = p3 / p1
     p1 = 1
@@ -343,7 +344,7 @@ $$\displaylines{
 ### Time Domain
 
 <details markdown=block>
-<summary markdown=span>Low pass - 1st order</summary>
+<summary markdown=span>1st order</summary>
 
 Derive a time domain equation representing the input signal as \\(x[n]\\) and the output as \\(y[n]\\) so that:
 
@@ -372,7 +373,7 @@ $$y[n] = 0.1172x[n] + 0.1172x[n-1] + 0.7656y[n-1]$$
 </details>
 
 <details markdown=block>
-<summary markdown=span>High pass - 2nd order</summary>
+<summary markdown=span>2nd order</summary>
 
 Derive a time domain equation representing the input signal as \\(x[n]\\) and the output as \\(y[n]\\) so that:
 
