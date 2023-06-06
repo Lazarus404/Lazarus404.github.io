@@ -115,60 +115,6 @@ $$\displaylines{
 ### Analogue Prototype
 
 <details markdown=block>
-<summary markdown=span>1st order rules</summary>
-
-In case it shows in the exam, here are the transforms from a low pass to other types of butterworth filter;
-
-#### Low pass analog prototype
-
-$$H(s) = \frac{1}{s+1}$$
-
-Substituting the \\(s\\) for the normalised frequency \\(v\\), we have;
-
-$$H(jv) = \frac{1}{jv + 1}$$
-
-We can ascertain the magnitude gain with;
-
-$$|H(jv)| = \frac{1}{\sqrt{1 + v^{2}}}$$
-
-To convert the analog prototype to lowpass using a cutoff of \\(\omega_{c}\\), we do;
-
-$$H(s) = \frac{1}{\frac{s}{\omega_{c}} + 1} = \frac{\omega_{c}}{s + \omega_{c}}$$
-
-Magnitude response is;
-
-$$|H(j\omega)| = \frac{1}{\sqrt{1 + \left(\frac{\omega}{\omega_{c}}\right)^{2}}}$$
-
-#### High pass analog prototype
-
-$$H(s) = \frac{1}{\frac{\omega_{c}}{s} + 1} = \frac{s}{\omega_{c} + s}$$
-
-Magnitude response is;
-
-$$|H(j\omega)| = \frac{1}{\sqrt{1 + \left(\frac{\omega_{c}}{\omega}\right)^{2}}}$$
-
-#### Band pass analog prototype
-
-where \\(\omega_{0}\\) is the centre frequency \\(\sqrt{\omega_{l}\omega_{h}}\\) and \\(\beta\\) is the bandwidth \\(\omega_{h} - \omega_{l}\\), we do;
-
-$$H(s) = \frac{1}{\frac{s^{2} + \omega_{0}^{2}}{s\beta} + 1} = \frac{s\beta}{s^{2} + \omega_{0}^{2} + s\beta}$$
-
-Magnitude response is;
-
-$$|H(j\omega)| = \frac{1}{\sqrt{1 + \left(\frac{\omega^{2} + \omega_{0}^{2}}{\omega\beta}\right)^{2}}}$$
-
-#### Band stop analog prototype
-
-$$H(s) = \frac{1}{\frac{s\beta}{s^{2} + \omega_{0}^{2}} + 1} = \frac{s^{2} + \omega_{0}^{2}}{s\beta + s^{2} + \omega_{0}^{2}}$$
-
-Magnitude response is;
-
-$$|H(j\omega)| = \frac{1}{\sqrt{1 + \left(\frac{\omega\beta}{\omega^{2} + \omega_{0}^{2}}\right)^{2}}}$$
-
-
-</details>
-
-<details markdown=block>
 <summary markdown=span>1st order</summary>
 
 Determine the analogue prototype with the form;
