@@ -184,26 +184,26 @@ s = 2f_{s}\frac{1-z^{-1}}{1+z^{-1}} \\
 
 Multiply out the brackets of the denominator;
 
-$$H(z) = \frac{2f_{s}\frac{1-z^{-1}}{1+z^{-1}}}{b_{0}+2f_{s}\frac{1-z^{-1}}{1+z^{-1}}} = \frac{57600(z-1)}{21709z+21709+57600z-57600}$$
+$$H(z) = \frac{2f_{s}\frac{1-z^{-1}}{1+z^{-1}}}{b_{0}+2f_{s}\frac{1-z^{-1}}{1+z^{-1}}} = \frac{57600(z+1)}{21709z+21709+57600z-57600}$$
 
 Group like terms;
 
-$$H(z) = \frac{57600(z-1)}{z(21709+57600)+21709-57600}$$
+$$H(z) = \frac{57600(z+1)}{z(21709+57600)+21709-57600}$$
 
 Divide by numbers with \\(z\\);
 
-$$H(z) = \frac{\left(\frac{57600(z-1)}{21709+57600}\right)}{z+\left(\frac{21709-57600}{21709+57600}\right)}$$
+$$H(z) = \frac{\left(\frac{57600(z+1)}{21709+57600}\right)}{z+\left(\frac{21709-57600}{21709+57600}\right)}$$
 
 Results in;
 
-$$H(z) = \frac{0.8064(z+1)}{z+0.4525}$$
+$$H(z) = \frac{0.7262(z+1)}{z+0.4525}$$
 
 ##### MATLAB
 
-    Y = (2*fs) / ((2*fs)+b1)
+    Y = (2*fs) / ((2*fs) + b1)
     % ans =
     %     0.8064
-    X = ((2*fs) - b0) / ((2*fs) + b0)
+    X = (b0 - (2*fs)) / (-b0 + (2*fs))
     % ans =
     %     0.4525
 

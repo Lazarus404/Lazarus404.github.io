@@ -217,7 +217,7 @@ Thus;
 
 $$\displaylines{
 s = 2f_{s}\frac{1-z^{-1}}{1+z^{-1}} \\
-\therefore H(z) = \frac{2f_{s}\frac{1-z^{-1}}{1+z^{-1}}}{2f_{s}\frac{1-z^{-1}}{1+z^{-1}} + 12007} = \frac{90440(z+1)}{12007(z-1)+90440(z+1)}
+\therefore H(z) = \frac{2f_{s}\frac{1-z^{-1}}{1+z^{-1}}}{2f_{s}\frac{1-z^{-1}}{1+z^{-1}} + 12007} = \frac{90440(z-1)}{12007(z-1)+90440(z+1)}
 }$$
 
 Multiply out the brackets of the denominator and group like terms;
@@ -226,11 +226,11 @@ $$H(z) = \frac{90440(z-1)}{z(12007+90440)+90440-12007}$$
 
 Divide by numbers with \\(z\\);
 
-$$H(z) = \frac{\left(\frac{90440(z-1)}{90440+12007}\right)}{z+\left(\frac{90440-12007}{90440+12007}\right)}$$
+$$H(z) = \frac{\left(\frac{90440(z-1)}{90440+12007}\right)}{z+\left(\frac{90440-12007}{12007+90440}\right)}$$
 
 Results in;
 
-$$H(z) = \frac{0.8828(z+1)}{z+0.7656}$$
+$$H(z) = \frac{0.8828(z-1)}{z+0.7656}$$
 
 ##### MATLAB
 
