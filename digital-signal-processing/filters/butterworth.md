@@ -112,7 +112,10 @@ $$\displaylines{
     % ans =
     %     1
 
-### Analogue Prototype (low pass)
+### Analogue Prototype
+
+<details markdown=block>
+<summary markdown=span>1st order</summary>
 
 Determine the analogue prototype with the form;
 
@@ -130,7 +133,10 @@ b_{0} = \Omega_{ap} = 12007
     b0 = omegaap
     b1 = omegaap
 
-### Analogue Prototype (high pass)
+</details>
+
+<details markdown=block>
+<summary markdown=span>2nd order</summary>
 
 Determine the analogue prototype with the form;
 
@@ -150,7 +156,13 @@ b_{2} = \Omega_{ap}^{2} = 144189053
     b1 = omegaap * sqrt(2)
     b2 = omegaap^2
 
-### Bilinear Transform (low pass)
+</details>
+<p></p>
+
+### Bilinear Transform
+
+<details markdown=block>
+<summary markdown=span>Low pass - 1st order</summary>
 
 Using the Bilinear transformation, derive the z-domain transfer function and put it in the form;
 
@@ -188,7 +200,10 @@ $$H(z) = \frac{0.1172(z+1)}{z-0.7656}$$
     % ans =
     %     -0.7656
 
-### Bilinear Transform (high pass)
+</details>
+
+<details markdown=block>
+<summary markdown=span>High pass - 2nd order</summary>
 
 Using the bilinear transformation, derive the z-domain transfer function and put it in the form;
 
@@ -240,7 +255,13 @@ $$\displaylines{
     p3 = p3 / p1
     p1 = 1
 
-### Time Domain (low pass)
+</details>
+<p></p>
+
+### Time Domain
+
+<details markdown=block>
+<summary markdown=span>Low pass - 1st order</summary>
 
 Derive a time domain equation representing the input signal as \\(x[n]\\) and the output as \\(y[n]\\) so that:
 
@@ -266,7 +287,10 @@ Invert and arrange to fit answer (invert signs that move);
 
 $$y[n] = 0.1172x[n] + 0.1172x[n-1] + 0.7656y[n-1]$$
 
-### Time Domain (high pass)
+</details>
+
+<details markdown=block>
+<summary markdown=span>High pass - 2nd order</summary>
 
 Derive a time domain equation representing the input signal as \\(x[n]\\) and the output as \\(y[n]\\) so that:
 
@@ -293,5 +317,8 @@ $$Y(z) = Y(z) z^{-1}1.6300 + Y(z)^{-2}0.6885 = X(z)0.8296-X(z)^{-1}1.6592 + X(z)
 Therefore;
 
 $$y[n] = 0.8296x[n] - 1.6592x[n-1] + 0.8296x[n-2] + 1.6300y[n-1] - 0.6885y[n-2]$$
+
+</details>
+<br />
 
 <a href="/digital-signal-processing">&#x2190; Back to Digital Signal Processing</a>
