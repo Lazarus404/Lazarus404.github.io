@@ -173,37 +173,37 @@ $$H(z) = \frac{0.2737(z+1)}{z-0.4525}$$
 
 Using the Bilinear transformation, derive the z-domain transfer function and put it in the form;
 
-$$H(z) = \frac{c_{0}(z+1)}{z+c{1}}$$
+$$H(z) = \frac{c_{0}(z-1)}{z+c{1}}$$
 
 Thus;
 
 $$\displaylines{
 s = 2f_{s}\frac{1-z^{-1}}{1+z^{-1}} \\
-\therefore H(z) = \frac{2f_{s}\frac{1-z^{-1}}{1+z^{-1}}}{b_{0}+2f_{s}\frac{1-z^{-1}}{1+z^{-1}}} = \frac{57600(z-1)}{21709(z+1)+57600(z-1)}
+\therefore H(z) = \frac{2f_{s}\frac{1-z^{-1}}{1+z^{-1}}}{b_{0}+2f_{s}\frac{1-z^{-1}}{1+z^{-1}}} = \frac{57600(z-1)}{21709(z-1)+57600(z+1)}
 }$$
 
 Multiply out the brackets of the denominator;
 
-$$H(z) = \frac{2f_{s}\frac{1-z^{-1}}{1+z^{-1}}}{b_{0}+2f_{s}\frac{1-z^{-1}}{1+z^{-1}}} = \frac{57600(z+1)}{21709z+21709+57600z-57600}$$
+$$H(z) = \frac{2f_{s}\frac{1-z^{-1}}{1+z^{-1}}}{b_{0}+2f_{s}\frac{1-z^{-1}}{1+z^{-1}}} = \frac{57600(z-1)}{21709z-21709+57600z+57600}$$
 
 Group like terms;
 
-$$H(z) = \frac{57600(z+1)}{z(21709+57600)+21709-57600}$$
+$$H(z) = \frac{57600(z-1)}{z(21709+57600)+57600-21709}$$
 
 Divide by numbers with \\(z\\);
 
-$$H(z) = \frac{\left(\frac{57600(z+1)}{21709+57600}\right)}{z+\left(\frac{21709-57600}{21709+57600}\right)}$$
+$$H(z) = \frac{\left(\frac{57600(z-1)}{21709+57600}\right)}{z+\left(\frac{57600-21709}{21709+57600}\right)}$$
 
 Results in;
 
-$$H(z) = \frac{0.7262(z+1)}{z+0.4525}$$
+$$H(z) = \frac{0.7262(z-1)}{z+0.4525}$$
 
 ##### MATLAB
 
     Y = (2*fs) / ((2*fs) + b1)
     % ans =
-    %     0.8064
-    X = (b0 - (2*fs)) / (-b0 + (2*fs))
+    %     0.7262
+    X = ((2*fs) - b0) / (b0 + (2*fs))
     % ans =
     %     0.4525
 
