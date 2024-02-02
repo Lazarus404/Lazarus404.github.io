@@ -2,7 +2,7 @@
 title: Xirsys
 layout: landing
 description: 'Global TURN server infrastructure for powering WebRTC applications and services'
-image: assets/images/global/xirsys.jpg
+image: assets/images/global/webrtc.jpg
 nav-menu: true
 show_tile: true
 ---

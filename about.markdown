@@ -1,6 +1,7 @@
 ---
 layout: page
 title: About Me
+image: assets/images/global/about-me.jpg
 nav-menu: true
 permalink: /about/
 ---

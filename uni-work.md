@@ -2,7 +2,7 @@
 layout: page
 title: University Work
 description: Notes, Calculators and General Musings for My Work at University
-image: assets/images/global/pic11.jpg
+image: assets/images/global/university.jpg
 nav-menu: true
 ---
 
