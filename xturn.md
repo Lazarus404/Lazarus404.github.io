@@ -1,7 +1,7 @@
 ---
 layout: page
 title: XTurn for WebRTC
-image: assets/images/global/turn.jpg
+image: assets/images/global/xturn.jpg
 nav-menu: true
 show_tile: true
 ---
